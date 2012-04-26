@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2819E1E215490DE1002DBAED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E115490DE1002DBAED /* UIKit.framework */; };
+		2819E1E415490DE1002DBAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E315490DE1002DBAED /* Foundation.framework */; };
+		2819E1E615490DE1002DBAED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E515490DE1002DBAED /* CoreGraphics.framework */; };
+		2819E1EC15490DE1002DBAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2819E1EA15490DE1002DBAED /* InfoPlist.strings */; };
+		2819E1EE15490DE1002DBAED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E1ED15490DE1002DBAED /* main.m */; };
+		2819E1F215490DE1002DBAED /* GSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E1F115490DE1002DBAED /* GSAppDelegate.m */; };
+		2819E1F515490DE1002DBAED /* GSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E1F415490DE1002DBAED /* GSViewController.m */; };
+		2819E1F815490DE1002DBAED /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2819E1F615490DE1002DBAED /* GSViewController.xib */; };
+		2819E20015490DE1002DBAED /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1FF15490DE1002DBAED /* SenTestingKit.framework */; };
+		2819E20115490DE1002DBAED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E115490DE1002DBAED /* UIKit.framework */; };
+		2819E20215490DE1002DBAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E315490DE1002DBAED /* Foundation.framework */; };
+		2819E20A15490DE1002DBAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2819E20815490DE1002DBAED /* InfoPlist.strings */; };
+		2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E20C15490DE1002DBAED /* group_shareTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2819E20315490DE1002DBAED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2819E1D415490DE1002DBAED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2819E1DC15490DE1002DBAED;
+			remoteInfo = "group share";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2819E1DD15490DE1002DBAED /* group share.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "group share.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2819E1E115490DE1002DBAED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2819E1E315490DE1002DBAED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2819E1E515490DE1002DBAED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2819E1E915490DE1002DBAED /* group share-Info.plist */ = {isa = PBXFileReference; path = "group share-Info.plist"; sourceTree = "<group>"; };
+		2819E1EB15490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2819E1ED15490DE1002DBAED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2819E1EF15490DE1002DBAED /* group share-Prefix.pch */ = {isa = PBXFileReference; path = "group share-Prefix.pch"; sourceTree = "<group>"; };
+		2819E1F015490DE1002DBAED /* GSAppDelegate.h */ = {isa = PBXFileReference; path = GSAppDelegate.h; sourceTree = "<group>"; };
+		2819E1F115490DE1002DBAED /* GSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSAppDelegate.m; sourceTree = "<group>"; };
+		2819E1F315490DE1002DBAED /* GSViewController.h */ = {isa = PBXFileReference; path = GSViewController.h; sourceTree = "<group>"; };
+		2819E1F415490DE1002DBAED /* GSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSViewController.m; sourceTree = "<group>"; };
+		2819E1F715490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSViewController.xib; sourceTree = "<group>"; };
+		2819E1FE15490DE1002DBAED /* group shareTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "group shareTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2819E1FF15490DE1002DBAED /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2819E20715490DE1002DBAED /* group shareTests-Info.plist */ = {isa = PBXFileReference; path = "group shareTests-Info.plist"; sourceTree = "<group>"; };
+		2819E20915490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2819E20B15490DE1002DBAED /* group_shareTests.h */ = {isa = PBXFileReference; path = group_shareTests.h; sourceTree = "<group>"; };
+		2819E20C15490DE1002DBAED /* group_shareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = group_shareTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2819E1DA15490DE1002DBAED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2819E1E215490DE1002DBAED /* UIKit.framework in Frameworks */,
+				2819E1E415490DE1002DBAED /* Foundation.framework in Frameworks */,
+				2819E1E615490DE1002DBAED /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2819E1FA15490DE1002DBAED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2819E20015490DE1002DBAED /* SenTestingKit.framework in Frameworks */,
+				2819E20115490DE1002DBAED /* UIKit.framework in Frameworks */,
+				2819E20215490DE1002DBAED /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2819E1D215490DE1002DBAED = {
+			isa = PBXGroup;
+			children = (
+				2819E1E715490DE1002DBAED /* group share */,
+				2819E20515490DE1002DBAED /* group shareTests */,
+				2819E1E015490DE1002DBAED /* Frameworks */,
+				2819E1DE15490DE1002DBAED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2819E1DE15490DE1002DBAED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2819E1DD15490DE1002DBAED /* group share.app */,
+				2819E1FE15490DE1002DBAED /* group shareTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2819E1E015490DE1002DBAED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2819E1E115490DE1002DBAED /* UIKit.framework */,
+				2819E1E315490DE1002DBAED /* Foundation.framework */,
+				2819E1E515490DE1002DBAED /* CoreGraphics.framework */,
+				2819E1FF15490DE1002DBAED /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2819E1E715490DE1002DBAED /* group share */ = {
+			isa = PBXGroup;
+			children = (
+				2819E1F015490DE1002DBAED /* GSAppDelegate.h */,
+				2819E1F115490DE1002DBAED /* GSAppDelegate.m */,
+				2819E1F315490DE1002DBAED /* GSViewController.h */,
+				2819E1F415490DE1002DBAED /* GSViewController.m */,
+				2819E1F615490DE1002DBAED /* GSViewController.xib */,
+				2819E1E815490DE1002DBAED /* Supporting Files */,
+			);
+			path = "group share";
+			sourceTree = "<group>";
+		};
+		2819E1E815490DE1002DBAED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2819E1E915490DE1002DBAED /* group share-Info.plist */,
+				2819E1EA15490DE1002DBAED /* InfoPlist.strings */,
+				2819E1ED15490DE1002DBAED /* main.m */,
+				2819E1EF15490DE1002DBAED /* group share-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2819E20515490DE1002DBAED /* group shareTests */ = {
+			isa = PBXGroup;
+			children = (
+				2819E20B15490DE1002DBAED /* group_shareTests.h */,
+				2819E20C15490DE1002DBAED /* group_shareTests.m */,
+				2819E20615490DE1002DBAED /* Supporting Files */,
+			);
+			path = "group shareTests";
+			sourceTree = "<group>";
+		};
+		2819E20615490DE1002DBAED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2819E20715490DE1002DBAED /* group shareTests-Info.plist */,
+				2819E20815490DE1002DBAED /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2819E1DC15490DE1002DBAED /* group share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2819E21015490DE1002DBAED /* Build configuration list for PBXNativeTarget "group share" */;
+			buildPhases = (
+				2819E1D915490DE1002DBAED /* Sources */,
+				2819E1DA15490DE1002DBAED /* Frameworks */,
+				2819E1DB15490DE1002DBAED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "group share";
+			productName = "group share";
+			productReference = 2819E1DD15490DE1002DBAED /* group share.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2819E1FD15490DE1002DBAED /* group shareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2819E21315490DE1002DBAED /* Build configuration list for PBXNativeTarget "group shareTests" */;
+			buildPhases = (
+				2819E1F915490DE1002DBAED /* Sources */,
+				2819E1FA15490DE1002DBAED /* Frameworks */,
+				2819E1FB15490DE1002DBAED /* Resources */,
+				2819E1FC15490DE1002DBAED /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2819E20415490DE1002DBAED /* PBXTargetDependency */,
+			);
+			name = "group shareTests";
+			productName = "group shareTests";
+			productReference = 2819E1FE15490DE1002DBAED /* group shareTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2819E1D415490DE1002DBAED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GS;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 2819E1D715490DE1002DBAED /* Build configuration list for PBXProject "group share" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2819E1D215490DE1002DBAED;
+			productRefGroup = 2819E1DE15490DE1002DBAED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2819E1DC15490DE1002DBAED /* group share */,
+				2819E1FD15490DE1002DBAED /* group shareTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2819E1DB15490DE1002DBAED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2819E1EC15490DE1002DBAED /* InfoPlist.strings in Resources */,
+				2819E1F815490DE1002DBAED /* GSViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2819E1FB15490DE1002DBAED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2819E20A15490DE1002DBAED /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2819E1FC15490DE1002DBAED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2819E1D915490DE1002DBAED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2819E1EE15490DE1002DBAED /* main.m in Sources */,
+				2819E1F215490DE1002DBAED /* GSAppDelegate.m in Sources */,
+				2819E1F515490DE1002DBAED /* GSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2819E1F915490DE1002DBAED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2819E20415490DE1002DBAED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2819E1DC15490DE1002DBAED /* group share */;
+			targetProxy = 2819E20315490DE1002DBAED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2819E1EA15490DE1002DBAED /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2819E1EB15490DE1002DBAED /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2819E1F615490DE1002DBAED /* GSViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2819E1F715490DE1002DBAED /* en */,
+			);
+			name = GSViewController.xib;
+			sourceTree = "<group>";
+		};
+		2819E20815490DE1002DBAED /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2819E20915490DE1002DBAED /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2819E20E15490DE1002DBAED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2819E20F15490DE1002DBAED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2819E21115490DE1002DBAED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
+				INFOPLIST_FILE = "group share/group share-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2819E21215490DE1002DBAED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
+				INFOPLIST_FILE = "group share/group share-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2819E21415490DE1002DBAED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/group share.app/group share";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
+				INFOPLIST_FILE = "group shareTests/group shareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2819E21515490DE1002DBAED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/group share.app/group share";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
+				INFOPLIST_FILE = "group shareTests/group shareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2819E1D715490DE1002DBAED /* Build configuration list for PBXProject "group share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2819E20E15490DE1002DBAED /* Debug */,
+				2819E20F15490DE1002DBAED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2819E21015490DE1002DBAED /* Build configuration list for PBXNativeTarget "group share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2819E21115490DE1002DBAED /* Debug */,
+				2819E21215490DE1002DBAED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2819E21315490DE1002DBAED /* Build configuration list for PBXNativeTarget "group shareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2819E21415490DE1002DBAED /* Debug */,
+				2819E21515490DE1002DBAED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2819E1D415490DE1002DBAED /* Project object */;
+}
