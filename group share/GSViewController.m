@@ -59,15 +59,16 @@
 (ABPeoplePickerNavigationController *)peoplePicker {
     [self dismissModalViewControllerAnimated:YES];
 }
+
 - (BOOL)peoplePickerNavigationController:
 (ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person 
 {
-    NSString* name = (NSString *)ABRecordCopyValue(person,
-                                                   kABPersonFirstNameProperty);
+    NSString *first_name = (NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString *last_name = (NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
     
-    ABRecordRef *p = (ABRecordRef *)ABPersonCopySource(person);
-    NSLog(@"test = %@", p);
+    [last_name release];
+    [first_name release];
     
     [self dismissModalViewControllerAnimated:YES];
     
@@ -78,7 +79,17 @@
 (ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person
                                 property:(ABPropertyID)property
-                              identifier:(ABMultiValueIdentifier)identifier{
+                              identifier:(ABMultiValueIdentifier)identifier
+{
+    /*
+    ABMultiValueRef phoneProperty = ABRecordCopyValue(person,property);
+	NSString *phone = (NSString *)ABMultiValueCopyValueAtIndex(phoneProperty,identifier);
+	
+    NSLog(@"phone: %@",phone);
+	[phone release];
+	
+	[self dismissModalViewControllerAnimated:YES];
+     */
     return NO;
 }
 
