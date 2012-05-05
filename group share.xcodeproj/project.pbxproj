@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2808451E15559555000690A9 /* recive.png in Resources */ = {isa = PBXBuildFile; fileRef = 2808451D15559555000690A9 /* recive.png */; };
+		28084521155599AE000690A9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
+		28084523155599B5000690A9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
 		2819E1E215490DE1002DBAED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E115490DE1002DBAED /* UIKit.framework */; };
 		2819E1E415490DE1002DBAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E315490DE1002DBAED /* Foundation.framework */; };
 		2819E1E615490DE1002DBAED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E515490DE1002DBAED /* CoreGraphics.framework */; };
@@ -33,24 +36,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2808451D15559555000690A9 /* recive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recive.png; sourceTree = SOURCE_ROOT; };
+		28084520155599AE000690A9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		28084522155599B5000690A9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		2819E1DD15490DE1002DBAED /* group share.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "group share.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2819E1E115490DE1002DBAED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2819E1E315490DE1002DBAED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2819E1E515490DE1002DBAED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2819E1E915490DE1002DBAED /* group share-Info.plist */ = {isa = PBXFileReference; path = "group share-Info.plist"; sourceTree = "<group>"; };
+		2819E1E915490DE1002DBAED /* group share-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "group share-Info.plist"; sourceTree = "<group>"; };
 		2819E1EB15490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2819E1ED15490DE1002DBAED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2819E1EF15490DE1002DBAED /* group share-Prefix.pch */ = {isa = PBXFileReference; path = "group share-Prefix.pch"; sourceTree = "<group>"; };
-		2819E1F015490DE1002DBAED /* GSAppDelegate.h */ = {isa = PBXFileReference; path = GSAppDelegate.h; sourceTree = "<group>"; };
+		2819E1EF15490DE1002DBAED /* group share-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "group share-Prefix.pch"; sourceTree = "<group>"; };
+		2819E1F015490DE1002DBAED /* GSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSAppDelegate.h; sourceTree = "<group>"; };
 		2819E1F115490DE1002DBAED /* GSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSAppDelegate.m; sourceTree = "<group>"; };
-		2819E1F315490DE1002DBAED /* GSViewController.h */ = {isa = PBXFileReference; path = GSViewController.h; sourceTree = "<group>"; };
+		2819E1F315490DE1002DBAED /* GSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSViewController.h; sourceTree = "<group>"; };
 		2819E1F415490DE1002DBAED /* GSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSViewController.m; sourceTree = "<group>"; };
 		2819E1F715490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSViewController.xib; sourceTree = "<group>"; };
 		2819E1FE15490DE1002DBAED /* group shareTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "group shareTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2819E1FF15490DE1002DBAED /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		2819E20715490DE1002DBAED /* group shareTests-Info.plist */ = {isa = PBXFileReference; path = "group shareTests-Info.plist"; sourceTree = "<group>"; };
+		2819E20715490DE1002DBAED /* group shareTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "group shareTests-Info.plist"; sourceTree = "<group>"; };
 		2819E20915490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2819E20B15490DE1002DBAED /* group_shareTests.h */ = {isa = PBXFileReference; path = group_shareTests.h; sourceTree = "<group>"; };
+		2819E20B15490DE1002DBAED /* group_shareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = group_shareTests.h; sourceTree = "<group>"; };
 		2819E20C15490DE1002DBAED /* group_shareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = group_shareTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28084523155599B5000690A9 /* AddressBookUI.framework in Frameworks */,
+				28084521155599AE000690A9 /* AddressBook.framework in Frameworks */,
 				2819E1E215490DE1002DBAED /* UIKit.framework in Frameworks */,
 				2819E1E415490DE1002DBAED /* Foundation.framework in Frameworks */,
 				2819E1E615490DE1002DBAED /* CoreGraphics.framework in Frameworks */,
@@ -100,6 +108,8 @@
 		2819E1E015490DE1002DBAED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28084520155599AE000690A9 /* AddressBook.framework */,
+				28084522155599B5000690A9 /* AddressBookUI.framework */,
 				2819E1E115490DE1002DBAED /* UIKit.framework */,
 				2819E1E315490DE1002DBAED /* Foundation.framework */,
 				2819E1E515490DE1002DBAED /* CoreGraphics.framework */,
@@ -124,6 +134,7 @@
 		2819E1E815490DE1002DBAED /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2808451D15559555000690A9 /* recive.png */,
 				2819E1E915490DE1002DBAED /* group share-Info.plist */,
 				2819E1EA15490DE1002DBAED /* InfoPlist.strings */,
 				2819E1ED15490DE1002DBAED /* main.m */,
@@ -224,6 +235,7 @@
 			files = (
 				2819E1EC15490DE1002DBAED /* InfoPlist.strings in Resources */,
 				2819E1F815490DE1002DBAED /* GSViewController.xib in Resources */,
+				2808451E15559555000690A9 /* recive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +440,7 @@
 				2819E21215490DE1002DBAED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2819E21315490DE1002DBAED /* Build configuration list for PBXNativeTarget "group shareTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +449,7 @@
 				2819E21515490DE1002DBAED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

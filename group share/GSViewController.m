@@ -31,4 +31,56 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)onRecive:(id)sender
+{
+    recive.text = @"Reciving";
+}
+
+- (void)onRecived:(id)sender
+{
+    recive.text = @"Recive";
+}
+
+- (void)send:(id)sender
+{
+    
+}
+
+- (void)selectPeson:(id)sender
+{
+    ABPeoplePickerNavigationController *picker =
+    [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
+    [self presentModalViewController:picker animated:YES];
+    [picker release];
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:
+(ABPeoplePickerNavigationController *)peoplePicker {
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person 
+{
+    NSString* name = (NSString *)ABRecordCopyValue(person,
+                                                   kABPersonFirstNameProperty);
+    
+    ABRecordRef *p = (ABRecordRef *)ABPersonCopySource(person);
+    NSLog(@"test = %@", p);
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier{
+    return NO;
+}
+
+
 @end
