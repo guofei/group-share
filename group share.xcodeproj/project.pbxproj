@@ -23,6 +23,7 @@
 		2819E20215490DE1002DBAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E315490DE1002DBAED /* Foundation.framework */; };
 		2819E20A15490DE1002DBAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2819E20815490DE1002DBAED /* InfoPlist.strings */; };
 		2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E20C15490DE1002DBAED /* group_shareTests.m */; };
+		28215FAE155EADF900828F92 /* GSPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 28215FAD155EADF900828F92 /* GSPerson.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		2819E20915490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2819E20B15490DE1002DBAED /* group_shareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = group_shareTests.h; sourceTree = "<group>"; };
 		2819E20C15490DE1002DBAED /* group_shareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = group_shareTests.m; sourceTree = "<group>"; };
+		28215FAC155EADF900828F92 /* GSPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPerson.h; sourceTree = "<group>"; };
+		28215FAD155EADF900828F92 /* GSPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPerson.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 				2819E1F015490DE1002DBAED /* GSAppDelegate.h */,
 				2819E1F115490DE1002DBAED /* GSAppDelegate.m */,
 				2819E1F315490DE1002DBAED /* GSViewController.h */,
+				28215FAC155EADF900828F92 /* GSPerson.h */,
+				28215FAD155EADF900828F92 /* GSPerson.m */,
 				2819E1F415490DE1002DBAED /* GSViewController.m */,
 				2819E1F615490DE1002DBAED /* GSViewController.xib */,
 				2819E1E815490DE1002DBAED /* Supporting Files */,
@@ -273,6 +278,7 @@
 				2819E1EE15490DE1002DBAED /* main.m in Sources */,
 				2819E1F215490DE1002DBAED /* GSAppDelegate.m in Sources */,
 				2819E1F515490DE1002DBAED /* GSViewController.m in Sources */,
+				28215FAE155EADF900828F92 /* GSPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
