@@ -43,30 +43,30 @@
 
 - (void)send:(id)sender
 {
-    
+
 }
 
 - (void)selectPeson:(id)sender
 {
     ABPeoplePickerNavigationController *picker =
-    [[ABPeoplePickerNavigationController alloc] init];
+        [[ABPeoplePickerNavigationController alloc] init];
     picker.peoplePickerDelegate = self;
     [self presentModalViewController:picker animated:YES];
     [picker release];
 }
 
 - (void)peoplePickerNavigationControllerDidCancel:
-(ABPeoplePickerNavigationController *)peoplePicker {
+    (ABPeoplePickerNavigationController *)peoplePicker {
     [self dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)peoplePickerNavigationController:
-(ABPeoplePickerNavigationController *)peoplePicker
-      shouldContinueAfterSelectingPerson:(ABRecordRef)person 
+    (ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {
     NSString *first_name = (NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     NSString *last_name = (NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
-    
+
     NSString *tel1,*tel2;
     ABMultiValueRef tels = ABRecordCopyValue(person, kABPersonPhoneProperty);
 
@@ -79,30 +79,30 @@
         }
     }
     CFRelease(tels);
-    
+
     [last_name release];
     [first_name release];
-    
+
     [self dismissModalViewControllerAnimated:YES];
-    
+
     return NO;
 }
 
 - (BOOL)peoplePickerNavigationController:
-(ABPeoplePickerNavigationController *)peoplePicker
+    (ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person
                                 property:(ABPropertyID)property
                               identifier:(ABMultiValueIdentifier)identifier
 {
     /*
-    ABMultiValueRef phoneProperty = ABRecordCopyValue(person,property);
-	NSString *phone = (NSString *)ABMultiValueCopyValueAtIndex(phoneProperty,identifier);
-	
-    NSLog(@"phone: %@",phone);
-	[phone release];
-	
-	[self dismissModalViewControllerAnimated:YES];
-     */
+      ABMultiValueRef phoneProperty = ABRecordCopyValue(person,property);
+      NSString *phone = (NSString *)ABMultiValueCopyValueAtIndex(phoneProperty,identifier);
+
+      NSLog(@"phone: %@",phone);
+      [phone release];
+
+      [self dismissModalViewControllerAnimated:YES];
+    */
     return NO;
 }
 

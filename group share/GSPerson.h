@@ -10,11 +10,15 @@
 
 @interface GSPerson : NSObject <NSCoding>
 {
-    NSDictionary *name;
-    NSDictionary *phone;
-    NSDictionary *address;
+    NSMutableDictionary *name;
+    NSMutableDictionary *phone;
+    NSMutableDictionary *address;
 }
-@property (nonatomic, retain) NSDictionary *name;
-@property (nonatomic, retain) NSDictionary *phone;
-@property (nonatomic, retain) NSDictionary *address;
+@property (nonatomic, retain) NSMutableDictionary *name;
+@property (nonatomic, retain) NSMutableDictionary *phone;
+@property (nonatomic, retain) NSMutableDictionary *address;
+
+- (id)initWithRecord:(ABRecordRef)person;
+- (void)addToAddressBook;
+
 @end
