@@ -6,6 +6,7 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import "ABContact.h"
 #import "GSViewController.h"
 
 @interface GSViewController ()
@@ -64,24 +65,9 @@
     (ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {
-    NSString *first_name = (NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-    NSString *last_name = (NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
-
-    NSString *tel1,*tel2;
-    ABMultiValueRef tels = ABRecordCopyValue(person, kABPersonPhoneProperty);
-
-    NSString *lab;
-    if (ABMultiValueGetCount(tels) > 0) {
-        tel1 = (NSString *)ABMultiValueCopyValueAtIndex(tels, 0);
-        if (ABMultiValueGetCount(tels) > 1) {
-            tel2 = (NSString *)ABMultiValueCopyValueAtIndex(tels, 1);
-            lab = (NSString *)ABMultiValueCopyLabelAtIndex(tels, 1);
-        }
-    }
-    CFRelease(tels);
-
-    [last_name release];
-    [first_name release];
+    ABContact *contact = [ABContact contactWithRecord:person];
+    NSData *data = [contact baseDataRepresentation];
+    NSLog(@"data %@", [data description]);
 
     [self dismissModalViewControllerAnimated:YES];
 
