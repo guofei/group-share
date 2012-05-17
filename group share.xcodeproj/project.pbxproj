@@ -33,6 +33,8 @@
 		288A22571564DCB700BBD2C6 /* ABContactsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22561564DCB700BBD2C6 /* ABContactsTest.m */; };
 		288A225D1564E9F800BBD2C6 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */; };
 		288A225E1564EA1300BBD2C6 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */; };
+		288A22601564EDCB00BBD2C6 /* recive.png in Resources */ = {isa = PBXBuildFile; fileRef = 288A225F1564EDCB00BBD2C6 /* recive.png */; };
+		288A227415656D3E00BBD2C6 /* AWSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A227315656D3E00BBD2C6 /* AWSConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,9 @@
 		288A22551564DCB700BBD2C6 /* ABContactsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABContactsTest.h; sourceTree = "<group>"; };
 		288A22561564DCB700BBD2C6 /* ABContactsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABContactsTest.m; sourceTree = "<group>"; };
 		288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "../aws-ios-sdk-1.2.2/AWSiOSSDK.framework"; sourceTree = "<group>"; };
+		288A225F1564EDCB00BBD2C6 /* recive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recive.png; sourceTree = SOURCE_ROOT; };
+		288A227215656D0400BBD2C6 /* AWSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AWSConstants.h; sourceTree = "<group>"; };
+		288A227315656D3E00BBD2C6 /* AWSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,7 @@
 		2819E1D215490DE1002DBAED = {
 			isa = PBXGroup;
 			children = (
+				288A227115656C7D00BBD2C6 /* AWSHelper */,
 				288A22411564C72300BBD2C6 /* ABContactHelper */,
 				288A221C1564172800BBD2C6 /* group share */,
 				2819E20515490DE1002DBAED /* group shareTests */,
@@ -190,6 +196,7 @@
 			children = (
 				288A22221564172800BBD2C6 /* group share-Prefix.pch */,
 				288A221F1564172800BBD2C6 /* InfoPlist.strings */,
+				288A225F1564EDCB00BBD2C6 /* recive.png */,
 				288A22211564172800BBD2C6 /* group share-Info.plist */,
 				288A222A1564172800BBD2C6 /* main.m */,
 			);
@@ -214,6 +221,15 @@
 				288A224E1564C72300BBD2C6 /* VCard.m */,
 			);
 			path = ABContactHelper;
+			sourceTree = "<group>";
+		};
+		288A227115656C7D00BBD2C6 /* AWSHelper */ = {
+			isa = PBXGroup;
+			children = (
+				288A227215656D0400BBD2C6 /* AWSConstants.h */,
+				288A227315656D3E00BBD2C6 /* AWSConstants.m */,
+			);
+			name = AWSHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +305,7 @@
 			files = (
 				288A222B1564172800BBD2C6 /* GSViewController.xib in Resources */,
 				288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */,
+				288A22601564EDCB00BBD2C6 /* recive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +349,7 @@
 				288A22521564C72300BBD2C6 /* ABGroup.m in Sources */,
 				288A22531564C72300BBD2C6 /* Base64.m in Sources */,
 				288A22541564C72300BBD2C6 /* VCard.m in Sources */,
+				288A227415656D3E00BBD2C6 /* AWSConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

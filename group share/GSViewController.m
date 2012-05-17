@@ -15,6 +15,8 @@
 
 @implementation GSViewController
 
+@synthesize contactData;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,7 +26,11 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+
     // Release any retained subviews of the main view.
+    if (contactData) {
+        [contactData release];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -44,7 +50,9 @@
 
 - (void)send:(id)sender
 {
-
+    if (contactData) {
+        
+    }
 }
 
 - (void)selectPeson:(id)sender
@@ -68,7 +76,10 @@
     ABContact *contact = [ABContact contactWithRecord:person];
     NSData *data = [contact baseDataRepresentation];
     NSLog(@"data %@", [data description]);
+    
+    self.contactData = data;
 
+    name.text = contact.firstname;
     [self dismissModalViewControllerAnimated:YES];
 
     return NO;

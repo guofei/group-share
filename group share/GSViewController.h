@@ -14,7 +14,10 @@
 {
     IBOutlet UILabel *name;
     IBOutlet UILabel *recive;
+    NSData *contactData;
 }
+
+@property (nonatomic, retain) NSData *contactData;
 
 - (IBAction)selectPeson:(id)sender;
 - (IBAction)send:(id)sender;
