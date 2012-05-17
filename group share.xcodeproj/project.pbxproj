@@ -31,6 +31,8 @@
 		288A22531564C72300BBD2C6 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A224C1564C72300BBD2C6 /* Base64.m */; };
 		288A22541564C72300BBD2C6 /* VCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A224E1564C72300BBD2C6 /* VCard.m */; };
 		288A22571564DCB700BBD2C6 /* ABContactsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22561564DCB700BBD2C6 /* ABContactsTest.m */; };
+		288A225D1564E9F800BBD2C6 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */; };
+		288A225E1564EA1300BBD2C6 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,7 @@
 		288A224E1564C72300BBD2C6 /* VCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCard.m; sourceTree = "<group>"; };
 		288A22551564DCB700BBD2C6 /* ABContactsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABContactsTest.h; sourceTree = "<group>"; };
 		288A22561564DCB700BBD2C6 /* ABContactsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABContactsTest.m; sourceTree = "<group>"; };
+		288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "../aws-ios-sdk-1.2.2/AWSiOSSDK.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288A225D1564E9F800BBD2C6 /* AWSiOSSDK.framework in Frameworks */,
 				28084523155599B5000690A9 /* AddressBookUI.framework in Frameworks */,
 				28084521155599AE000690A9 /* AddressBook.framework in Frameworks */,
 				2819E1E215490DE1002DBAED /* UIKit.framework in Frameworks */,
@@ -105,6 +109,7 @@
 				2819E20215490DE1002DBAED /* Foundation.framework in Frameworks */,
 				288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */,
 				288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */,
+				288A225E1564EA1300BBD2C6 /* AWSiOSSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +139,7 @@
 		2819E1E015490DE1002DBAED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */,
 				28084520155599AE000690A9 /* AddressBook.framework */,
 				28084522155599B5000690A9 /* AddressBookUI.framework */,
 				2819E1E115490DE1002DBAED /* UIKit.framework */,
@@ -422,6 +428,10 @@
 		2819E21115490DE1002DBAED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../aws-ios-sdk-1.2.2\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
 				INFOPLIST_FILE = "group share/group share-Info.plist";
@@ -434,6 +444,10 @@
 		2819E21215490DE1002DBAED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../aws-ios-sdk-1.2.2\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
 				INFOPLIST_FILE = "group share/group share-Info.plist";
@@ -450,6 +464,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../aws-ios-sdk-1.2.2\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
@@ -467,6 +482,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"\"$(SRCROOT)/../aws-ios-sdk-1.2.2\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "group share/group share-Prefix.pch";
