@@ -6,7 +6,10 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import <AWSiOSSDK/S3/AmazonS3Client.h>
+#import "AWSConstants.h"
 #import "ABContact.h"
+
 #import "GSViewController.h"
 
 @interface GSViewController ()
@@ -51,7 +54,20 @@
 - (void)send:(id)sender
 {
     if (contactData) {
+        AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
         
+        @try {
+            // Upload image data.  Remember to set the content type.
+            S3PutObjectRequest *por = [[[S3PutObjectRequest alloc] initWithKey:@"test2" inBucket:BUCKET_NAME] autorelease];
+            por.contentType = @"pplication/octet-stream";
+            por.data        = contactData;
+            
+            // Put the image data into the specified s3 bucket and object.
+            [s3 putObject:por];
+        }
+        @catch (AmazonClientException *exception) {
+            [AWSConstants showAlertMessage:exception.message withTitle:@"Upload Error"];
+        }
     }
 }
 

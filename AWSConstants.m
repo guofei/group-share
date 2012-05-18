@@ -15,4 +15,9 @@
     return [[[UIAlertView alloc] initWithTitle:@"AWS Credentials" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
++(void)showAlertMessage:(NSString *)message withTitle:(NSString *)title
+{
+    [[[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+}
+
 @end
