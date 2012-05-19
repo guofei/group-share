@@ -6,11 +6,11 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#define ACCESS_KEY_ID                @"change me"
-#define SECRET_KEY                   @"change me"
+#define ACCESS_KEY_ID                @"changeme"
+#define SECRET_KEY                   @"changeme"
 #define CREDENTIALS_ALERT_MESSAGE    @"Please update the Constants.h file with your credentials or Token Vending Machine URL."
 
-#define BUCKET_NAME         @"change me"
+#define BUCKET_NAME         @"changeme"
 
 #import <Foundation/Foundation.h>
 

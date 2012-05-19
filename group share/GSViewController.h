@@ -14,7 +14,9 @@
 {
     IBOutlet UILabel *name;
     IBOutlet UILabel *recive;
+    IBOutlet UIProgressView  *uploadProgress1;
     NSData *contactData;
+    NSOperationQueue *operationQueue;
 }
 
 @property (nonatomic, retain) NSData *contactData;

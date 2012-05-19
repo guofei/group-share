@@ -35,6 +35,8 @@
 		288A225E1564EA1300BBD2C6 /* AWSiOSSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */; };
 		288A22601564EDCB00BBD2C6 /* recive.png in Resources */ = {isa = PBXBuildFile; fileRef = 288A225F1564EDCB00BBD2C6 /* recive.png */; };
 		288A227415656D3E00BBD2C6 /* AWSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A227315656D3E00BBD2C6 /* AWSConstants.m */; };
+		288A228B15669A9600BBD2C6 /* AsyncUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A228A15669A9600BBD2C6 /* AsyncUploader.m */; };
+		288A228F15669B0800BBD2C6 /* AsyncDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A228E15669B0800BBD2C6 /* AsyncDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +89,12 @@
 		288A22561564DCB700BBD2C6 /* ABContactsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABContactsTest.m; sourceTree = "<group>"; };
 		288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "../aws-ios-sdk-1.2.2/AWSiOSSDK.framework"; sourceTree = "<group>"; };
 		288A225F1564EDCB00BBD2C6 /* recive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recive.png; sourceTree = SOURCE_ROOT; };
-		288A227215656D0400BBD2C6 /* AWSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AWSConstants.h; sourceTree = "<group>"; };
-		288A227315656D3E00BBD2C6 /* AWSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSConstants.m; sourceTree = "<group>"; };
+		288A227215656D0400BBD2C6 /* AWSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSConstants.h; path = "group share/AWSConstants.h"; sourceTree = "<group>"; };
+		288A227315656D3E00BBD2C6 /* AWSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSConstants.m; path = "group share/AWSConstants.m"; sourceTree = "<group>"; };
+		288A228915669A9600BBD2C6 /* AsyncUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUploader.h; sourceTree = "<group>"; };
+		288A228A15669A9600BBD2C6 /* AsyncUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUploader.m; sourceTree = "<group>"; };
+		288A228D15669B0800BBD2C6 /* AsyncDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncDownloader.h; sourceTree = "<group>"; };
+		288A228E15669B0800BBD2C6 /* AsyncDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncDownloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +192,10 @@
 				288A22251564172800BBD2C6 /* GSContactStringConstants.h */,
 				288A22281564172800BBD2C6 /* GSViewController.h */,
 				288A22291564172800BBD2C6 /* GSViewController.m */,
+				288A228D15669B0800BBD2C6 /* AsyncDownloader.h */,
+				288A228E15669B0800BBD2C6 /* AsyncDownloader.m */,
+				288A228915669A9600BBD2C6 /* AsyncUploader.h */,
+				288A228A15669A9600BBD2C6 /* AsyncUploader.m */,
 				288A22361564188800BBD2C6 /* Supporting Files */,
 			);
 			path = "group share";
@@ -350,6 +360,8 @@
 				288A22531564C72300BBD2C6 /* Base64.m in Sources */,
 				288A22541564C72300BBD2C6 /* VCard.m in Sources */,
 				288A227415656D3E00BBD2C6 /* AWSConstants.m in Sources */,
+				288A228B15669A9600BBD2C6 /* AsyncUploader.m in Sources */,
+				288A228F15669B0800BBD2C6 /* AsyncDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

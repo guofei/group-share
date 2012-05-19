@@ -9,6 +9,7 @@
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
 #import "AWSConstants.h"
 #import "ABContact.h"
+#import "AsyncUploader.h"
 
 #import "GSViewController.h"
 
@@ -19,6 +20,17 @@
 @implementation GSViewController
 
 @synthesize contactData;
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        operationQueue = [NSOperationQueue new];
+        operationQueue.maxConcurrentOperationCount = 3;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -54,20 +66,10 @@
 - (void)send:(id)sender
 {
     if (contactData) {
-        AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
+        AsyncUploader *uploader1 = [[AsyncUploader alloc] initWithData:contactData progressView:uploadProgress1];
         
-        @try {
-            // Upload image data.  Remember to set the content type.
-            S3PutObjectRequest *por = [[[S3PutObjectRequest alloc] initWithKey:@"test2" inBucket:BUCKET_NAME] autorelease];
-            por.contentType = @"pplication/octet-stream";
-            por.data        = contactData;
-            
-            // Put the image data into the specified s3 bucket and object.
-            [s3 putObject:por];
-        }
-        @catch (AmazonClientException *exception) {
-            [AWSConstants showAlertMessage:exception.message withTitle:@"Upload Error"];
-        }
+        [operationQueue addOperation:uploader1];
+        [uploader1 release];
     }
 }
 
