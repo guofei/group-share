@@ -7,7 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AWSiOSSDK/AmazonServiceRequest.h>
 
-@interface AsyncDownloader : NSOperation
+@interface AsyncDownloader : NSOperation<AmazonServiceRequestDelegate>
+{
+    NSString       *fileName;
+    NSData         *contactData;
+    UIProgressView *progressView;
+    
+    BOOL           isExecuting;
+    BOOL           isFinished;
+}
+
+@property (nonatomic, readonly) NSData* contactData;
+
+-(id)initWithS3:(NSString *)name progressView:(UIProgressView *)theProgressView;
+-(void)finish;
+-(void)initialize;
+-(void)updateProgressView:(NSNumber *)theProgress;
+-(void)hideProgressView;
 
 @end

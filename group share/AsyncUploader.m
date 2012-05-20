@@ -109,7 +109,7 @@
 -(void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error
 {
     NSLog(@"%@", error);
-    [AWSConstants showAlertMessage:CREDENTIALS_ALERT_MESSAGE withTitle:@"error"]
+    [AWSConstants showAlertMessage:CREDENTIALS_ALERT_MESSAGE withTitle:@"error"];
     [self finish];
 }
 

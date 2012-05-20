@@ -10,6 +10,7 @@
 #import "AWSConstants.h"
 #import "ABContact.h"
 #import "AsyncUploader.h"
+#import "AsyncDownloader.h"
 
 #import "GSViewController.h"
 
@@ -61,6 +62,11 @@
 - (void)onRecived:(id)sender
 {
     recive.text = @"Recive";
+    NSString *test = @"test5";
+    AsyncDownloader *downloader1 = [[AsyncDownloader alloc] initWithS3:test progressView:downloadProgress1];
+    
+    [operationQueue addOperation:downloader1];
+    [downloader1 release];
 }
 
 - (void)send:(id)sender
