@@ -37,6 +37,8 @@
 		288A227415656D3E00BBD2C6 /* AWSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A227315656D3E00BBD2C6 /* AWSConstants.m */; };
 		288A228B15669A9600BBD2C6 /* AsyncUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A228A15669A9600BBD2C6 /* AsyncUploader.m */; };
 		288A228F15669B0800BBD2C6 /* AsyncDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A228E15669B0800BBD2C6 /* AsyncDownloader.m */; };
+		28A873A0156CAADE00138B59 /* GSAsyncCreateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */; };
+		28A873AB156CB7DD00138B59 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,9 @@
 		288A228A15669A9600BBD2C6 /* AsyncUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUploader.m; sourceTree = "<group>"; };
 		288A228D15669B0800BBD2C6 /* AsyncDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncDownloader.h; sourceTree = "<group>"; };
 		288A228E15669B0800BBD2C6 /* AsyncDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncDownloader.m; sourceTree = "<group>"; };
+		28A8739E156CAADE00138B59 /* GSAsyncCreateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAsyncCreateItem.h; sourceTree = "<group>"; };
+		28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAsyncCreateItem.m; sourceTree = "<group>"; };
+		28A873AA156CB7DD00138B59 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A873AB156CB7DD00138B59 /* CoreLocation.framework in Frameworks */,
 				288A225D1564E9F800BBD2C6 /* AWSiOSSDK.framework in Frameworks */,
 				28084523155599B5000690A9 /* AddressBookUI.framework in Frameworks */,
 				28084521155599AE000690A9 /* AddressBook.framework in Frameworks */,
@@ -151,6 +157,7 @@
 		2819E1E015490DE1002DBAED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28A873AA156CB7DD00138B59 /* CoreLocation.framework */,
 				288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */,
 				28084520155599AE000690A9 /* AddressBook.framework */,
 				28084522155599B5000690A9 /* AddressBookUI.framework */,
@@ -196,6 +203,8 @@
 				288A228E15669B0800BBD2C6 /* AsyncDownloader.m */,
 				288A228915669A9600BBD2C6 /* AsyncUploader.h */,
 				288A228A15669A9600BBD2C6 /* AsyncUploader.m */,
+				28A8739E156CAADE00138B59 /* GSAsyncCreateItem.h */,
+				28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */,
 				288A22361564188800BBD2C6 /* Supporting Files */,
 			);
 			path = "group share";
@@ -362,6 +371,7 @@
 				288A227415656D3E00BBD2C6 /* AWSConstants.m in Sources */,
 				288A228B15669A9600BBD2C6 /* AsyncUploader.m in Sources */,
 				288A228F15669B0800BBD2C6 /* AsyncDownloader.m in Sources */,
+				28A873A0156CAADE00138B59 /* GSAsyncCreateItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
