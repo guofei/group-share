@@ -8,19 +8,13 @@
 
 #import <AWSiOSSDK/AmazonServiceRequest.h>
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 
-@interface GSAsyncCreateItem : NSOperation<CLLocationManagerDelegate>
+@interface GSAsyncCreateItem : NSOperation
 {
     NSString *userName;
     NSData   *userLocation;
-
-    CLLocationManager *locationMan;
-
 }
 
-@property(nonatomic, retain) CLLocationManager *locationMan;
-
--(id)initWithLocation:(NSData *)location withName:(NSString *)name;
 -(id)initWithName:(NSString *)name;
+-(id)initWithLocation:(NSData *)location withName:(NSString *)name;
 @end

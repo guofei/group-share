@@ -24,7 +24,17 @@
     self = [super init];
     if (self)
     {
+        userName = [name retain];
         userLocation = [location retain];
+    }
+    return self;
+}
+
+-(id)initWithName:(NSString *)name
+{
+    self = [super init];
+    if (self)
+    {
         userName = [name retain];
     }
     return self;
@@ -32,8 +42,13 @@
 
 -(void)dealloc
 {
-    [userLocation release];
-    [userName release];
+    if (userLocation) {
+        [userLocation release];        
+    }
+
+    if (userName) {
+        [userName release];        
+    }
     
     
     [super dealloc];
@@ -51,61 +66,48 @@
 
 -(void)main
 {
-    locationMan = [[CLLocationManager alloc] init];
-    if([CLLocationManager locationServicesEnabled]){	
-        locationMan.delegate = self;    
-        locationMan.distanceFilter = kCLDistanceFilterNone;
-        locationMan.desiredAccuracy = kCLLocationAccuracyBest;
-        [locationMan startUpdatingLocation];
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation
-{
-    
-    NSData *d = [[NSKeyedArchiver archivedDataWithRootObject:newLocation] retain];
-    AmazonSecurityTokenServiceClient *tst = [[[AmazonSecurityTokenServiceClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
-    SecurityTokenServiceGetSessionTokenRequest *tokenRequest = [[[SecurityTokenServiceGetSessionTokenRequest alloc] init] autorelease];
-    SecurityTokenServiceGetSessionTokenResponse *rep = [tst getSessionToken:tokenRequest];
-    SecurityTokenServiceCredentials *c = [rep credentials];
-    AmazonCredentials *credentials = [[[AmazonCredentials alloc] initWithAccessKey:c.accessKeyId withSecretKey:c.secretAccessKey withSecurityToken:c.sessionToken] autorelease];
-    AmazonDynamoDBClient *ddb = [[[AmazonDynamoDBClient alloc] initWithCredentials:credentials] autorelease];
     
     @try {
-        DynamoDBAttributeValue *v1 = [[[DynamoDBAttributeValue alloc] initWithN:@"123456"] autorelease];
-        DynamoDBAttributeValue *v2 = [[[DynamoDBAttributeValue alloc] initWithS:@"guo"] autorelease];
-        DynamoDBAttributeValue *v3 = [[[DynamoDBAttributeValue alloc] initWithS:@"fei"] autorelease];
-        NSMutableDictionary *userDic = [[NSDictionary dictionaryWithObjectsAndKeys:
-                                         v1, @"id", v2, @"firstName", v3, @"lastName", nil] autorelease];
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
         
+        AmazonSecurityTokenServiceClient *tst = [[[AmazonSecurityTokenServiceClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
+        SecurityTokenServiceGetSessionTokenRequest *tokenRequest = [[[SecurityTokenServiceGetSessionTokenRequest alloc] init] autorelease];
+        SecurityTokenServiceGetSessionTokenResponse *rep = [tst getSessionToken:tokenRequest];
+        SecurityTokenServiceCredentials *c = [rep credentials];
+        AmazonCredentials *credentials = [[[AmazonCredentials alloc] initWithAccessKey:c.accessKeyId withSecretKey:c.secretAccessKey withSecurityToken:c.sessionToken] autorelease];
+        AmazonDynamoDBClient *ddb = [[[AmazonDynamoDBClient alloc] initWithCredentials:credentials] autorelease];
+        
+        DynamoDBAttributeValue *v1 = [[[DynamoDBAttributeValue alloc] initWithN:@"2"] autorelease];
+        DynamoDBAttributeValue *v2 = [[[DynamoDBAttributeValue alloc] initWithS:userName] autorelease];
+        
+        NSString *str = [userLocation base64EncodedString];
+        
+        //NSLog(@"str  %@",[userLocation description]);
+        DynamoDBAttributeValue *v3 = [[[DynamoDBAttributeValue alloc] initWithS:str] autorelease];
+        
+        NSMutableDictionary *userDic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         v1, @"id", v2, @"name", v3, @"location", nil];
         DynamoDBDescribeTableRequest *desRequest = [[[DynamoDBDescribeTableRequest alloc] initWithTableName:TABLE_NAME] autorelease];
-        DynamoDBDescribeTableResponse *desResponse = [[ddb describeTable:desRequest] autorelease];
+        DynamoDBDescribeTableResponse *desResponse = [ddb describeTable:desRequest];
         
         NSLog(@"response:%@",desResponse);
         //NSString *status = response.table.tableStatus;
         
         DynamoDBScanRequest *scanRequest = [[[DynamoDBScanRequest alloc] initWithTableName:TABLE_NAME] autorelease];
-        DynamoDBScanResponse *scanResponse = [[ddb scan:scanRequest] autorelease];
+        DynamoDBScanResponse *scanResponse = [ddb scan:scanRequest];
         
         NSMutableArray *users = scanResponse.items;
         NSLog(@"array: %@", users);
         
-        DynamoDBPutItemRequest *putItemRequest = [[DynamoDBPutItemRequest alloc] initWithTableName:TABLE_NAME andItem:userDic];
+        DynamoDBPutItemRequest *putItemRequest = [[[DynamoDBPutItemRequest alloc] initWithTableName:TABLE_NAME andItem:userDic] autorelease];
         DynamoDBPutItemResponse *putItemResponse = [ddb putItem:putItemRequest];
         NSLog(@"rep   %@", putItemResponse);
+        
+        [pool release];
     }
     @catch (NSException *exception) {
         NSLog(@"%@", exception);
     }
-    //[man stopUpdatingLocation];
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error
-{
-    NSLog(@"error: %@",[error localizedDescription]);	
 }
 
 @end

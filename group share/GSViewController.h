@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate>
+@interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, CLLocationManagerDelegate>
 {
     IBOutlet UILabel *name;
     IBOutlet UILabel *recive;
@@ -18,9 +19,12 @@
     IBOutlet UIProgressView  *downloadProgress1;
     NSData *contactData;
     NSOperationQueue *operationQueue;
+    
+    CLLocationManager *locationMan;
 }
 
 @property (nonatomic, retain) NSData *contactData;
+@property (nonatomic, retain) CLLocationManager *locationMan;
 
 - (IBAction)selectPeson:(id)sender;
 - (IBAction)send:(id)sender;

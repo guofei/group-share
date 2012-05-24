@@ -21,13 +21,14 @@
 @implementation GSViewController
 
 @synthesize contactData;
+@synthesize locationMan;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        operationQueue = [NSOperationQueue new];
+        operationQueue = [[NSOperationQueue mainQueue] retain];
         operationQueue.maxConcurrentOperationCount = 3;
     }
     return self;
@@ -37,6 +38,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    locationMan = [[CLLocationManager alloc] init];
+    if([CLLocationManager locationServicesEnabled]){	
+        locationMan.delegate = self;    
+        locationMan.distanceFilter = kCLDistanceFilterNone;
+        locationMan.desiredAccuracy = kCLLocationAccuracyBest;
+        [locationMan startUpdatingLocation];
+    }
 }
 
 - (void)viewDidUnload
@@ -57,13 +65,7 @@
 - (IBAction)onRecive:(id)sender
 {
     recive.text = @"Reciving";
-    
-    NSString *test = @"test5";
-    AsyncDownloader *downloader1 = [[AsyncDownloader alloc] initWithS3:test progressView:downloadProgress1];
-    
-    //GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithLocation:<#(NSData *)#> withName:<#(NSString *)#>
-    [operationQueue addOperation:downloader1];
-    [downloader1 release];
+
     /*
      
      NSString *test = @"test5";
@@ -74,6 +76,24 @@
      
      */
     
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    NSData *data = [[NSKeyedArchiver archivedDataWithRootObject:newLocation] retain];
+    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithLocation:data withName:@"guofei"];
+    [operationQueue addOperation:item];
+    [item release];
+    NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    [locationMan stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+    NSLog(@"error: %@",[error localizedDescription]);
 }
 
 - (void)onRecived:(id)sender
