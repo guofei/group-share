@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#import <AWSiOSSDK/AmazonServiceRequest.h>
-
 @interface AsyncUploader : NSOperation<AmazonServiceRequestDelegate>
 {
     NSData         *data;

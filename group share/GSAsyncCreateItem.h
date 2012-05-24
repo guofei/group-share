@@ -6,7 +6,6 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import <AWSiOSSDK/AmazonServiceRequest.h>
 #import <Foundation/Foundation.h>
 
 @interface GSAsyncCreateItem : NSOperation

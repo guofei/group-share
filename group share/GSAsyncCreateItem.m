@@ -6,6 +6,7 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import <AWSiOSSDK/AmazonServiceRequest.h>
 #import <AWSiOSSDK/STS/AmazonSecurityTokenServiceClient.h>
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
 #import <AWSiOSSDK/AmazonCredentials.h>

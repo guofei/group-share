@@ -6,6 +6,9 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+
 #import "AWSConstants.h"
 #import "ABContact.h"
 #import "AsyncUploader.h"

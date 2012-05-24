@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
 #import <CoreLocation/CoreLocation.h>
 
 @interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, CLLocationManagerDelegate>

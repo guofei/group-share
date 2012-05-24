@@ -7,6 +7,7 @@
 //
 
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
+#import <AWSiOSSDK/AmazonServiceRequest.h>
 
 #import "AsyncDownloader.h"
 #import "AWSConstants.h"
