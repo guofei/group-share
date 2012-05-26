@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AWSiOSSDK/AmazonServiceRequest.h>
 
 @interface AsyncDownloader : NSOperation<AmazonServiceRequestDelegate>
 {

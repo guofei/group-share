@@ -6,9 +6,6 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
-
 #import "AWSConstants.h"
 #import "ABContact.h"
 #import "AsyncUploader.h"
@@ -24,14 +21,13 @@
 @implementation GSViewController
 
 @synthesize contactData;
-@synthesize locationMan;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        operationQueue = [[NSOperationQueue mainQueue] retain];
+        operationQueue = [[NSOperationQueue alloc] init];
         operationQueue.maxConcurrentOperationCount = 3;
     }
     return self;
@@ -41,13 +37,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    locationMan = [[CLLocationManager alloc] init];
-    if([CLLocationManager locationServicesEnabled]){	
-        locationMan.delegate = self;    
-        locationMan.distanceFilter = kCLDistanceFilterNone;
-        locationMan.desiredAccuracy = kCLLocationAccuracyBest;
-        [locationMan startUpdatingLocation];
-    }
 }
 
 - (void)viewDidUnload
@@ -69,6 +58,13 @@
 {
     recive.text = @"Reciving";
 
+    NSLog(@"isMainThread:%d", [NSThread isMainThread]);
+    // スレッドの内容をログ出力
+    NSLog(@"Thread:%@", [NSThread currentThread]);
+
+    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:@"guofei"];
+    [operationQueue addOperation:item];
+    //[item release];
     /*
      
      NSString *test = @"test5";
@@ -78,25 +74,6 @@
      [downloader1 release];
      
      */
-    
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation
-{
-    NSData *data = [[NSKeyedArchiver archivedDataWithRootObject:newLocation] retain];
-    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithLocation:data withName:@"guofei"];
-    [operationQueue addOperation:item];
-    [item release];
-    NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    [locationMan stopUpdatingLocation];
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error
-{
-    NSLog(@"error: %@",[error localizedDescription]);
 }
 
 - (void)onRecived:(id)sender

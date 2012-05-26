@@ -7,13 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface GSAsyncCreateItem : NSOperation
 {
     NSString *userName;
     NSData   *userLocation;
+    BOOL _finished;
 }
 
+@property BOOL finished;
+
 -(id)initWithName:(NSString *)name;
--(id)initWithLocation:(NSData *)location withName:(NSString *)name;
+
 @end
