@@ -64,7 +64,7 @@
 
     GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:@"guofei"];
     [operationQueue addOperation:item];
-    //[item release];
+    [item release];
     /*
      
      NSString *test = @"test5";

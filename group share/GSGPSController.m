@@ -7,10 +7,11 @@
 //
 
 #import "GSGPSController.h"
+#import "GSAsyncCreateItem.h"
 
 @implementation GSGPSController
 
-@synthesize locationManager, lastReading, finished=_finished;
+@synthesize locationManager, lastReading;
 
 - (id)init {
     if(self = [super init]) {
@@ -18,7 +19,6 @@
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
         locationManager.delegate = self;
         self.lastReading = nil;
-        self.finished = NO;
     }
     return self;
 }
@@ -54,10 +54,8 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
     self.lastReading = newLocation;
-    
-    //[self setValue:[NSNumber numberWithBool:YES] forKey:@"finished"];
-    ((GSGPSController *)resultObj).finished = YES;
-    self.finished = YES;
+
+    ((GSAsyncCreateItem *)resultObj).finished = YES;
     [locationManager stopUpdatingLocation];
 }
 

@@ -15,11 +15,11 @@
     CLLocationManager *locationManager;
     CLLocation *lastReading;
     
-    BOOL _finished;
+    //BOOL _finished;
     id resultObj;
 }
 
-@property (nonatomic, assign) BOOL finished;
+//@property (nonatomic, assign) BOOL finished;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *lastReading;
 
