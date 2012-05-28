@@ -29,6 +29,7 @@
     if (self)
     {
         self.finished = NO;
+        _isReceived = NO;
         userName = [name retain];
     }
     return self;
@@ -69,22 +70,16 @@
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     NSLog(@"location %@", [gps.lastReading description]);
+    NSLog(@"altitude %@", gps.lastReading.altitude);
 
     @try {
         AmazonDynamoDBClient *ddb = [self ddbClient];
 
-        DynamoDBAttributeValue *v1 = [[[DynamoDBAttributeValue alloc] initWithN:@"5"] autorelease];
-        DynamoDBAttributeValue *v2 = [[[DynamoDBAttributeValue alloc] initWithS:userName] autorelease];
-        NSData *locationData = [NSKeyedArchiver archivedDataWithRootObject:gps.lastReading];
-        NSString *locationStr = [locationData base64EncodedString];
-        DynamoDBAttributeValue *v3 = [[[DynamoDBAttributeValue alloc] initWithS:locationStr] autorelease];
-        NSMutableDictionary *userDic = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        v1, @"id", v2, @"name", v3, @"location", nil];
-        
-        DynamoDBPutItemRequest *putItemRequest = [[[DynamoDBPutItemRequest alloc] initWithTableName:TABLE_NAME andItem:userDic] autorelease];
+        NSMutableDictionary *putItem = [self createItem:gps];
+        DynamoDBPutItemRequest *putItemRequest = [[[DynamoDBPutItemRequest alloc] initWithTableName:TABLE_NAME andItem:putItem] autorelease];
         DynamoDBPutItemResponse *putItemResponse = [ddb putItem:putItemRequest];
         NSLog(@"rep   %@", putItemResponse);
-
+        
         /*
         DynamoDBDescribeTableRequest *desRequest = [[[DynamoDBDescribeTableRequest alloc] initWithTableName:TABLE_NAME] autorelease];
         DynamoDBDescribeTableResponse *desResponse = [ddb describeTable:desRequest];
@@ -93,12 +88,26 @@
 
         NSMutableArray *users = scanResponse.items;
         NSLog(@"array: %@", users);
-         */
+
+
+        DynamoDBAttributeValue *v1 = [[[DynamoDBAttributeValue alloc] initWithS:@"2012-05-27 15:22:53 +0000"] autorelease];
+        DynamoDBQueryRequest *queryRequest = [[[DynamoDBQueryRequest alloc] initWithTableName:TABLE_NAME andHashKeyValue:v1] autorelease];
+        NSLog(@"hash key v   %@", [queryRequest hashKeyValue]);
+        [queryRequest addAttributesToGet:@"name"];
+        DynamoDBQueryResponse *queryResponse = [ddb query:queryRequest]; 
+        */
     }
     @catch (NSException *exception) {
         NSLog(@"%@", exception);
     }
 
+    NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(checkIsReceived:) userInfo:nil repeats:YES];
+    
+    while (!_isReceived) {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+    NSLog(@"over!!!!!!!!!!!!");
+    
     [pool release];
 }
 
@@ -111,6 +120,46 @@
     AmazonCredentials *credentials = [[[AmazonCredentials alloc] initWithAccessKey:c.accessKeyId withSecretKey:c.secretAccessKey withSecurityToken:c.sessionToken] autorelease];
     AmazonDynamoDBClient *ddb = [[[AmazonDynamoDBClient alloc] initWithCredentials:credentials] autorelease];
     return ddb;
+}
+
+- (NSMutableDictionary *)createItem:(GSGPSController *)gps
+{
+    NSDate *date = [NSDate date];
+    NSString *id = [NSString stringWithFormat:@"%@#%d",[date description],rand()%100000];
+    userID = id;
+    DynamoDBAttributeValue *v1 = [[[DynamoDBAttributeValue alloc] initWithS:id] autorelease];
+    DynamoDBAttributeValue *v2 = [[[DynamoDBAttributeValue alloc] initWithS:userName] autorelease];
+    //DynamoDBAttributeValue *v3 = [[[DynamoDBAttributeValue alloc] initWithS:[gps.lastReading description]] autorelease];
+    //NSData *locationData = [NSKeyedArchiver archivedDataWithRootObject:gps.lastReading];
+    //NSString *locationStr = [locationData base64EncodedString];
+    DynamoDBAttributeValue *latitude = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%f", gps.lastReading.coordinate.latitude]] autorelease];
+    DynamoDBAttributeValue *longitude = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%f", gps.lastReading.coordinate.longitude]] autorelease];
+    DynamoDBAttributeValue *altitude = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%f", gps.lastReading.altitude]] autorelease];
+    DynamoDBAttributeValue *hAccuracy = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%f", gps.lastReading.horizontalAccuracy]] autorelease];
+    DynamoDBAttributeValue *vAccuracy = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%f", gps.lastReading.verticalAccuracy]] autorelease];
+    DynamoDBAttributeValue *v4 = [[[DynamoDBAttributeValue alloc] initWithS:@"NO"] autorelease];
+    NSMutableDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    v1, @"id", v2, @"name", latitude, @"latitude", longitude, @"longitude", altitude, @"altitude", hAccuracy, @"hAccuracy", vAccuracy, @"vAccuracy", v4, @"isReceived", nil];
+    
+    return dic;
+}
+
+-(void)checkIsReceived:(NSTimer*)timer{
+    
+    AmazonDynamoDBClient *ddb = [self ddbClient];
+    DynamoDBAttributeValue *v = [[[DynamoDBAttributeValue alloc] initWithS:userID] autorelease];
+    DynamoDBKey *k = [[[DynamoDBKey alloc] initWithHashKeyElement:v] autorelease];
+    DynamoDBGetItemRequest *getItemRequest = [[[DynamoDBGetItemRequest alloc] initWithTableName:TABLE_NAME andKey:k] autorelease];
+    DynamoDBGetItemResponse *getItemResponse = [ddb getItem:getItemRequest];
+    NSMutableDictionary *item = getItemResponse.item;
+    DynamoDBAttributeValue *isReceived = [item objectForKey:@"isReceived"];
+    NSLog(@"item %@", [item objectForKey:@"isReceived"]);
+    if ([isReceived.s isEqualToString:@"NO"]) {
+        [timer invalidate];
+        _isReceived = YES;
+    }
+    
+    NSLog(@"check");
 }
 
 @end

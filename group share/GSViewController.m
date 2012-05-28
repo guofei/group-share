@@ -58,11 +58,8 @@
 {
     recive.text = @"Reciving";
 
-    NSLog(@"isMainThread:%d", [NSThread isMainThread]);
-    // スレッドの内容をログ出力
-    NSLog(@"Thread:%@", [NSThread currentThread]);
-
-    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:@"guofei"];
+    NSString *deviceUDID = [[UIDevice currentDevice] name];
+    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:deviceUDID];
     [operationQueue addOperation:item];
     [item release];
     /*

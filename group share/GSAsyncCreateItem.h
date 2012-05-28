@@ -11,9 +11,11 @@
 
 @interface GSAsyncCreateItem : NSOperation
 {
+    NSString *userID;
     NSString *userName;
     NSData   *userLocation;
     BOOL _finished;
+    BOOL _isReceived;
 }
 
 @property BOOL finished;
