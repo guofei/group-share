@@ -83,7 +83,6 @@
 {
     if (contactData) {
         AsyncUploader *uploader1 = [[AsyncUploader alloc] initWithData:contactData progressView:uploadProgress1];
-        
         [operationQueue addOperation:uploader1];
         [uploader1 release];
     }
