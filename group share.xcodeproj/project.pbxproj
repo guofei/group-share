@@ -42,6 +42,7 @@
 		28C4C0EB1570B9F1001475A9 /* GSGPSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0EA1570B9F1001475A9 /* GSGPSController.m */; };
 		28C4C0FB1574C432001475A9 /* GSNearPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0FA1574C431001475A9 /* GSNearPerson.m */; };
 		28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C10215753387001475A9 /* AmazonClientManager.m */; };
+		28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C105157628B4001475A9 /* GSNearPersonTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +93,7 @@
 		288A224E1564C72300BBD2C6 /* VCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCard.m; sourceTree = "<group>"; };
 		288A22551564DCB700BBD2C6 /* ABContactsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABContactsTest.h; sourceTree = "<group>"; };
 		288A22561564DCB700BBD2C6 /* ABContactsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABContactsTest.m; sourceTree = "<group>"; };
-		288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "../aws-ios-sdk-1.2.2/AWSiOSSDK.framework"; sourceTree = "<group>"; };
+		288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSiOSSDK.framework; path = "../aws-ios-sdk-1.3.0/AWSiOSSDK.framework"; sourceTree = "<group>"; };
 		288A225F1564EDCB00BBD2C6 /* recive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recive.png; sourceTree = SOURCE_ROOT; };
 		288A227215656D0400BBD2C6 /* AWSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSConstants.h; path = "group share/AWSConstants.h"; sourceTree = "<group>"; };
 		288A227315656D3E00BBD2C6 /* AWSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSConstants.m; path = "group share/AWSConstants.m"; sourceTree = "<group>"; };
@@ -109,6 +110,8 @@
 		28C4C0FA1574C431001475A9 /* GSNearPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNearPerson.m; sourceTree = "<group>"; };
 		28C4C10115753387001475A9 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmazonClientManager.h; path = "group share/AmazonClientManager.h"; sourceTree = "<group>"; };
 		28C4C10215753387001475A9 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = "group share/AmazonClientManager.m"; sourceTree = "<group>"; };
+		28C4C104157628B4001475A9 /* GSNearPersonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPersonTest.h; sourceTree = "<group>"; };
+		28C4C105157628B4001475A9 /* GSNearPersonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNearPersonTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 			children = (
 				2819E20B15490DE1002DBAED /* group_shareTests.h */,
 				2819E20C15490DE1002DBAED /* group_shareTests.m */,
+				28C4C104157628B4001475A9 /* GSNearPersonTest.h */,
+				28C4C105157628B4001475A9 /* GSNearPersonTest.m */,
 				288A22551564DCB700BBD2C6 /* ABContactsTest.h */,
 				288A22561564DCB700BBD2C6 /* ABContactsTest.m */,
 				2819E20615490DE1002DBAED /* Supporting Files */,
@@ -399,6 +404,7 @@
 			files = (
 				2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */,
 				288A22571564DCB700BBD2C6 /* ABContactsTest.m in Sources */,
+				28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

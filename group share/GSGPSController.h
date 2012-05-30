@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
 @interface GSGPSController : NSObject <CLLocationManagerDelegate>

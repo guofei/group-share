@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface GSNearPerson : NSObject
+{
+    NSMutableArray *allItems;
+    NSMutableArray *nearPerson;
+}
+
+- (void)getNearPerson;
 
 @end

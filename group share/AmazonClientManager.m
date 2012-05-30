@@ -14,6 +14,7 @@
 
 + (AmazonDynamoDBClient *)ddbClient
 {
+    AmazonDynamoDBClient *ddb = Nil;
     AmazonSecurityTokenServiceClient *tst = [[AmazonSecurityTokenServiceClient alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY];
     SecurityTokenServiceGetSessionTokenRequest *tokenRequest = [[SecurityTokenServiceGetSessionTokenRequest alloc] init];
     
@@ -21,9 +22,8 @@
         SecurityTokenServiceGetSessionTokenResponse *rep = [tst getSessionToken:tokenRequest];
         SecurityTokenServiceCredentials *c = [rep credentials];
         AmazonCredentials *credentials = [[AmazonCredentials alloc] initWithAccessKey:c.accessKeyId withSecretKey:c.secretAccessKey withSecurityToken:c.sessionToken];
-        AmazonDynamoDBClient *ddb = [[[AmazonDynamoDBClient alloc] initWithCredentials:credentials] autorelease];
+        ddb = [[[AmazonDynamoDBClient alloc] initWithCredentials:credentials] autorelease];
         [credentials release];
-        return ddb;
     }
     @catch (NSException *exception) {
         NSLog(@"%@", exception);
@@ -32,6 +32,7 @@
         [tst release];
         [tokenRequest release];
     }
+    return ddb;
 }
 
 @end

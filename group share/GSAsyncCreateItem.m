@@ -7,10 +7,6 @@
 //
 
 #import <AWSiOSSDK/AmazonServiceRequest.h>
-#import <AWSiOSSDK/STS/AmazonSecurityTokenServiceClient.h>
-#import <AWSiOSSDK/S3/AmazonS3Client.h>
-#import <AWSiOSSDK/AmazonCredentials.h>
-#import <AWSiOSSDK/DynamoDB/AmazonDynamoDBClient.h>
 #import <AWSiOSSDK/DynamoDB/DynamoDBAttributeValue.h>
 
 #import "GSAsyncCreateItem.h"
