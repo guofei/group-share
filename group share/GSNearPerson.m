@@ -16,13 +16,26 @@
 
 @implementation GSNearPerson
 
-- (id)init
+- (id)initWithLocation:(CLLocation *)location
 {
     if(self = [super init]) {
+        myLocation = [location retain];
+        nearPerson = [[NSMutableArray alloc] init];
         allItems = Nil;
         nearPerson = Nil;
     }
     return self;
+}
+
+- (void)dealloc
+{
+    if (myLocation) {
+        [myLocation release];
+    }
+    if (nearPerson) {
+        [nearPerson release];
+    }
+    [super dealloc];
 }
 
 - (void)setAllPerson
@@ -51,6 +64,11 @@
         CLLocationCoordinate2D coor = {[latitude.n doubleValue], [longitude.n doubleValue]};
         NSLog(@"lo %@", latitude.n);
         CLLocation *loc = [[CLLocation alloc] initWithCoordinate:coor altitude:[altitude.n doubleValue] horizontalAccuracy:[hAccuracy.n doubleValue] verticalAccuracy:[vAccuracy.n doubleValue] timestamp:[NSDate date]];
+        CLLocationDistance distance = [loc distanceFromLocation:myLocation];
+        NSLog(@"distance %f", distance);
+        if (distance < 100) {
+            [nearPerson addObject:((DynamoDBAttributeValue *)[item objectForKey:@"id"]).s];
+        }
     }
 }
 

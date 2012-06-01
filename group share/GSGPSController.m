@@ -31,7 +31,7 @@
     if (lastReading) {
         [lastReading release];
     }
-    
+
     [super dealloc];
 }
 

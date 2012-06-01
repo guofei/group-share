@@ -43,6 +43,7 @@
 		28C4C0FB1574C432001475A9 /* GSNearPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0FA1574C431001475A9 /* GSNearPerson.m */; };
 		28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C10215753387001475A9 /* AmazonClientManager.m */; };
 		28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C105157628B4001475A9 /* GSNearPersonTest.m */; };
+		28C4C11C15792F39001475A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 				288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */,
 				288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */,
 				288A225E1564EA1300BBD2C6 /* AWSiOSSDK.framework in Frameworks */,
+				28C4C11C15792F39001475A9 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

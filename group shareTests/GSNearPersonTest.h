@@ -13,5 +13,6 @@
 @interface GSNearPersonTest : SenTestCase
 {
     GSNearPerson *np;
+    CLLocation *c;
 }
 @end
