@@ -25,12 +25,9 @@
 
 - (void)dealloc
 {
-    if (locationManager) {
-        [locationManager release];
-    }
-    if (lastReading) {
-        [lastReading release];
-    }
+
+    [locationManager release];
+    [lastReading release];
 
     [super dealloc];
 }

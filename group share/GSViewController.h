@@ -16,6 +16,7 @@
     IBOutlet UILabel *recive;
     IBOutlet UIProgressView  *uploadProgress1;
     IBOutlet UIProgressView  *downloadProgress1;
+    NSString *keyName;
     NSData *contactData;
     NSOperationQueue *operationQueue;
 }

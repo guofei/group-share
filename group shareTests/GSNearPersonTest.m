@@ -20,8 +20,8 @@
 
 - (void)tearDown
 {
-    [np release];
     [c release];
+    [np release];
 }
 
 - (void)testGetNearPerson

@@ -75,7 +75,6 @@
 		288A22221564172800BBD2C6 /* group share-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "group share-Prefix.pch"; sourceTree = "<group>"; };
 		288A22231564172800BBD2C6 /* GSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAppDelegate.h; sourceTree = "<group>"; };
 		288A22241564172800BBD2C6 /* GSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAppDelegate.m; sourceTree = "<group>"; };
-		288A22251564172800BBD2C6 /* GSContactStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSContactStringConstants.h; sourceTree = "<group>"; };
 		288A22281564172800BBD2C6 /* GSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSViewController.h; sourceTree = "<group>"; };
 		288A22291564172800BBD2C6 /* GSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSViewController.m; sourceTree = "<group>"; };
 		288A222A1564172800BBD2C6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -212,7 +211,6 @@
 				288A221D1564172800BBD2C6 /* GSViewController.xib */,
 				288A22231564172800BBD2C6 /* GSAppDelegate.h */,
 				288A22241564172800BBD2C6 /* GSAppDelegate.m */,
-				288A22251564172800BBD2C6 /* GSContactStringConstants.h */,
 				288A22281564172800BBD2C6 /* GSViewController.h */,
 				288A22291564172800BBD2C6 /* GSViewController.m */,
 				288A228D15669B0800BBD2C6 /* AsyncDownloader.h */,

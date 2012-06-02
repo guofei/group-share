@@ -43,10 +43,21 @@
 {
     [super viewDidUnload];
 
+    [contactData release];
+    [keyName release];
+    contactData = nil;
+    keyName = nil;
     // Release any retained subviews of the main view.
-    if (contactData) {
-        [contactData release];
-    }
+
+}
+
+- (void)dealloc
+{
+
+    [contactData release];
+    [keyName release];
+    
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -76,13 +87,13 @@
 - (void)onRecived:(id)sender
 {
     recive.text = @"Recive";
-    
 }
 
 - (void)send:(id)sender
 {
     if (contactData) {
-        AsyncUploader *uploader1 = [[AsyncUploader alloc] initWithData:contactData progressView:uploadProgress1];
+
+        AsyncUploader *uploader1 = [[AsyncUploader alloc] initWithData:contactData keyName:keyName progressView:uploadProgress1];
         [operationQueue addOperation:uploader1];
         [uploader1 release];
     }
@@ -110,8 +121,8 @@
     NSData *data = [contact baseDataRepresentation];
     NSLog(@"data %@", [data description]);
     
+    keyName = [contact.contactName retain];
     self.contactData = data;
-
     name.text = contact.firstname;
     [self dismissModalViewControllerAnimated:YES];
 

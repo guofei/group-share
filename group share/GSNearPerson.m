@@ -14,6 +14,8 @@
 #import "AmazonClientManager.h"
 #import "AWSConstants.h"
 
+#define Distance 100
+
 @implementation GSNearPerson
 
 - (id)initWithLocation:(CLLocation *)location
@@ -66,7 +68,7 @@
         CLLocation *loc = [[CLLocation alloc] initWithCoordinate:coor altitude:[altitude.n doubleValue] horizontalAccuracy:[hAccuracy.n doubleValue] verticalAccuracy:[vAccuracy.n doubleValue] timestamp:[NSDate date]];
         CLLocationDistance distance = [loc distanceFromLocation:myLocation];
         NSLog(@"distance %f", distance);
-        if (distance < 100) {
+        if (distance < Distance) {
             [nearPerson addObject:((DynamoDBAttributeValue *)[item objectForKey:@"id"]).s];
         }
     }

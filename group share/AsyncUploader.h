@@ -11,6 +11,7 @@
 
 @interface AsyncUploader : NSOperation<AmazonServiceRequestDelegate>
 {
+    NSString       *keyName;
     NSData         *data;
     UIProgressView *progressView;
     
@@ -18,7 +19,7 @@
     BOOL           isFinished;
 }
 
--(id)initWithData:(NSData *)d progressView:(UIProgressView *)theProgressView;
+-(id)initWithData:(NSData *)d keyName:(NSString *)name progressView:(UIProgressView *)theProgressView;
 
 -(void)finish;
 -(void)initializeProgressView;

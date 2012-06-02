@@ -15,12 +15,13 @@
 
 #pragma mark - Class Lifecycle
 
--(id)initWithData:(NSData *)d progressView:(UIProgressView *)theProgressView
+-(id)initWithData:(NSData *)d keyName:(NSString *)name progressView:(UIProgressView *)theProgressView
 {
     self = [super init];
     if (self)
     {
         data      = [d retain];
+        keyName   = [name retain];
         progressView = [theProgressView retain];
         
         isExecuting = NO;
@@ -32,8 +33,15 @@
 
 -(void)dealloc
 {
-    [progressView release];
-    [data release];
+    if (progressView) {
+        [progressView release];
+    }
+    if (keyName) {
+        [keyName release];
+    }
+    if (data) {
+        [data release];
+    }
     
     [super dealloc];
 }
@@ -64,7 +72,6 @@
     [self performSelectorOnMainThread:@selector(initializeProgressView) withObject:nil waitUntilDone:NO];
     
     NSString *bucketName = BUCKET_NAME;
-    NSString *keyName    = @"changeme";
     
     // check bucket.
 
