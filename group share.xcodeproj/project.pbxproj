@@ -17,6 +17,7 @@
 		2819E20215490DE1002DBAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E315490DE1002DBAED /* Foundation.framework */; };
 		2819E20A15490DE1002DBAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2819E20815490DE1002DBAED /* InfoPlist.strings */; };
 		2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E20C15490DE1002DBAED /* group_shareTests.m */; };
+		285E22A6157BA68200287B80 /* GSRemoveItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E22A5157BA68200287B80 /* GSRemoveItem.m */; };
 		288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
 		288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
 		288A222B1564172800BBD2C6 /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288A221D1564172800BBD2C6 /* GSViewController.xib */; };
@@ -70,6 +71,9 @@
 		2819E20915490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2819E20B15490DE1002DBAED /* group_shareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = group_shareTests.h; sourceTree = "<group>"; };
 		2819E20C15490DE1002DBAED /* group_shareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = group_shareTests.m; sourceTree = "<group>"; };
+		285E22A2157B8CA800287B80 /* GSDownloadDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSDownloadDelegate.h; sourceTree = "<group>"; };
+		285E22A4157BA68200287B80 /* GSRemoveItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSRemoveItem.h; sourceTree = "<group>"; };
+		285E22A5157BA68200287B80 /* GSRemoveItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRemoveItem.m; sourceTree = "<group>"; };
 		288A221E1564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSViewController.xib; sourceTree = "<group>"; };
 		288A22201564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		288A22211564172800BBD2C6 /* group share-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "group share-Info.plist"; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				288A221D1564172800BBD2C6 /* GSViewController.xib */,
 				288A22231564172800BBD2C6 /* GSAppDelegate.h */,
 				288A22241564172800BBD2C6 /* GSAppDelegate.m */,
+				285E22A2157B8CA800287B80 /* GSDownloadDelegate.h */,
 				288A22281564172800BBD2C6 /* GSViewController.h */,
 				288A22291564172800BBD2C6 /* GSViewController.m */,
 				288A228D15669B0800BBD2C6 /* AsyncDownloader.h */,
@@ -226,6 +231,8 @@
 				28C4C0FA1574C431001475A9 /* GSNearPerson.m */,
 				28C4C0E91570B9F1001475A9 /* GSGPSController.h */,
 				28C4C0EA1570B9F1001475A9 /* GSGPSController.m */,
+				285E22A4157BA68200287B80 /* GSRemoveItem.h */,
+				285E22A5157BA68200287B80 /* GSRemoveItem.m */,
 				28A8739E156CAADE00138B59 /* GSAsyncCreateItem.h */,
 				28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */,
 				288A22361564188800BBD2C6 /* Supporting Files */,
@@ -401,6 +408,7 @@
 				28C4C0FB1574C432001475A9 /* GSNearPerson.m in Sources */,
 				28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */,
 				28C4C128157B3C46001475A9 /* GSUpdateItem.m in Sources */,
+				285E22A6157BA68200287B80 /* GSRemoveItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

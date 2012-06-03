@@ -10,12 +10,15 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
-@interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate>
+#import "GSDownloadDelegate.h"
+
+@interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, GSDownloadDelegate>
 {
     IBOutlet UILabel *name;
     IBOutlet UILabel *recive;
     IBOutlet UIProgressView  *uploadProgress1;
     IBOutlet UIProgressView  *downloadProgress1;
+    NSString *ddbID;
     NSString *keyName;
     NSData *contactData;
     NSOperationQueue *operationQueue;

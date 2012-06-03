@@ -16,11 +16,11 @@
 
 @implementation GSAsyncCreateItem
 
-@synthesize gpsFinished = _finished;
+@synthesize gpsFinished = _finished, delegate;
 
 #pragma mark - Class Lifecycle
 
--(id)initWithName:(NSString *)name
+-(id)initWithName:(NSString *)name ID:(NSString *)id
 {
     self = [super init];
     if (self)
@@ -28,19 +28,18 @@
         self.gpsFinished = NO;
         _isReceived = NO;
         userName = [name retain];
+        userID = [id retain];
+        userLocation = nil;
     }
     return self;
 }
 
 -(void)dealloc
 {
-    if (userLocation) {
-        [userLocation release];
-    }
-
-    if (userName) {
-        [userName release];
-    }
+ 
+    [userLocation release];
+    [userName release];
+    [userID release];
 
     [super dealloc];
 }
@@ -88,15 +87,16 @@
     }
     NSLog(@"over!!!!!!!!!!!!");
 
+    if ([self.delegate respondsToSelector:@selector(itemHasUpdated:itemID:)]) {
+        [self.delegate itemHasUpdated:self itemID:userID];
+    }
     [pool release];
 }
 
 - (NSMutableDictionary *)createItem:(GSGPSController *)gps
 {
-    NSDate *date = [NSDate date];
-    NSString *id = [NSString stringWithFormat:@"%@#%d",[date description],rand()%100000];
-    userID = id;
-    DynamoDBAttributeValue *v1 = [[[DynamoDBAttributeValue alloc] initWithS:id] autorelease];
+
+    DynamoDBAttributeValue *v1 = [[[DynamoDBAttributeValue alloc] initWithS:userID] autorelease];
     DynamoDBAttributeValue *v2 = [[[DynamoDBAttributeValue alloc] initWithS:userName] autorelease];
     DynamoDBAttributeValue *latitude = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%f", gps.lastReading.coordinate.latitude]] autorelease];
     DynamoDBAttributeValue *longitude = [[[DynamoDBAttributeValue alloc] initWithN:[NSString stringWithFormat:@"%f", gps.lastReading.coordinate.longitude]] autorelease];
@@ -120,7 +120,7 @@
     NSMutableDictionary *item = getItemResponse.item;
     DynamoDBAttributeValue *isReceived = [item objectForKey:@"isReceived"];
     NSLog(@"item %@", [item objectForKey:@"isReceived"]);
-    if ([isReceived.s isEqualToString:@"NO"]) {
+    if ([isReceived.s isEqualToString:@"YES"]) {
         [timer invalidate];
         _isReceived = YES;
     }

@@ -22,9 +22,8 @@
 {
     if(self = [super init]) {
         myLocation = [location retain];
-        nearPerson = [[NSMutableArray alloc] init];
+        nearPerson = [[NSMutableArray array] retain];
         allItems = Nil;
-        nearPerson = Nil;
     }
     return self;
 }
@@ -69,7 +68,8 @@
         CLLocationDistance distance = [loc distanceFromLocation:myLocation];
         NSLog(@"distance %f", distance);
         if (distance < Distance) {
-            [nearPerson addObject:((DynamoDBAttributeValue *)[item objectForKey:@"id"]).s];
+            DynamoDBAttributeValue *id = [item objectForKey:@"id"];
+            [nearPerson addObject:id.s];
         }
     }
     return nearPerson;

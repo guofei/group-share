@@ -11,6 +11,7 @@
 #import "AsyncUploader.h"
 #import "AsyncDownloader.h"
 #import "GSAsyncCreateItem.h"
+#import "GSRemoveItem.h"
 
 #import "GSViewController.h"
 
@@ -29,6 +30,9 @@
     {
         operationQueue = [[NSOperationQueue alloc] init];
         operationQueue.maxConcurrentOperationCount = 3;
+        ddbID = nil;
+        keyName = nil;
+        contactData = nil;
     }
     return self;
 }
@@ -53,7 +57,7 @@
 
 - (void)dealloc
 {
-
+    [ddbID release];
     [contactData release];
     [keyName release];
     
@@ -67,26 +71,26 @@
 
 - (IBAction)onRecive:(id)sender
 {
-    recive.text = @"Reciving";
-
+    recive.text = @"Waiting for recive";
+    NSDate *date = [NSDate date];
+    ddbID = [[NSString stringWithFormat:@"%@#%d",[date description],rand()%100000] retain];
     NSString *deviceUDID = [[UIDevice currentDevice] name];
-    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:deviceUDID];
+    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:deviceUDID ID:ddbID];
+    item.delegate = self;
     [operationQueue addOperation:item];
     [item release];
-    /*
-     
-     NSString *test = @"test5";
-     AsyncDownloader *downloader1 = [[AsyncDownloader alloc] initWithS3:test progressView:downloadProgress1];
-     
-     [operationQueue addOperation:downloader1];
-     [downloader1 release];
-     
-     */
 }
 
 - (void)onRecived:(id)sender
 {
-    recive.text = @"Recive";
+    recive.text = @"";
+    if (ddbID) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+            GSRemoveItem *rmItem = [[GSRemoveItem alloc] initWithitemID:ddbID];
+            [rmItem removeItem];
+            [rmItem release];
+        });
+    }
 }
 
 - (void)send:(id)sender
@@ -146,5 +150,11 @@
     return NO;
 }
 
+- (void)itemHasUpdated:(id)sender itemID:(NSString *)id
+{
+    AsyncDownloader *downloader = [[AsyncDownloader alloc] initWithS3:keyName progressView:downloadProgress1];
+    [operationQueue addOperation:downloader];
+    [downloader release];
+}
 
 @end
