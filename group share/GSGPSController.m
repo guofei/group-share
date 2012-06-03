@@ -42,26 +42,20 @@
     [locationManager stopUpdatingLocation];
 }
 
-- (void)setResult:(id)obj
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation 
+           fromLocation:(CLLocation *)oldLocation 
 {
-    resultObj = obj;
-}
-
-- (void)locationManager:(CLLocationManager *)manager 
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation {
     self.lastReading = newLocation;
 
-    ((GSAsyncCreateItem *)resultObj).gpsFinished = YES;
-    [locationManager stopUpdatingLocation];
+    //((GSAsyncCreateItem *)resultObj).gpsFinished = YES;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
     NSString * errorString = @"Unable to determine your current location.";
     UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Error Locating" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
     [errorAlert release];
-    [locationManager stopUpdatingLocation];
 }
 
 @end

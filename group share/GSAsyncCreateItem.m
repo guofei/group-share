@@ -16,19 +16,19 @@
 
 @implementation GSAsyncCreateItem
 
-@synthesize gpsFinished = _finished, delegate;
+@synthesize delegate;
 
 #pragma mark - Class Lifecycle
 
--(id)initWithName:(NSString *)name ID:(NSString *)id
+-(id)initWithName:(NSString *)name ID:(NSString *)id GPS:(GSGPSController *)gps
 {
     self = [super init];
     if (self)
     {
-        self.gpsFinished = NO;
         _isReceived = NO;
         userName = [name retain];
         userID = [id retain];
+        gpsCtr = [gps retain];
         userLocation = nil;
     }
     return self;
@@ -40,7 +40,7 @@
     [userLocation release];
     [userName release];
     [userID release];
-
+    [gpsCtr release];
     [super dealloc];
 }
 
@@ -58,20 +58,16 @@
 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-    GSGPSController *gps = [[[GSGPSController alloc] init] autorelease];
-    [gps setResult:self];
-    [gps startLocate];
-
-    while (!self.gpsFinished) {
+    while (!gpsCtr.lastReading && ![self isCancelled]) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
-    NSLog(@"location %@", [gps.lastReading description]);
-    NSLog(@"altitude %@", gps.lastReading.altitude);
+    NSLog(@"location %@", [gpsCtr.lastReading description]);
+    NSLog(@"altitude %@", gpsCtr.lastReading.altitude);
 
     AmazonDynamoDBClient *ddb = [AmazonClientManager ddbClient];
 
     @try {
-        NSMutableDictionary *putItem = [self createItem:gps];
+        NSMutableDictionary *putItem = [self createItem:gpsCtr];
         DynamoDBPutItemRequest *putItemRequest = [[[DynamoDBPutItemRequest alloc] initWithTableName:TABLE_NAME andItem:putItem] autorelease];
         DynamoDBPutItemResponse *putItemResponse = [ddb putItem:putItemRequest];
         NSLog(@"rep   %@", putItemResponse);
@@ -80,16 +76,21 @@
         NSLog(@"%@", exception);
     }
 
-    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(checkIsReceived:) userInfo:nil repeats:YES];
+    NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(checkIsReceived:) userInfo:nil repeats:YES];
 
-    while (!_isReceived) {
+    while (!_isReceived && ![self isCancelled]) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     NSLog(@"over!!!!!!!!!!!!");
 
-    if ([self.delegate respondsToSelector:@selector(itemHasUpdated:itemID:)]) {
+    if ([self.delegate respondsToSelector:@selector(itemHasUpdated:itemID:)] && ![self isCancelled]) {
         [self.delegate itemHasUpdated:self itemID:userID];
     }
+    
+    if ([self isCancelled]) {
+        [tm invalidate];
+    }
+    
     [pool release];
 }
 

@@ -11,6 +11,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 
 #import "GSDownloadDelegate.h"
+#import "GSGPSController.h"
 
 @interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, GSDownloadDelegate>
 {
@@ -21,10 +22,12 @@
     NSString *ddbID;
     NSString *keyName;
     NSData *contactData;
+    GSGPSController *gps;
     NSOperationQueue *operationQueue;
 }
 
 @property (nonatomic, retain) NSData *contactData;
+@property (nonatomic, retain) GSGPSController *gps;
 
 - (IBAction)selectPeson:(id)sender;
 - (IBAction)send:(id)sender;

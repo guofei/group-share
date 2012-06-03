@@ -16,18 +16,18 @@
 
 @implementation AsyncUploader
 
-@synthesize gpsFinished;
 @synthesize delegate;
 
 #pragma mark - Class Lifecycle
 
--(id)initWithData:(NSData *)d keyName:(NSString *)name progressView:(UIProgressView *)theProgressView
+-(id)initWithData:(NSData *)d keyName:(NSString *)name GPS:(GSGPSController *)gps progressView:(UIProgressView *)theProgressView
 {
     self = [super init];
     if (self)
     {
         data      = [d retain];
         keyName   = [name retain];
+        gpsCtr    = [gps retain];
         progressView = [theProgressView retain];
 
         isExecuting = NO;
@@ -42,6 +42,7 @@
     [progressView release];
     [keyName release];
     [data release];
+    [gpsCtr release];
 
     [super dealloc];
 }
@@ -105,15 +106,11 @@
 {
     [self performSelectorOnMainThread:@selector(hideProgressView) withObject:nil waitUntilDone:NO];
     
-    GSGPSController *gps = [[[GSGPSController alloc] init] autorelease];
-    [gps setResult:self];
-    [gps startLocate];
-    
-    while (!self.gpsFinished) {
+    while (!gpsCtr.lastReading) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     
-    GSNearPerson *near = [[GSNearPerson alloc] initWithLocation:gps.lastReading];
+    GSNearPerson *near = [[GSNearPerson alloc] initWithLocation:gpsCtr.lastReading];
     NSMutableArray *nearPerson = [[near getNearPerson] retain];
     for (int i = 0; i < nearPerson.count; ++i) {
         NSString *pKey = [nearPerson objectAtIndex:i];

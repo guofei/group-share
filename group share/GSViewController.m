@@ -21,7 +21,7 @@
 
 @implementation GSViewController
 
-@synthesize contactData;
+@synthesize contactData,gps;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +33,7 @@
         ddbID = nil;
         keyName = nil;
         contactData = nil;
+        gps = nil;
     }
     return self;
 }
@@ -41,6 +42,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    gps = [[GSGPSController alloc] init];
 }
 
 - (void)viewDidUnload
@@ -48,9 +50,11 @@
     [super viewDidUnload];
 
     [contactData release];
-    [keyName release];
     contactData = nil;
+    [keyName release];
     keyName = nil;
+    [gps release];
+    gps = nil;
     // Release any retained subviews of the main view.
 
 }
@@ -60,6 +64,7 @@
     [ddbID release];
     [contactData release];
     [keyName release];
+    [gps release];
     
     [super dealloc];
 }
@@ -71,19 +76,22 @@
 
 - (IBAction)onRecive:(id)sender
 {
-    recive.text = @"Waiting for recive";
-    NSDate *date = [NSDate date];
-    ddbID = [[NSString stringWithFormat:@"%@#%d",[date description],rand()%100000] retain];
-    NSString *deviceUDID = [[UIDevice currentDevice] name];
-    GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:deviceUDID ID:ddbID];
-    item.delegate = self;
-    [operationQueue addOperation:item];
-    [item release];
+    if ([CLLocationManager locationServicesEnabled]) {
+        recive.text = @"Waiting for recive";
+        NSDate *date = [NSDate date];
+        ddbID = [[NSString stringWithFormat:@"%@#%d",[date description],rand()%100000] retain];
+        NSString *deviceUDID = [[UIDevice currentDevice] name];
+        GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:deviceUDID ID:ddbID GPS:gps];
+        item.delegate = self;
+        [operationQueue addOperation:item];
+        [item release];
+    }
 }
 
 - (void)onRecived:(id)sender
 {
     recive.text = @"";
+    [operationQueue cancelAllOperations];
     if (ddbID) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
             GSRemoveItem *rmItem = [[GSRemoveItem alloc] initWithitemID:ddbID];
@@ -95,10 +103,12 @@
 
 - (void)send:(id)sender
 {
-    if (contactData) {
-        AsyncUploader *uploader = [[AsyncUploader alloc] initWithData:contactData keyName:keyName progressView:uploadProgress1];
-        [operationQueue addOperation:uploader];
-        [uploader release];
+    if ([CLLocationManager locationServicesEnabled]) {
+        if (contactData) {
+            AsyncUploader *uploader = [[AsyncUploader alloc] initWithData:contactData keyName:keyName GPS:gps progressView:uploadProgress1];
+            [operationQueue addOperation:uploader];
+            [uploader release];
+        }
     }
 }
 
@@ -138,15 +148,6 @@
                                 property:(ABPropertyID)property
                               identifier:(ABMultiValueIdentifier)identifier
 {
-    /*
-      ABMultiValueRef phoneProperty = ABRecordCopyValue(person,property);
-      NSString *phone = (NSString *)ABMultiValueCopyValueAtIndex(phoneProperty,identifier);
-
-      NSLog(@"phone: %@",phone);
-      [phone release];
-
-      [self dismissModalViewControllerAnimated:YES];
-    */
     return NO;
 }
 

@@ -13,9 +13,6 @@
 {
     CLLocationManager *locationManager;
     CLLocation *lastReading;
-    
-    //BOOL _finished;
-    id resultObj;
 }
 
 //@property (nonatomic, assign) BOOL finished;
@@ -24,6 +21,5 @@
 
 - (void)startLocate;
 - (void)stopLocate;
-- (void)setResult:(id)obj;
 
 @end

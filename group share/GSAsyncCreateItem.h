@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "GSDownloadDelegate.h"
+#import "GSGPSController.h"
 
 @interface GSAsyncCreateItem : NSOperation
 {
@@ -16,16 +17,15 @@
     NSString *userID;
     NSString *userName;
     NSData   *userLocation;
-    BOOL _finished;
+    GSGPSController *gpsCtr;
     BOOL _isReceived;
     
     id <GSDownloadDelegate> delegate;
 
 }
 
-@property BOOL gpsFinished;
 @property (nonatomic,assign) id<GSDownloadDelegate> delegate;
 
--(id)initWithName:(NSString *)name ID:(NSString *)id;
+-(id)initWithName:(NSString *)name ID:(NSString *)id GPS:(GSGPSController *)gps;
 
 @end
