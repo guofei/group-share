@@ -16,7 +16,7 @@
 
 @implementation GSAsyncCreateItem
 
-@synthesize finished = _finished;
+@synthesize gpsFinished = _finished;
 
 #pragma mark - Class Lifecycle
 
@@ -25,7 +25,7 @@
     self = [super init];
     if (self)
     {
-        self.finished = NO;
+        self.gpsFinished = NO;
         _isReceived = NO;
         userName = [name retain];
     }
@@ -63,7 +63,7 @@
     [gps setResult:self];
     [gps startLocate];
 
-    while (!self.finished) {
+    while (!self.gpsFinished) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     NSLog(@"location %@", [gps.lastReading description]);

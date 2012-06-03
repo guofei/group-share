@@ -52,7 +52,7 @@
            fromLocation:(CLLocation *)oldLocation {
     self.lastReading = newLocation;
 
-    ((GSAsyncCreateItem *)resultObj).finished = YES;
+    ((GSAsyncCreateItem *)resultObj).gpsFinished = YES;
     [locationManager stopUpdatingLocation];
 }
 

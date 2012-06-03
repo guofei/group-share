@@ -16,7 +16,7 @@
     NSMutableArray *nearPerson;
 }
 
-- (void)getNearPerson;
+- (NSMutableArray *)getNearPerson;
 - (id)initWithLocation:(CLLocation *)location;
 
 @end

@@ -53,7 +53,7 @@
     }
 }
 
-- (void)getNearPerson
+- (NSMutableArray *)getNearPerson
 {
     [self setAllPerson];
     for (int i = 0; i < allItems.count; ++i) {
@@ -72,6 +72,7 @@
             [nearPerson addObject:((DynamoDBAttributeValue *)[item objectForKey:@"id"]).s];
         }
     }
+    return nearPerson;
 }
 
 @end

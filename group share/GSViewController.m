@@ -92,10 +92,9 @@
 - (void)send:(id)sender
 {
     if (contactData) {
-
-        AsyncUploader *uploader1 = [[AsyncUploader alloc] initWithData:contactData keyName:keyName progressView:uploadProgress1];
-        [operationQueue addOperation:uploader1];
-        [uploader1 release];
+        AsyncUploader *uploader = [[AsyncUploader alloc] initWithData:contactData keyName:keyName progressView:uploadProgress1];
+        [operationQueue addOperation:uploader];
+        [uploader release];
     }
 }
 
@@ -121,7 +120,7 @@
     NSData *data = [contact baseDataRepresentation];
     NSLog(@"data %@", [data description]);
     
-    keyName = [contact.contactName retain];
+    keyName = [[NSString stringWithFormat:@"%@_%@", contact.contactName, [[NSDate date] description]] retain];
     self.contactData = data;
     name.text = contact.firstname;
     [self dismissModalViewControllerAnimated:YES];

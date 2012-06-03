@@ -8,10 +8,16 @@
 
 #import <AWSiOSSDK/S3/AmazonS3Client.h>
 
+#import "GSGPSController.h"
 #import "AsyncUploader.h"
 #import "AWSConstants.h"
+#import "GSNearPerson.h"
+#import "GSUpdateItem.h"
 
 @implementation AsyncUploader
+
+@synthesize gpsFinished;
+@synthesize delegate;
 
 #pragma mark - Class Lifecycle
 
@@ -23,7 +29,7 @@
         data      = [d retain];
         keyName   = [name retain];
         progressView = [theProgressView retain];
-        
+
         isExecuting = NO;
         isFinished  = NO;
     }
@@ -33,16 +39,10 @@
 
 -(void)dealloc
 {
-    if (progressView) {
-        [progressView release];
-    }
-    if (keyName) {
-        [keyName release];
-    }
-    if (data) {
-        [data release];
-    }
-    
+    [progressView release];
+    [keyName release];
+    [data release];
+
     [super dealloc];
 }
 
@@ -104,6 +104,27 @@
 -(void)request:(AmazonServiceRequest *)request didCompleteWithResponse:(AmazonServiceResponse *)response
 {
     [self performSelectorOnMainThread:@selector(hideProgressView) withObject:nil waitUntilDone:NO];
+    
+    GSGPSController *gps = [[[GSGPSController alloc] init] autorelease];
+    [gps setResult:self];
+    [gps startLocate];
+    
+    while (!self.gpsFinished) {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+    
+    GSNearPerson *near = [[GSNearPerson alloc] initWithLocation:gps.lastReading];
+    NSMutableArray *nearPerson = [[near getNearPerson] retain];
+    for (int i = 0; i < nearPerson.count; ++i) {
+        NSString *pKey = [nearPerson objectAtIndex:i];
+        GSUpdateItem *update = [[GSUpdateItem alloc] initWithS3KeyName:keyName DynamoKeyName:pKey];
+        self.delegate = update;
+        
+        if ([self.delegate respondsToSelector:@selector(UpdateItem:)]) {
+            [self.delegate UpdateItem:self];
+        }
+        [update release];
+    }
     
     [self finish];
 }

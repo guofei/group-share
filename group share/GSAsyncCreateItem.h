@@ -18,7 +18,7 @@
     BOOL _isReceived;
 }
 
-@property BOOL finished;
+@property BOOL gpsFinished;
 
 -(id)initWithName:(NSString *)name;
 
