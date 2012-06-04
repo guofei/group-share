@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AWSiOSSDK/AmazonServiceRequest.h>
 
+#import "GSDownloadDelegate.h"
+
 @interface AsyncDownloader : NSOperation<AmazonServiceRequestDelegate>
 {
     NSString       *fileName;
@@ -17,7 +19,10 @@
     
     BOOL           isExecuting;
     BOOL           isFinished;
+    id             <GSDownloadDelegate> delegate;
 }
+
+@property (nonatomic,assign) id<GSDownloadDelegate> delegate;
 
 -(id)initWithS3:(NSString *)name progressView:(UIProgressView *)theProgressView;
 -(void)finish;

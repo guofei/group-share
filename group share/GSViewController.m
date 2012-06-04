@@ -12,6 +12,7 @@
 #import "AsyncDownloader.h"
 #import "GSAsyncCreateItem.h"
 #import "GSRemoveItem.h"
+#import "ABContactsHelper.h"
 
 #import "GSViewController.h"
 
@@ -168,6 +169,34 @@
 - (void) imagePickerController:(UIImagePickerController*)picker  
          didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary*)editingInfo {  
     // image を処理
+    /*
+    UIImage *img_ato;  // リサイズ後UIImage
+    float widthPer = 0.5;  // リサイズ後幅の倍率
+    float heightPer = 0.5;  // リサイズ後高さの倍率
+    CGSize sz = CGSizeMake(image.size.width*widthPer, image.size.height*heightPer);
+    UIGraphicsBeginImageContext(sz);
+    [image drawInRect:CGRectMake(0, 0, sz.width, sz.height)];
+    img_ato = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext(); 
+    */
+    //NSDictionary *imageData = [NSDictionary dictionaryWithObject:image forKey:@"image"];
+    [image retain];
+    @try {
+        [NSThread detachNewThreadSelector:@selector(setImageThread:) toTarget:self withObject:image];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+    }
+
+    //[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(setImage:) userInfo:imageData repeats:NO];
+    [picker dismissModalViewControllerAnimated:YES];  
+}
+
+- (void) setImageThread:(id)image
+{
+    NSAutoreleasePool* pool;
+    pool = [[NSAutoreleasePool alloc]init];
+    
     name.text = @"";
     imageView.image = image;
     imageView.hidden = NO;
@@ -175,19 +204,49 @@
     keyName = [[NSString stringWithFormat:@"%@_%@.png", @"img", [[NSDate date] description]] retain];
     self.contactData = data;
     [data release];
-    [picker dismissModalViewControllerAnimated:YES];  
-}  
+    
+    [pool release];
+    [NSThread exit];
+}
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController*)picker {  
     //キャンセル時の処理
     [picker dismissModalViewControllerAnimated:YES];  
 }
 
-- (void)itemHasUpdated:(id)sender itemID:(NSString *)id
+- (void)itemHasUpdated:(id)sender keyName:(NSString *)s3Filename
 {
-    AsyncDownloader *downloader = [[AsyncDownloader alloc] initWithS3:keyName progressView:downloadProgress1];
+    AsyncDownloader *downloader = [[AsyncDownloader alloc] initWithS3:s3Filename progressView:downloadProgress1];
     [operationQueue addOperation:downloader];
+    downloader.delegate = self;
     [downloader release];
+}
+
+- (void)dataHasDownloaded:(id)sender keyName:(NSString *)s3Filename data:(NSData *)data
+{
+    if ([s3Filename hasSuffix:@".ab"]) {
+        ABContact *newContact = [ABContact contactWithData:data];
+        NSError *error;
+        [ABContactsHelper addContact:newContact withError:&error];
+        name.text = newContact.contactName;
+        UIImage *image = [UIImage imageNamed:@"name.png"];
+        imageView.image = image;
+        imageView.hidden = NO;
+    }
+    if ([s3Filename hasSuffix:@".png"]) {
+        UIImage* image = [[[UIImage alloc] initWithData:data] autorelease];
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);
+        imageView.image = image;
+        imageView.hidden = NO;
+    }
+}
+
+// 完了を知らせるメソッド
+- (void) savingImageIsFinished:(UIImage *)_image
+      didFinishSavingWithError:(NSError *)_error
+                   contextInfo:(void *)_contextInfo
+{
+    NSLog(@"finished"); //仮にコンソールに表示する
 }
 
 @end

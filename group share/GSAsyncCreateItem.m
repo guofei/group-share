@@ -80,10 +80,6 @@
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     NSLog(@"over!!!!!!!!!!!!");
-
-    if ([self.delegate respondsToSelector:@selector(itemHasUpdated:itemID:)] && ![self isCancelled]) {
-        [self.delegate itemHasUpdated:self itemID:userID];
-    }
     
     if ([self isCancelled]) {
         [tm invalidate];
@@ -109,8 +105,8 @@
     return dic;
 }
 
--(void)checkIsReceived:(NSTimer*)timer{
-    
+-(void)checkIsReceived:(NSTimer*)timer
+{    
     AmazonDynamoDBClient *ddb = [AmazonClientManager ddbClient];
     DynamoDBAttributeValue *v = [[[DynamoDBAttributeValue alloc] initWithS:userID] autorelease];
     DynamoDBKey *k = [[[DynamoDBKey alloc] initWithHashKeyElement:v] autorelease];
@@ -122,6 +118,10 @@
     if ([isReceived.s isEqualToString:@"YES"]) {
         [timer invalidate];
         _isReceived = YES;
+        if ([self.delegate respondsToSelector:@selector(itemHasUpdated:keyName:)] && ![self isCancelled]) {
+            DynamoDBAttributeValue *url = [item objectForKey:@"url"];
+            [self.delegate itemHasUpdated:self keyName:url.s];
+        }
     }
 
     NSLog(@"check");

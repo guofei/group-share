@@ -14,6 +14,8 @@
 
 @implementation AsyncDownloader
 
+@synthesize delegate;
+
 #pragma mark - Class Lifecycle
 
 -(id)initWithS3:(NSString *)name progressView:(UIProgressView *)theProgressView
@@ -101,14 +103,8 @@
     if (response.isFinishedLoading) {
         contactData = [response.body retain];
         
-        if ([fileName hasSuffix:@".ab"]) {
-            ABContact *newContact = [ABContact contactWithData:contactData];
-            NSError *error;
-            [ABContactsHelper addContact:newContact withError:&error];
-        }
-        if ([fileName hasSuffix:@".png"]) {
-            UIImage* image = [[[UIImage alloc] initWithData:contactData] autorelease];
-            UIImageWriteToSavedPhotosAlbum(image, self, @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);
+        if ([self.delegate respondsToSelector:@selector(dataHasDownloaded:keyName:data:)]) {
+            [self.delegate dataHasDownloaded:self keyName:fileName data:contactData];
         }
     }
 
@@ -116,14 +112,6 @@
     //[self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
     
     [self finish];
-}
-
-// 完了を知らせるメソッド
-- (void) savingImageIsFinished:(UIImage *)_image
-      didFinishSavingWithError:(NSError *)_error
-                   contextInfo:(void *)_contextInfo
-{
-    NSLog(@"finished"); //仮にコンソールに表示する
 }
 
 -(void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data

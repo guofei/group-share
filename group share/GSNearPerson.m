@@ -14,7 +14,7 @@
 #import "AmazonClientManager.h"
 #import "AWSConstants.h"
 
-#define Distance 100
+#define Distance 1000
 
 @implementation GSNearPerson
 

@@ -20,6 +20,7 @@
 		285E22A6157BA68200287B80 /* GSRemoveItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E22A5157BA68200287B80 /* GSRemoveItem.m */; };
 		285E22B4157C6F1500287B80 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285E22B3157C6F1500287B80 /* AssetsLibrary.framework */; };
 		285E22B6157C7FAC00287B80 /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = 285E22B5157C7FAC00287B80 /* name.png */; };
+		285E22C1157C853700287B80 /* GSDonwloaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E22C0157C853700287B80 /* GSDonwloaderTest.m */; };
 		288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
 		288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
 		288A222B1564172800BBD2C6 /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288A221D1564172800BBD2C6 /* GSViewController.xib */; };
@@ -78,6 +79,8 @@
 		285E22A5157BA68200287B80 /* GSRemoveItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRemoveItem.m; sourceTree = "<group>"; };
 		285E22B3157C6F1500287B80 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		285E22B5157C7FAC00287B80 /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = SOURCE_ROOT; };
+		285E22BF157C853700287B80 /* GSDonwloaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSDonwloaderTest.h; sourceTree = "<group>"; };
+		285E22C0157C853700287B80 /* GSDonwloaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSDonwloaderTest.m; sourceTree = "<group>"; };
 		288A221E1564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSViewController.xib; sourceTree = "<group>"; };
 		288A22201564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		288A22211564172800BBD2C6 /* group share-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "group share-Info.plist"; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 			children = (
 				2819E20B15490DE1002DBAED /* group_shareTests.h */,
 				2819E20C15490DE1002DBAED /* group_shareTests.m */,
+				285E22BF157C853700287B80 /* GSDonwloaderTest.h */,
+				285E22C0157C853700287B80 /* GSDonwloaderTest.m */,
 				28C4C104157628B4001475A9 /* GSNearPersonTest.h */,
 				28C4C105157628B4001475A9 /* GSNearPersonTest.m */,
 				288A22551564DCB700BBD2C6 /* ABContactsTest.h */,
@@ -427,6 +432,7 @@
 				2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */,
 				288A22571564DCB700BBD2C6 /* ABContactsTest.m in Sources */,
 				28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */,
+				285E22C1157C853700287B80 /* GSDonwloaderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

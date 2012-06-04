@@ -10,6 +10,7 @@
 
 @protocol GSDownloadDelegate <NSObject>
 
-- (void)itemHasUpdated:(id)sender itemID:(NSString *)id;
+- (void)itemHasUpdated:(id)sender keyName:(NSString *)s3Filename;
+- (void)dataHasDownloaded:(id)sender keyName:(NSString *)s3Filename data:(NSData *)data;
 
 @end
