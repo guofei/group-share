@@ -20,12 +20,12 @@
 
 #pragma mark - Class Lifecycle
 
--(id)initWithData:(NSData *)d keyName:(NSString *)name GPS:(GSGPSController *)gps progressView:(UIProgressView *)theProgressView
+-(id)initWithData:(id)d keyName:(NSString *)name GPS:(GSGPSController *)gps progressView:(UIProgressView *)theProgressView
 {
     self = [super init];
     if (self)
     {
-        data      = [d retain];
+        s3Data    = [d retain];
         keyName   = [name retain];
         gpsCtr    = [gps retain];
         progressView = [theProgressView retain];
@@ -41,7 +41,7 @@
 {
     [progressView release];
     [keyName release];
-    [data release];
+    [s3Data release];
     [gpsCtr release];
 
     [super dealloc];
@@ -79,7 +79,14 @@
     AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
     // Puts the file as an object in the bucket.
     S3PutObjectRequest *putObjectRequest = [[[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName] autorelease];
-    putObjectRequest.data = data;
+    if ([keyName hasSuffix:@".ab"]) {
+        putObjectRequest.data = s3Data;
+    }
+    if ([keyName hasSuffix:@".png"]) {
+        NSData *data = [[NSData alloc] initWithData:UIImagePNGRepresentation(s3Data)];
+        putObjectRequest.data = data;
+    }
+
     putObjectRequest.contentType = @"application/octet-stream";
     putObjectRequest.delegate = self;
     [s3 putObject:putObjectRequest];

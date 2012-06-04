@@ -13,16 +13,16 @@
 
 @interface AsyncUploader : NSOperation<AmazonServiceRequestDelegate>
 {
-    NSString       *keyName;
-    NSData         *data;
-    UIProgressView *progressView;
+    id              s3Data;
+    NSString        *keyName;
+    UIProgressView  *progressView;
     GSGPSController *gpsCtr;
-    BOOL           isExecuting;
-    BOOL           isFinished;
-    id             <UpdateDelegate> delegate;
+    BOOL            isExecuting;
+    BOOL            isFinished;
+    id              <UpdateDelegate> delegate;
 }
 
--(id)initWithData:(NSData *)d keyName:(NSString *)name GPS:(GSGPSController *)gps progressView:(UIProgressView *)theProgressView;
+-(id)initWithData:(id)d keyName:(NSString *)name GPS:(GSGPSController *)gps progressView:(UIProgressView *)theProgressView;
 
 -(void)finish;
 -(void)initializeProgressView;

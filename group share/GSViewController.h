@@ -22,15 +22,15 @@
     IBOutlet UIProgressView  *downloadProgress1;
     NSString *ddbID;
     NSString *keyName;
-    NSData *contactData;
+    id s3Data;
     GSGPSController *gps;
     NSOperationQueue *operationQueue;
 }
 
-@property (nonatomic, retain) NSData *contactData;
 @property (nonatomic, retain) GSGPSController *gps;
 @property (nonatomic, retain) NSString *ddbID;
 @property (nonatomic, retain) NSString *keyName;
+@property (nonatomic, retain) id s3Data;
 
 - (IBAction)selectPeson:(id)sender;
 - (IBAction)selectImage:(id)sender;

@@ -22,7 +22,7 @@
 
 @implementation GSViewController
 
-@synthesize contactData, gps, ddbID, keyName;
+@synthesize gps, ddbID, keyName, s3Data;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +33,7 @@
         operationQueue.maxConcurrentOperationCount = 3;
         ddbID = nil;
         keyName = nil;
-        contactData = nil;
+        s3Data = nil;
         gps = nil;
     }
     return self;
@@ -50,8 +50,8 @@
 {
     [super viewDidUnload];
 
-    [contactData release];
-    contactData = nil;
+    [s3Data release];
+    s3Data = nil;
     [keyName release];
     keyName = nil;
     [gps release];
@@ -63,7 +63,7 @@
 - (void)dealloc
 {
     [ddbID release];
-    [contactData release];
+    [s3Data release];
     [keyName release];
     [gps release];
     
@@ -105,8 +105,8 @@
 - (void)send:(id)sender
 {
     if ([CLLocationManager locationServicesEnabled]) {
-        if (contactData) {
-            AsyncUploader *uploader = [[AsyncUploader alloc] initWithData:contactData keyName:keyName GPS:gps progressView:uploadProgress1];
+        if (s3Data) {
+            AsyncUploader *uploader = [[AsyncUploader alloc] initWithData:s3Data keyName:keyName GPS:gps progressView:uploadProgress1];
             [operationQueue addOperation:uploader];
             [uploader release];
         }
@@ -145,12 +145,11 @@
     NSData *data = [contact baseDataRepresentation];
     NSLog(@"data %@", [data description]);
     
-    keyName = [[NSString stringWithFormat:@"%@_%@.ab", contact.contactName, [[NSDate date] description]] retain];
-    self.contactData = data;
+    self.keyName = [NSString stringWithFormat:@"%@_%@.ab", contact.contactName, [[NSDate date] description]];
+    self.s3Data = data;
     
     name.text = contact.contactName;
-    UIImage *image = [UIImage imageNamed:@"name.png"];
-    imageView.image = image;
+    imageView.image = [UIImage imageNamed:@"name.png"];
     imageView.hidden = NO;
     [self dismissModalViewControllerAnimated:YES];
 
@@ -167,8 +166,16 @@
 }
 
 - (void) imagePickerController:(UIImagePickerController*)picker  
-         didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary*)editingInfo {  
-    // image を処理
+         didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary*)editingInfo
+{  
+    name.text = @"";
+    imageView.image = image;
+    imageView.hidden = NO;
+    //NSData *data = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+    keyName = [[NSString stringWithFormat:@"%@_%@.png", @"img", [[NSDate date] description]] retain];
+    self.s3Data = image;
+
+    [picker dismissModalViewControllerAnimated:YES];
     /*
     UIImage *img_ato;  // リサイズ後UIImage
     float widthPer = 0.5;  // リサイズ後幅の倍率
@@ -178,7 +185,7 @@
     [image drawInRect:CGRectMake(0, 0, sz.width, sz.height)];
     img_ato = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext(); 
-    */
+
     //NSDictionary *imageData = [NSDictionary dictionaryWithObject:image forKey:@"image"];
     [image retain];
     @try {
@@ -188,8 +195,7 @@
         NSLog(@"%@", exception);
     }
 
-    //[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(setImage:) userInfo:imageData repeats:NO];
-    [picker dismissModalViewControllerAnimated:YES];  
+    */
 }
 
 - (void) setImageThread:(id)image
@@ -197,19 +203,13 @@
     NSAutoreleasePool* pool;
     pool = [[NSAutoreleasePool alloc]init];
     
-    name.text = @"";
-    imageView.image = image;
-    imageView.hidden = NO;
-    NSData *data = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
-    keyName = [[NSString stringWithFormat:@"%@_%@.png", @"img", [[NSDate date] description]] retain];
-    self.contactData = data;
-    [data release];
     
     [pool release];
     [NSThread exit];
 }
 
-- (void) imagePickerControllerDidCancel:(UIImagePickerController*)picker {  
+- (void) imagePickerControllerDidCancel:(UIImagePickerController*)picker
+{  
     //キャンセル時の処理
     [picker dismissModalViewControllerAnimated:YES];  
 }
