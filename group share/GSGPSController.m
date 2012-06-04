@@ -56,6 +56,7 @@
     UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Error Locating" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
     [errorAlert release];
+    [locationManager stopUpdatingLocation];
 }
 
 @end

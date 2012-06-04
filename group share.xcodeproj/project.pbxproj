@@ -18,6 +18,8 @@
 		2819E20A15490DE1002DBAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2819E20815490DE1002DBAED /* InfoPlist.strings */; };
 		2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E20C15490DE1002DBAED /* group_shareTests.m */; };
 		285E22A6157BA68200287B80 /* GSRemoveItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E22A5157BA68200287B80 /* GSRemoveItem.m */; };
+		285E22B4157C6F1500287B80 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285E22B3157C6F1500287B80 /* AssetsLibrary.framework */; };
+		285E22B6157C7FAC00287B80 /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = 285E22B5157C7FAC00287B80 /* name.png */; };
 		288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
 		288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
 		288A222B1564172800BBD2C6 /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288A221D1564172800BBD2C6 /* GSViewController.xib */; };
@@ -74,6 +76,8 @@
 		285E22A2157B8CA800287B80 /* GSDownloadDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSDownloadDelegate.h; sourceTree = "<group>"; };
 		285E22A4157BA68200287B80 /* GSRemoveItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSRemoveItem.h; sourceTree = "<group>"; };
 		285E22A5157BA68200287B80 /* GSRemoveItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRemoveItem.m; sourceTree = "<group>"; };
+		285E22B3157C6F1500287B80 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		285E22B5157C7FAC00287B80 /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = SOURCE_ROOT; };
 		288A221E1564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSViewController.xib; sourceTree = "<group>"; };
 		288A22201564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		288A22211564172800BBD2C6 /* group share-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "group share-Info.plist"; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285E22B4157C6F1500287B80 /* AssetsLibrary.framework in Frameworks */,
 				28A873AB156CB7DD00138B59 /* CoreLocation.framework in Frameworks */,
 				288A225D1564E9F800BBD2C6 /* AWSiOSSDK.framework in Frameworks */,
 				28084523155599B5000690A9 /* AddressBookUI.framework in Frameworks */,
@@ -177,6 +182,7 @@
 		2819E1E015490DE1002DBAED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				285E22B3157C6F1500287B80 /* AssetsLibrary.framework */,
 				28A873AA156CB7DD00138B59 /* CoreLocation.framework */,
 				288A225C1564E9F800BBD2C6 /* AWSiOSSDK.framework */,
 				28084520155599AE000690A9 /* AddressBook.framework */,
@@ -246,6 +252,7 @@
 				288A22221564172800BBD2C6 /* group share-Prefix.pch */,
 				288A221F1564172800BBD2C6 /* InfoPlist.strings */,
 				288A225F1564EDCB00BBD2C6 /* recive.png */,
+				285E22B5157C7FAC00287B80 /* name.png */,
 				288A22211564172800BBD2C6 /* group share-Info.plist */,
 				288A222A1564172800BBD2C6 /* main.m */,
 			);
@@ -357,6 +364,7 @@
 				288A222B1564172800BBD2C6 /* GSViewController.xib in Resources */,
 				288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */,
 				288A22601564EDCB00BBD2C6 /* recive.png in Resources */,
+				285E22B6157C7FAC00287B80 /* name.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,7 @@
 
 @implementation GSViewController
 
-@synthesize contactData,gps;
+@synthesize contactData, gps, ddbID, keyName;
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,8 +78,8 @@
 {
     if ([CLLocationManager locationServicesEnabled]) {
         recive.text = @"Waiting for recive";
-        NSDate *date = [NSDate date];
-        ddbID = [[NSString stringWithFormat:@"%@#%d",[date description],rand()%100000] retain];
+
+        self.ddbID = [NSString stringWithFormat:@"%@#%d",[[NSDate date] description],rand()%100000];
         NSString *deviceUDID = [[UIDevice currentDevice] name];
         GSAsyncCreateItem *item = [[GSAsyncCreateItem alloc] initWithName:deviceUDID ID:ddbID GPS:gps];
         item.delegate = self;
@@ -121,6 +121,15 @@
     [picker release];
 }
 
+- (void)selectImage:(id)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];  
+    picker.delegate = self;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
+    [self presentModalViewController:picker animated:YES];  
+    [picker release];  
+}
+
 - (void)peoplePickerNavigationControllerDidCancel:
     (ABPeoplePickerNavigationController *)peoplePicker {
     [self dismissModalViewControllerAnimated:YES];
@@ -130,13 +139,18 @@
     (ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {
+    //imageView.hidden = YES;
     ABContact *contact = [ABContact contactWithRecord:person];
     NSData *data = [contact baseDataRepresentation];
     NSLog(@"data %@", [data description]);
     
-    keyName = [[NSString stringWithFormat:@"%@_%@", contact.contactName, [[NSDate date] description]] retain];
+    keyName = [[NSString stringWithFormat:@"%@_%@.ab", contact.contactName, [[NSDate date] description]] retain];
     self.contactData = data;
-    name.text = contact.firstname;
+    
+    name.text = contact.contactName;
+    UIImage *image = [UIImage imageNamed:@"name.png"];
+    imageView.image = image;
+    imageView.hidden = NO;
     [self dismissModalViewControllerAnimated:YES];
 
     return NO;
@@ -149,6 +163,24 @@
                               identifier:(ABMultiValueIdentifier)identifier
 {
     return NO;
+}
+
+- (void) imagePickerController:(UIImagePickerController*)picker  
+         didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary*)editingInfo {  
+    // image を処理
+    name.text = @"";
+    imageView.image = image;
+    imageView.hidden = NO;
+    NSData *data = [[NSData alloc] initWithData:UIImagePNGRepresentation(image)];
+    keyName = [[NSString stringWithFormat:@"%@_%@.png", @"img", [[NSDate date] description]] retain];
+    self.contactData = data;
+    [data release];
+    [picker dismissModalViewControllerAnimated:YES];  
+}  
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController*)picker {  
+    //キャンセル時の処理
+    [picker dismissModalViewControllerAnimated:YES];  
 }
 
 - (void)itemHasUpdated:(id)sender itemID:(NSString *)id

@@ -19,8 +19,6 @@
     BOOL           isFinished;
 }
 
-@property (nonatomic, readonly) NSData* contactData;
-
 -(id)initWithS3:(NSString *)name progressView:(UIProgressView *)theProgressView;
 -(void)finish;
 -(void)initialize;

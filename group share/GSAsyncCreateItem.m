@@ -61,8 +61,6 @@
     while (!gpsCtr.lastReading && ![self isCancelled]) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
-    NSLog(@"location %@", [gpsCtr.lastReading description]);
-    NSLog(@"altitude %@", gpsCtr.lastReading.altitude);
 
     AmazonDynamoDBClient *ddb = [AmazonClientManager ddbClient];
 
