@@ -43,12 +43,13 @@
 		288A228F15669B0800BBD2C6 /* AsyncDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A228E15669B0800BBD2C6 /* AsyncDownloader.m */; };
 		28A873A0156CAADE00138B59 /* GSAsyncCreateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */; };
 		28A873AB156CB7DD00138B59 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
+		28BAB723157D242700BF1036 /* GSSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BAB722157D242700BF1036 /* GSSender.m */; };
+		28BAB727157D246800BF1036 /* GSReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BAB726157D246800BF1036 /* GSReceiver.m */; };
 		28C4C0EB1570B9F1001475A9 /* GSGPSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0EA1570B9F1001475A9 /* GSGPSController.m */; };
 		28C4C0FB1574C432001475A9 /* GSNearPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0FA1574C431001475A9 /* GSNearPerson.m */; };
 		28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C10215753387001475A9 /* AmazonClientManager.m */; };
 		28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C105157628B4001475A9 /* GSNearPersonTest.m */; };
 		28C4C11C15792F39001475A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
-		28C4C128157B3C46001475A9 /* GSUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C127157B3C46001475A9 /* GSUpdateItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,6 @@
 		2819E20915490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2819E20B15490DE1002DBAED /* group_shareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = group_shareTests.h; sourceTree = "<group>"; };
 		2819E20C15490DE1002DBAED /* group_shareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = group_shareTests.m; sourceTree = "<group>"; };
-		285E22A2157B8CA800287B80 /* GSDownloadDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSDownloadDelegate.h; sourceTree = "<group>"; };
 		285E22A4157BA68200287B80 /* GSRemoveItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSRemoveItem.h; sourceTree = "<group>"; };
 		285E22A5157BA68200287B80 /* GSRemoveItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRemoveItem.m; sourceTree = "<group>"; };
 		285E22B3157C6F1500287B80 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -116,6 +116,10 @@
 		28A8739E156CAADE00138B59 /* GSAsyncCreateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAsyncCreateItem.h; sourceTree = "<group>"; };
 		28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAsyncCreateItem.m; sourceTree = "<group>"; };
 		28A873AA156CB7DD00138B59 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		28BAB721157D242700BF1036 /* GSSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSender.h; sourceTree = "<group>"; };
+		28BAB722157D242700BF1036 /* GSSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSender.m; sourceTree = "<group>"; };
+		28BAB725157D246800BF1036 /* GSReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSReceiver.h; sourceTree = "<group>"; };
+		28BAB726157D246800BF1036 /* GSReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSReceiver.m; sourceTree = "<group>"; };
 		28C4C0E91570B9F1001475A9 /* GSGPSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSGPSController.h; sourceTree = "<group>"; };
 		28C4C0EA1570B9F1001475A9 /* GSGPSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSGPSController.m; sourceTree = "<group>"; };
 		28C4C0F91574C431001475A9 /* GSNearPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPerson.h; sourceTree = "<group>"; };
@@ -124,8 +128,6 @@
 		28C4C10215753387001475A9 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = "group share/AmazonClientManager.m"; sourceTree = "<group>"; };
 		28C4C104157628B4001475A9 /* GSNearPersonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPersonTest.h; sourceTree = "<group>"; };
 		28C4C105157628B4001475A9 /* GSNearPersonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNearPersonTest.m; sourceTree = "<group>"; };
-		28C4C126157B3C46001475A9 /* GSUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSUpdateItem.h; sourceTree = "<group>"; };
-		28C4C127157B3C46001475A9 /* GSUpdateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSUpdateItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,23 +231,16 @@
 				288A221D1564172800BBD2C6 /* GSViewController.xib */,
 				288A22231564172800BBD2C6 /* GSAppDelegate.h */,
 				288A22241564172800BBD2C6 /* GSAppDelegate.m */,
-				285E22A2157B8CA800287B80 /* GSDownloadDelegate.h */,
 				288A22281564172800BBD2C6 /* GSViewController.h */,
 				288A22291564172800BBD2C6 /* GSViewController.m */,
-				288A228D15669B0800BBD2C6 /* AsyncDownloader.h */,
-				288A228E15669B0800BBD2C6 /* AsyncDownloader.m */,
-				288A228915669A9600BBD2C6 /* AsyncUploader.h */,
-				288A228A15669A9600BBD2C6 /* AsyncUploader.m */,
-				28C4C126157B3C46001475A9 /* GSUpdateItem.h */,
-				28C4C127157B3C46001475A9 /* GSUpdateItem.m */,
-				28C4C0F91574C431001475A9 /* GSNearPerson.h */,
-				28C4C0FA1574C431001475A9 /* GSNearPerson.m */,
 				28C4C0E91570B9F1001475A9 /* GSGPSController.h */,
 				28C4C0EA1570B9F1001475A9 /* GSGPSController.m */,
-				285E22A4157BA68200287B80 /* GSRemoveItem.h */,
-				285E22A5157BA68200287B80 /* GSRemoveItem.m */,
-				28A8739E156CAADE00138B59 /* GSAsyncCreateItem.h */,
-				28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */,
+				28BAB721157D242700BF1036 /* GSSender.h */,
+				28BAB722157D242700BF1036 /* GSSender.m */,
+				28BAB725157D246800BF1036 /* GSReceiver.h */,
+				28BAB726157D246800BF1036 /* GSReceiver.m */,
+				28BAB729157E006800BF1036 /* Receiver */,
+				28BAB728157E005300BF1036 /* Sender */,
 				288A22361564188800BBD2C6 /* Supporting Files */,
 			);
 			path = "group share";
@@ -293,6 +288,30 @@
 				288A227315656D3E00BBD2C6 /* AWSConstants.m */,
 			);
 			name = AWSHelper;
+			sourceTree = "<group>";
+		};
+		28BAB728157E005300BF1036 /* Sender */ = {
+			isa = PBXGroup;
+			children = (
+				288A228915669A9600BBD2C6 /* AsyncUploader.h */,
+				288A228A15669A9600BBD2C6 /* AsyncUploader.m */,
+				28C4C0F91574C431001475A9 /* GSNearPerson.h */,
+				28C4C0FA1574C431001475A9 /* GSNearPerson.m */,
+			);
+			name = Sender;
+			sourceTree = "<group>";
+		};
+		28BAB729157E006800BF1036 /* Receiver */ = {
+			isa = PBXGroup;
+			children = (
+				288A228D15669B0800BBD2C6 /* AsyncDownloader.h */,
+				288A228E15669B0800BBD2C6 /* AsyncDownloader.m */,
+				285E22A4157BA68200287B80 /* GSRemoveItem.h */,
+				285E22A5157BA68200287B80 /* GSRemoveItem.m */,
+				28A8739E156CAADE00138B59 /* GSAsyncCreateItem.h */,
+				28A8739F156CAADE00138B59 /* GSAsyncCreateItem.m */,
+			);
+			name = Receiver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,8 +439,9 @@
 				28C4C0EB1570B9F1001475A9 /* GSGPSController.m in Sources */,
 				28C4C0FB1574C432001475A9 /* GSNearPerson.m in Sources */,
 				28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */,
-				28C4C128157B3C46001475A9 /* GSUpdateItem.m in Sources */,
 				285E22A6157BA68200287B80 /* GSRemoveItem.m in Sources */,
+				28BAB723157D242700BF1036 /* GSSender.m in Sources */,
+				28BAB727157D246800BF1036 /* GSReceiver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

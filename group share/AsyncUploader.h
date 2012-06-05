@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSiOSSDK/AmazonServiceRequest.h>
 #import "GSUpdateItem.h"
+#import "GSSender.h"
 #import "GSGPSController.h"
 
 @interface AsyncUploader : NSOperation<AmazonServiceRequestDelegate>
@@ -17,18 +18,16 @@
     NSString        *keyName;
     UIProgressView  *progressView;
     GSGPSController *gpsCtr;
-    BOOL            isExecuting;
-    BOOL            isFinished;
-    id              <UpdateDelegate> delegate;
+    BOOL            _isUploaded;
+    id              <SenderDelegate> delegate;
 }
 
 -(id)initWithData:(id)d keyName:(NSString *)name GPS:(GSGPSController *)gps progressView:(UIProgressView *)theProgressView;
 
--(void)finish;
 -(void)initializeProgressView;
 -(void)updateProgressView:(NSNumber *)theProgress;
 -(void)hideProgressView;
 
-@property (nonatomic,assign) id<UpdateDelegate> delegate;
+@property (nonatomic,assign) id<SenderDelegate> delegate;
 
 @end

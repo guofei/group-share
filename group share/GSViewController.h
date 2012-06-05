@@ -10,18 +10,20 @@
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
+#import "GSSender.h"
+#import "GSReceiver.h"
 #import "GSDownloadDelegate.h"
 #import "GSGPSController.h"
 
-@interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, GSDownloadDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface GSViewController : UIViewController <ABPeoplePickerNavigationControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     IBOutlet UILabel *name;
     IBOutlet UILabel *recive;
     IBOutlet UIImageView *imageView;
     IBOutlet UIProgressView  *uploadProgress1;
     IBOutlet UIProgressView  *downloadProgress1;
-    NSString *ddbID;
-    NSString *keyName;
+    GSSender *gsSender;
+    GSReceiver *gsReceiver;
     id s3Data;
     GSGPSController *gps;
     NSOperationQueue *operationQueue;

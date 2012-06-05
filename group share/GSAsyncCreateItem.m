@@ -61,30 +61,28 @@
     while (!gpsCtr.lastReading && ![self isCancelled]) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
-
-    AmazonDynamoDBClient *ddb = [AmazonClientManager ddbClient];
-
     @try {
+        AmazonDynamoDBClient *ddb = [AmazonClientManager ddbClient];
         NSMutableDictionary *putItem = [self createItem:gpsCtr];
         DynamoDBPutItemRequest *putItemRequest = [[[DynamoDBPutItemRequest alloc] initWithTableName:TABLE_NAME andItem:putItem] autorelease];
-        DynamoDBPutItemResponse *putItemResponse = [ddb putItem:putItemRequest];
-        NSLog(@"rep   %@", putItemResponse);
+        if (!self.isCancelled) {
+            DynamoDBPutItemResponse *putItemResponse = [ddb putItem:putItemRequest];
+            NSLog(@"rep   %@", putItemResponse);
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"%@", exception);
     }
 
-    NSTimer *tm = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(checkIsReceived:) userInfo:nil repeats:YES];
+    if (!self.isCancelled) {
+        [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(checkIsReceived:) userInfo:nil repeats:YES];
+    }
 
-    while (!_isReceived && ![self isCancelled]) {
+    while (!_isReceived && !self.isCancelled) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     NSLog(@"over!!!!!!!!!!!!");
-    
-    if ([self isCancelled]) {
-        [tm invalidate];
-    }
-    
+        
     [pool release];
 }
 
@@ -123,7 +121,9 @@
             [self.delegate itemHasUpdated:self keyName:url.s];
         }
     }
-
+    if ([self isCancelled]) {
+        [timer invalidate];
+    }
     NSLog(@"check");
 }
 

@@ -12,7 +12,6 @@
 #import "AsyncUploader.h"
 #import "AWSConstants.h"
 #import "GSNearPerson.h"
-#import "GSUpdateItem.h"
 
 @implementation AsyncUploader
 
@@ -29,9 +28,6 @@
         keyName   = [name retain];
         gpsCtr    = [gps retain];
         progressView = [theProgressView retain];
-
-        isExecuting = NO;
-        isFinished  = NO;
     }
     
     return self;
@@ -57,19 +53,8 @@
  * http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/NSOperation_class/Reference/Reference.html
  */
 
--(void)start
-{
-    // Makes sure that start method always runs on the main thread.
-    if (![NSThread isMainThread])
-    {
-        [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:NO];
-        return;
-    }
-    
-    [self willChangeValueForKey:@"isExecuting"];
-    isExecuting = YES;
-    [self didChangeValueForKey:@"isExecuting"];
-    
+-(void)main
+{    
     [self performSelectorOnMainThread:@selector(initializeProgressView) withObject:nil waitUntilDone:NO];
     
     NSString *bucketName = BUCKET_NAME;
@@ -78,33 +63,26 @@
 
     AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
     // Puts the file as an object in the bucket.
-    S3PutObjectRequest *putObjectRequest = [[[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName] autorelease];
+    S3PutObjectRequest *putObjectRequest = [[S3PutObjectRequest alloc] initWithKey:keyName inBucket:bucketName];
     if ([keyName hasSuffix:@".ab"]) {
         putObjectRequest.data = s3Data;
     }
-    if ([keyName hasSuffix:@".png"]) {
-        NSData *data = [[NSData alloc] initWithData:UIImagePNGRepresentation(s3Data)];
+    if ([keyName hasSuffix:@".jpg"]) {
+        NSData *data = [[NSData alloc] initWithData:UIImageJPEGRepresentation(s3Data, 0)];
         putObjectRequest.data = data;
+        [data release];
     }
 
     putObjectRequest.contentType = @"application/octet-stream";
     putObjectRequest.delegate = self;
     [s3 putObject:putObjectRequest];
-}
-
--(BOOL)isConcurrent
-{
-    return YES;
-}
-
--(BOOL)isExecuting
-{
-    return isExecuting;
-}
-
--(BOOL)isFinished
-{
-    return isFinished;
+    [putObjectRequest release];
+    while (!_isUploaded && !self.isCancelled) {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+    if ([self.delegate respondsToSelector:@selector(updateHasDone:)] && !self.isCancelled) {
+        [self.delegate updateHasDone:self];
+    }
 }
 
 #pragma mark - AmazonServiceRequestDelegate Implementations
@@ -121,16 +99,12 @@
     NSMutableArray *nearPerson = [[near getNearPerson] retain];
     for (int i = 0; i < nearPerson.count; ++i) {
         NSString *pKey = [nearPerson objectAtIndex:i];
-        GSUpdateItem *update = [[GSUpdateItem alloc] initWithS3KeyName:keyName DynamoKeyName:pKey];
-        self.delegate = update;
         
-        if ([self.delegate respondsToSelector:@selector(UpdateItem:)]) {
-            [self.delegate UpdateItem:self];
+        if ([self.delegate respondsToSelector:@selector(uploaderHasDone:dynamoDBKey:)]) {
+            [self.delegate uploaderHasDone:self dynamoDBKey:pKey];
         }
-        [update release];
     }
-    
-    [self finish];
+    _isUploaded = YES;
 }
 
 -(void)request:(AmazonServiceRequest *)request didSendData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
@@ -142,29 +116,16 @@
 {
     NSLog(@"%@", error);
     [AWSConstants showAlertMessage:CREDENTIALS_ALERT_MESSAGE withTitle:@"error"];
-    [self finish];
+    _isUploaded = YES;
 }
 
 -(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception
 {
     NSLog(@"%@", exception);
-    
-    [self finish];
+    _isUploaded = YES;
 }
 
 #pragma mark - Helper Methods
-
--(void)finish
-{
-    [self willChangeValueForKey:@"isExecuting"];
-    [self willChangeValueForKey:@"isFinished"];
-    
-    isExecuting = NO;
-    isFinished  = YES;
-    
-    [self didChangeValueForKey:@"isExecuting"];
-    [self didChangeValueForKey:@"isFinished"];
-}
 
 -(void)initializeProgressView
 {

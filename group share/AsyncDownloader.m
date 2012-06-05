@@ -26,7 +26,7 @@
         //maybe need fix!!
         fileName = [name retain];
         progressView = [theProgressView retain];
-        
+        _isDownloaded = NO;
         isExecuting = NO;
         isFinished  = NO;
     }
@@ -37,9 +37,7 @@
 -(void)dealloc
 {
     //[fileName release];
-    if (contactData) {
-        [contactData release];
-    }
+    [contactData release];
     [progressView release];
     
     [super dealloc];
@@ -55,43 +53,24 @@
  * http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/NSOperation_class/Reference/Reference.html
  */
 
--(void)start
+-(void)main
 {
-    // Makes sure that start method always runs on the main thread.
-    if (![NSThread isMainThread])
-    {
-        [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:NO];
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
+    [self performSelectorOnMainThread:@selector(initialize) withObject:nil waitUntilDone:NO];
+    if (self.isCancelled) {
         return;
     }
-    
-    [self willChangeValueForKey:@"isExecuting"];
-    isExecuting = YES;
-    [self didChangeValueForKey:@"isExecuting"];
-    
-    [self performSelectorOnMainThread:@selector(initialize) withObject:nil waitUntilDone:NO];
-    
-    NSString *bucketName = BUCKET_NAME;
-    
     // Puts the file as an object in the bucket.
-    S3GetObjectRequest *getObjectRequest = [[[S3GetObjectRequest alloc] initWithKey:fileName withBucket:bucketName] autorelease];
+    S3GetObjectRequest *getObjectRequest = [[[S3GetObjectRequest alloc] initWithKey:fileName withBucket:BUCKET_NAME] autorelease];
     getObjectRequest.delegate = self;
     AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
     [s3 getObject:getObjectRequest];
-}
-
--(BOOL)isConcurrent
-{
-    return YES;
-}
-
--(BOOL)isExecuting
-{
-    return isExecuting;
-}
-
--(BOOL)isFinished
-{
-    return isFinished;
+    while (!_isDownloaded && !self.isCancelled) {
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
+    }
+    
+    [pool release];
 }
 
 #pragma mark - AmazonServiceRequestDelegate Implementations
@@ -107,11 +86,9 @@
             [self.delegate dataHasDownloaded:self keyName:fileName data:contactData];
         }
     }
-
+    _isDownloaded = YES;
     //UIImage *image = [UIImage imageWithData:response.body];
     //[self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
-    
-    [self finish];
 }
 
 -(void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data
@@ -123,30 +100,16 @@
 -(void)request:(AmazonServiceRequest *)request didFailWithError:(NSError *)error
 {
     NSLog(@"eee%@", error);
-    
-    [self finish];
+    _isDownloaded = YES;
 }
 
 -(void)request:(AmazonServiceRequest *)request didFailWithServiceException:(NSException *)exception
 {
     NSLog(@"xxx%@", exception);
-    
-    [self finish];
+    _isDownloaded = YES;
 }
 
 #pragma mark - Helper Methods
-
--(void)finish
-{
-    [self willChangeValueForKey:@"isExecuting"];
-    [self willChangeValueForKey:@"isFinished"];
-    
-    isExecuting = NO;
-    isFinished  = YES;
-    
-    [self didChangeValueForKey:@"isExecuting"];
-    [self didChangeValueForKey:@"isFinished"];
-}
 
 -(void)initialize
 {

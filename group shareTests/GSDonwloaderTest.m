@@ -16,7 +16,7 @@
     operationQueue = [[NSOperationQueue alloc] init];
     operationQueue.maxConcurrentOperationCount = 3;
     UIProgressView  *downloadProgress = [[UIProgressView alloc] init];
-    AsyncDownloader *downloader = [[AsyncDownloader alloc] initWithS3:@"img_2012-06-04 04:49:18 +0000.png" progressView:downloadProgress];
+    AsyncDownloader *downloader = [[AsyncDownloader alloc] initWithS3:@"img_0024-06-04 16:45:40 +0000.png" progressView:downloadProgress];
     [operationQueue addOperation:downloader];
     [downloadProgress release];
     [downloader release];
