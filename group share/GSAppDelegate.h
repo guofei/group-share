@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GSGPSController.h"
 
 @class GSViewController;
 
-@interface GSAppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface GSAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
+{
+    GSGPSController *_gps;
+}
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) GSViewController *viewController;
+@property (strong, nonatomic) UITabBarController *tabBarController;
+
+@property (nonatomic, retain) GSGPSController *gps;
 
 @end

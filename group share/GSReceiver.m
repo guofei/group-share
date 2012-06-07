@@ -78,16 +78,23 @@
         NSError *error;
         [ABContactsHelper addContact:newContact withError:&error];
         nameLabel.text = newContact.contactName;
-        UIImage *image = [UIImage imageNamed:@"name.png"];
+        UIImage *image = nil;
         imageView.image = image;
         imageView.hidden = NO;
     }
-    if ([s3Filename hasSuffix:@".png"]) {
+    if ([s3Filename hasSuffix:@".jpg"]) {
         UIImage* image = [[[UIImage alloc] initWithData:data] autorelease];
         UIImageWriteToSavedPhotosAlbum(image, self, @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);
         imageView.image = image;
         imageView.hidden = NO;
     }
+}
+
+- (void) savingImageIsFinished:(UIImage *)_image
+      didFinishSavingWithError:(NSError *)_error
+                   contextInfo:(void *)_contextInfo
+{
+    NSLog(@"finished");
 }
 
 @end

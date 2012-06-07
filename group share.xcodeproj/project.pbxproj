@@ -23,10 +23,10 @@
 		285E22C1157C853700287B80 /* GSDonwloaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E22C0157C853700287B80 /* GSDonwloaderTest.m */; };
 		288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
 		288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
-		288A222B1564172800BBD2C6 /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288A221D1564172800BBD2C6 /* GSViewController.xib */; };
+		288A222B1564172800BBD2C6 /* GSSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288A221D1564172800BBD2C6 /* GSSendViewController.xib */; };
 		288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288A221F1564172800BBD2C6 /* InfoPlist.strings */; };
 		288A222E1564172800BBD2C6 /* GSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22241564172800BBD2C6 /* GSAppDelegate.m */; };
-		288A22301564172800BBD2C6 /* GSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22291564172800BBD2C6 /* GSViewController.m */; };
+		288A22301564172800BBD2C6 /* GSSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22291564172800BBD2C6 /* GSSendViewController.m */; };
 		288A22311564172800BBD2C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A222A1564172800BBD2C6 /* main.m */; };
 		288A224F1564C72300BBD2C6 /* ABContact+FindCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22431564C72300BBD2C6 /* ABContact+FindCall.m */; };
 		288A22501564C72300BBD2C6 /* ABContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22451564C72300BBD2C6 /* ABContact.m */; };
@@ -45,6 +45,13 @@
 		28A873AB156CB7DD00138B59 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
 		28BAB723157D242700BF1036 /* GSSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BAB722157D242700BF1036 /* GSSender.m */; };
 		28BAB727157D246800BF1036 /* GSReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BAB726157D246800BF1036 /* GSReceiver.m */; };
+		28BABB16157FB34C00BF1036 /* GSImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BABB15157FB34B00BF1036 /* GSImageHelper.m */; };
+		28BABBCE1580E82600BF1036 /* GSReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */; };
+		28BABBCF1580E82600BF1036 /* GSReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBCD1580E82500BF1036 /* GSReceiveViewController.xib */; };
+		28BABBD61581041F00BF1036 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD41581041F00BF1036 /* download.png */; };
+		28BABBD71581041F00BF1036 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD51581041F00BF1036 /* upload.png */; };
+		28BABBDA15810A0E00BF1036 /* addressbook.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD815810A0E00BF1036 /* addressbook.png */; };
+		28BABBDB15810A0E00BF1036 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD915810A0E00BF1036 /* image.png */; };
 		28C4C0EB1570B9F1001475A9 /* GSGPSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0EA1570B9F1001475A9 /* GSGPSController.m */; };
 		28C4C0FB1574C432001475A9 /* GSNearPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0FA1574C431001475A9 /* GSNearPerson.m */; };
 		28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C10215753387001475A9 /* AmazonClientManager.m */; };
@@ -81,14 +88,14 @@
 		285E22B5157C7FAC00287B80 /* name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name.png; sourceTree = SOURCE_ROOT; };
 		285E22BF157C853700287B80 /* GSDonwloaderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSDonwloaderTest.h; sourceTree = "<group>"; };
 		285E22C0157C853700287B80 /* GSDonwloaderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSDonwloaderTest.m; sourceTree = "<group>"; };
-		288A221E1564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSViewController.xib; sourceTree = "<group>"; };
+		288A221E1564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSSendViewController.xib; sourceTree = "<group>"; };
 		288A22201564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		288A22211564172800BBD2C6 /* group share-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "group share-Info.plist"; sourceTree = "<group>"; };
 		288A22221564172800BBD2C6 /* group share-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "group share-Prefix.pch"; sourceTree = "<group>"; };
 		288A22231564172800BBD2C6 /* GSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAppDelegate.h; sourceTree = "<group>"; };
 		288A22241564172800BBD2C6 /* GSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAppDelegate.m; sourceTree = "<group>"; };
-		288A22281564172800BBD2C6 /* GSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSViewController.h; sourceTree = "<group>"; };
-		288A22291564172800BBD2C6 /* GSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSViewController.m; sourceTree = "<group>"; };
+		288A22281564172800BBD2C6 /* GSSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSendViewController.h; sourceTree = "<group>"; };
+		288A22291564172800BBD2C6 /* GSSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSendViewController.m; sourceTree = "<group>"; };
 		288A222A1564172800BBD2C6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		288A22421564C72300BBD2C6 /* ABContact+FindCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ABContact+FindCall.h"; sourceTree = "<group>"; };
 		288A22431564C72300BBD2C6 /* ABContact+FindCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ABContact+FindCall.m"; sourceTree = "<group>"; };
@@ -120,6 +127,15 @@
 		28BAB722157D242700BF1036 /* GSSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSender.m; sourceTree = "<group>"; };
 		28BAB725157D246800BF1036 /* GSReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSReceiver.h; sourceTree = "<group>"; };
 		28BAB726157D246800BF1036 /* GSReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSReceiver.m; sourceTree = "<group>"; };
+		28BABB14157FB34B00BF1036 /* GSImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSImageHelper.h; sourceTree = "<group>"; };
+		28BABB15157FB34B00BF1036 /* GSImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSImageHelper.m; sourceTree = "<group>"; };
+		28BABBCB1580E82400BF1036 /* GSReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSReceiveViewController.h; sourceTree = "<group>"; };
+		28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSReceiveViewController.m; sourceTree = "<group>"; };
+		28BABBCD1580E82500BF1036 /* GSReceiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSReceiveViewController.xib; sourceTree = "<group>"; };
+		28BABBD41581041F00BF1036 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = SOURCE_ROOT; };
+		28BABBD51581041F00BF1036 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = SOURCE_ROOT; };
+		28BABBD815810A0E00BF1036 /* addressbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressbook.png; sourceTree = SOURCE_ROOT; };
+		28BABBD915810A0E00BF1036 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = SOURCE_ROOT; };
 		28C4C0E91570B9F1001475A9 /* GSGPSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSGPSController.h; sourceTree = "<group>"; };
 		28C4C0EA1570B9F1001475A9 /* GSGPSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSGPSController.m; sourceTree = "<group>"; };
 		28C4C0F91574C431001475A9 /* GSNearPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPerson.h; sourceTree = "<group>"; };
@@ -228,11 +244,16 @@
 		288A221C1564172800BBD2C6 /* group share */ = {
 			isa = PBXGroup;
 			children = (
-				288A221D1564172800BBD2C6 /* GSViewController.xib */,
+				288A22281564172800BBD2C6 /* GSSendViewController.h */,
+				288A22291564172800BBD2C6 /* GSSendViewController.m */,
+				288A221D1564172800BBD2C6 /* GSSendViewController.xib */,
+				28BABBCB1580E82400BF1036 /* GSReceiveViewController.h */,
+				28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */,
+				28BABBCD1580E82500BF1036 /* GSReceiveViewController.xib */,
 				288A22231564172800BBD2C6 /* GSAppDelegate.h */,
 				288A22241564172800BBD2C6 /* GSAppDelegate.m */,
-				288A22281564172800BBD2C6 /* GSViewController.h */,
-				288A22291564172800BBD2C6 /* GSViewController.m */,
+				28BABB14157FB34B00BF1036 /* GSImageHelper.h */,
+				28BABB15157FB34B00BF1036 /* GSImageHelper.m */,
 				28C4C0E91570B9F1001475A9 /* GSGPSController.h */,
 				28C4C0EA1570B9F1001475A9 /* GSGPSController.m */,
 				28BAB721157D242700BF1036 /* GSSender.h */,
@@ -249,7 +270,11 @@
 		288A22361564188800BBD2C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28BABBD815810A0E00BF1036 /* addressbook.png */,
+				28BABBD915810A0E00BF1036 /* image.png */,
 				288A22221564172800BBD2C6 /* group share-Prefix.pch */,
+				28BABBD41581041F00BF1036 /* download.png */,
+				28BABBD51581041F00BF1036 /* upload.png */,
 				288A221F1564172800BBD2C6 /* InfoPlist.strings */,
 				288A225F1564EDCB00BBD2C6 /* recive.png */,
 				285E22B5157C7FAC00287B80 /* name.png */,
@@ -385,10 +410,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288A222B1564172800BBD2C6 /* GSViewController.xib in Resources */,
+				288A222B1564172800BBD2C6 /* GSSendViewController.xib in Resources */,
 				288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */,
 				288A22601564EDCB00BBD2C6 /* recive.png in Resources */,
 				285E22B6157C7FAC00287B80 /* name.png in Resources */,
+				28BABBCF1580E82600BF1036 /* GSReceiveViewController.xib in Resources */,
+				28BABBD61581041F00BF1036 /* download.png in Resources */,
+				28BABBD71581041F00BF1036 /* upload.png in Resources */,
+				28BABBDA15810A0E00BF1036 /* addressbook.png in Resources */,
+				28BABBDB15810A0E00BF1036 /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				288A222E1564172800BBD2C6 /* GSAppDelegate.m in Sources */,
-				288A22301564172800BBD2C6 /* GSViewController.m in Sources */,
+				288A22301564172800BBD2C6 /* GSSendViewController.m in Sources */,
 				288A22311564172800BBD2C6 /* main.m in Sources */,
 				288A224F1564C72300BBD2C6 /* ABContact+FindCall.m in Sources */,
 				288A22501564C72300BBD2C6 /* ABContact.m in Sources */,
@@ -442,6 +472,8 @@
 				285E22A6157BA68200287B80 /* GSRemoveItem.m in Sources */,
 				28BAB723157D242700BF1036 /* GSSender.m in Sources */,
 				28BAB727157D246800BF1036 /* GSReceiver.m in Sources */,
+				28BABB16157FB34C00BF1036 /* GSImageHelper.m in Sources */,
+				28BABBCE1580E82600BF1036 /* GSReceiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,12 +507,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		288A221D1564172800BBD2C6 /* GSViewController.xib */ = {
+		288A221D1564172800BBD2C6 /* GSSendViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				288A221E1564172800BBD2C6 /* en */,
 			);
-			name = GSViewController.xib;
+			name = GSSendViewController.xib;
 			sourceTree = "<group>";
 		};
 		288A221F1564172800BBD2C6 /* InfoPlist.strings */ = {

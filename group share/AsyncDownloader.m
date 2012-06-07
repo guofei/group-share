@@ -66,7 +66,7 @@
     getObjectRequest.delegate = self;
     AmazonS3Client *s3 = [[[AmazonS3Client alloc] initWithAccessKey:ACCESS_KEY_ID withSecretKey:SECRET_KEY] autorelease];
     [s3 getObject:getObjectRequest];
-    while (!_isDownloaded && !self.isCancelled) {
+    while (!_isDownloaded) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
     
@@ -87,13 +87,10 @@
         }
     }
     _isDownloaded = YES;
-    //UIImage *image = [UIImage imageWithData:response.body];
-    //[self performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:NO];
 }
 
 -(void)request:(AmazonServiceRequest *)request didReceiveData:(NSData *)data
 {
-    // The progress bar for downlaod is just an estimate. In order to accurately reflect the progress bar, you need to first retrieve the file size.
     [self performSelectorOnMainThread:@selector(updateProgressView:) withObject:[NSNumber numberWithFloat:[data length] / 150 / 1024] waitUntilDone:NO];
 }
 

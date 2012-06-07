@@ -8,17 +8,21 @@
 
 #import "GSAppDelegate.h"
 
-#import "GSViewController.h"
+#import "GSSendViewController.h"
+#import "GSReceiveViewController.h"
+#import "GSGPSController.h"
 
 @implementation GSAppDelegate
 
 @synthesize window = _window;
-@synthesize viewController = _viewController;
+@synthesize tabBarController = _tabBarController;
+@synthesize gps = _gps;
 
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
+    [_tabBarController release];
+    [_gps release];
     [super dealloc];
 }
 
@@ -26,8 +30,14 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[GSViewController alloc] initWithNibName:@"GSViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    self.gps = [[GSGPSController alloc] init];
+    GSSendViewController *viewController1 = [[[GSSendViewController alloc] initWithNibName:@"GSSendViewController" bundle:nil] autorelease];
+    viewController1.gps = self.gps;
+    GSReceiveViewController *viewController2 = [[[GSReceiveViewController alloc] initWithNibName:@"GSReceiveViewController" bundle:nil] autorelease];
+    viewController2.gps = self.gps;
+    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -37,7 +47,7 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     NSLog(@"applicationWillResignActive");
-    [self.viewController.gps stopLocate];
+    [self.gps stopLocate];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -54,7 +64,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [self.viewController.gps startLocate];
+    [self.gps startLocate];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
