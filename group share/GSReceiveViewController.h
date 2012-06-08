@@ -11,7 +11,7 @@
 #import "GSReceiver.h"
 #import "GSDownloadDelegate.h"
 
-@interface GSReceiveViewController : UIViewController
+@interface GSReceiveViewController : UIViewController<ABPeoplePickerNavigationControllerDelegate, UINavigationControllerDelegate>
 {
     IBOutlet UILabel *name;
     IBOutlet UILabel *recive;
@@ -20,10 +20,10 @@
     
     GSGPSController *gps;
     GSReceiver *gsReceiver;
-
 }
 
 @property (nonatomic, retain) GSGPSController *gps;
+
 - (IBAction)onRecive:(id)sender;
 - (IBAction)onRecived:(id)sender;
 

@@ -5,6 +5,8 @@
 //  Created by kaku on 12/06/07.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 #import "GSReceiveViewController.h"
 
@@ -30,10 +32,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    imageView.userInteractionEnabled = YES;
+    imageView.tag = 101;
+    name.text = nil;
+    imageView.image = nil;
 }
 
 - (void)viewDidUnload
 {
+    [gsReceiver release];
+    [gps release];
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -42,6 +51,7 @@
 - (void)dealloc
 {
     [gsReceiver release];
+    [gps release];
 
     [super dealloc];
 }
@@ -55,15 +65,61 @@
 {
     if ([CLLocationManager locationServicesEnabled]) {
         recive.text = @"Waiting for receiving Data...";
-        gsReceiver = [[GSReceiver alloc] initWithGPSCtr:gps UILabel:name UIImageView:imageView progressView:downloadProgress1];
+        gsReceiver = [[GSReceiver alloc] initWithGPSCtr:gps UILabel:name UILabel:recive UIImageView:imageView progressView:downloadProgress1];
         [gsReceiver createItem];
     }
 }
 
 - (void)onRecived:(id)sender
 {
-    recive.text = @"";
+    recive.text = @"Push button to receive data";
     [gsReceiver removeItem];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [[event allTouches] anyObject];
+    if ( touch.view.tag == imageView.tag )
+        [self receiveDidTouched:self];
+}
+
+- (void)receiveDidTouched:(id)sender
+{
+    NSLog(@"touch!!");
+    if (imageView.image) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];  
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;  
+        [sender presentModalViewController:picker animated:YES];  
+        [picker release];  
+    }
+    if (name.text) {
+        ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+        picker.peoplePickerDelegate = self;
+        [sender presentModalViewController:picker animated:YES];
+        [picker release];
+    }
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:
+(ABPeoplePickerNavigationController *)peoplePicker {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+{
+    [self dismissModalViewControllerAnimated:YES];
+    return NO;
+}
+
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier
+{
+    return NO;
 }
 
 @end

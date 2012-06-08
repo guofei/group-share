@@ -15,12 +15,13 @@
 
 @implementation GSReceiver
 
-- (id)initWithGPSCtr:(GSGPSController *)gps UILabel:(UILabel *)label UIImageView:(UIImageView *)view progressView:(id)progress
+- (id)initWithGPSCtr:(GSGPSController *)gps UILabel:(UILabel *)label UILabel:(UILabel *)status UIImageView:(UIImageView *)view progressView:(id)progress
 {
     if (self = [super init]) {
         downloadProgress = [progress retain];
         gpsCtr = [gps retain];
         nameLabel = [label retain];
+        statusLabel = [status retain];
         imageView = [view retain];
         operationQueue = [[NSOperationQueue alloc] init];
         operationQueue.maxConcurrentOperationCount = 3;
@@ -34,6 +35,7 @@
     [dynamoDBID release];
     [gpsCtr release];
     [nameLabel release];
+    [statusLabel release];
     [imageView release];
     [operationQueue cancelAllOperations];
     [operationQueue release];
@@ -79,12 +81,15 @@
         [ABContactsHelper addContact:newContact withError:&error];
         nameLabel.text = newContact.contactName;
         UIImage *image = nil;
+        statusLabel.text = @"      Received!";
         imageView.image = image;
         imageView.hidden = NO;
     }
     if ([s3Filename hasSuffix:@".jpg"]) {
         UIImage* image = [[[UIImage alloc] initWithData:data] autorelease];
         UIImageWriteToSavedPhotosAlbum(image, self, @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);
+        nameLabel.text = nil;
+        statusLabel.text = @"      Received!";
         imageView.image = image;
         imageView.hidden = NO;
     }
@@ -94,7 +99,7 @@
       didFinishSavingWithError:(NSError *)_error
                    contextInfo:(void *)_contextInfo
 {
-    NSLog(@"finished");
+    NSLog(@"save image error");
 }
 
 @end

@@ -21,11 +21,12 @@
     GSGPSController *gpsCtr;
     UIProgressView  *downloadProgress;
     UILabel *nameLabel;
+    UILabel *statusLabel;
     UIImageView *imageView;
     NSOperationQueue *operationQueue;
 }
 
-- (id) initWithGPSCtr:(GSGPSController *)gps UILabel:(UILabel *)label UIImageView:(UIImageView *)view progressView:progress;
+- (id) initWithGPSCtr:(GSGPSController *)gps UILabel:(UILabel *)label UILabel:(UILabel *)status UIImageView:(UIImageView *)view progressView:progress;
 - (void) createItem;
 - (void) removeItem;
 
