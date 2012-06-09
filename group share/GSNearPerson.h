@@ -13,10 +13,11 @@
 {
     CLLocation *myLocation;
     NSMutableArray *allItems;
-    NSMutableArray *nearPerson;
+    NSMutableDictionary *nearPerson;
 }
 
-- (NSMutableArray *)getNearPerson;
 - (id)initWithLocation:(CLLocation *)location;
+- (NSMutableDictionary *)getNearPerson;
+- (BOOL)removePerson:(NSString *)id;
 
 @end

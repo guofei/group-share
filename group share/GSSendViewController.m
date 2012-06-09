@@ -24,7 +24,7 @@
         self.tabBarItem.image = [UIImage imageNamed:@"upload.png"];
         keyName = nil;
         s3Data = nil;
-        gps = [[GSGPSController alloc] init];
+        gsSender = nil;
     }
     return self;
 }
@@ -32,7 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [gps startLocate];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -44,6 +43,8 @@
     keyName = nil;
     [gps release];
     gps = nil;
+    [gsSender release];
+    gsSender = nil;
     
     [super viewDidUnload];
 }
@@ -107,7 +108,6 @@
     
     self.keyName = [NSString stringWithFormat:@"%@_%@.ab", contact.contactName, [[NSDate date] description]];
     self.s3Data = data;
-    
     name.text = contact.contactName;
     imageView.hidden = NO;
     [self dismissModalViewControllerAnimated:YES];

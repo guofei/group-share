@@ -22,7 +22,7 @@
 {
     if(self = [super init]) {
         myLocation = [location retain];
-        nearPerson = [[NSMutableArray array] retain];
+        nearPerson = [[NSMutableDictionary dictionary] retain];
         allItems = Nil;
     }
     return self;
@@ -52,7 +52,7 @@
     }
 }
 
-- (NSMutableArray *)getNearPerson
+- (NSMutableDictionary *)getNearPerson
 {
     [self setAllPerson];
     for (int i = 0; i < allItems.count; ++i) {
@@ -69,10 +69,18 @@
         NSLog(@"distance %f", distance);
         if (distance < Distance) {
             DynamoDBAttributeValue *id = [item objectForKey:@"id"];
-            [nearPerson addObject:id.s];
+            DynamoDBAttributeValue *name = [item objectForKey:@"name"];
+            //[nearPerson addObject:id.s];
+            [nearPerson setObject:name.s forKey:id.s];
         }
     }
     return nearPerson;
+}
+
+- (BOOL)removePerson:(NSString *)id
+{
+    [nearPerson removeObjectForKey:id];
+    return YES;
 }
 
 @end

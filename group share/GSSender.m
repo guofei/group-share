@@ -16,6 +16,8 @@
 
 @implementation GSSender
 
+//@synthesize nearPerson = _nearPerson;
+
 - (id)initWithS3FileName:(NSString *)name s3Data:(id)data gpsCtr:(GSGPSController *)gps progressView:(UIProgressView *)view
 {
     if (self = [super init]) {
@@ -46,10 +48,23 @@
     uploader.delegate = self;
     [operationQueue addOperation:uploader];
     [uploader release];
-    
 }
 
-- (void)uploaderHasDone:(id)sender dynamoDBKey:(NSString *)pkey
+- (void)uploaderHasDone:(id)sender nearPerson:(NSMutableDictionary *)nearPerson
+{
+    NSArray *allKeys = [nearPerson allKeys];
+    for (int i = 0; i < allKeys.count; ++i) {
+        NSString *pKey = [allKeys objectAtIndex:i];
+        [self updateItem:pKey];
+    }
+}
+
+- (void)updateHasDone:(id)sender
+{
+    //all receiver's item has been updated
+}
+
+- (void)updateItem:(NSString *)pkey
 {
     DynamoDBAttributeValue *isReceived = [[DynamoDBAttributeValue alloc] initWithS:@"YES"];
     DynamoDBAttributeValueUpdate *isReceivedUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:isReceived andAction:@"PUT"];
@@ -57,21 +72,15 @@
     DynamoDBAttributeValueUpdate *urlUpdate = [[DynamoDBAttributeValueUpdate alloc] initWithValue:url andAction:@"PUT"];
     [isReceived release];
     [url release];
-    
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObject: isReceivedUpdate forKey:@"isReceived"];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:isReceived forKey:@"isReceived"];
     [dic setObject:urlUpdate forKey:@"url"];
-    
     DynamoDBAttributeValue *id = [[DynamoDBAttributeValue alloc] initWithS:pkey];
     DynamoDBKey *key = [[[DynamoDBKey alloc] initWithHashKeyElement:id] autorelease];
     DynamoDBUpdateItemRequest *request = [[DynamoDBUpdateItemRequest alloc] initWithTableName:TABLE_NAME andKey:key andAttributeUpdates:dic];
     [isReceivedUpdate release];
     [[AmazonClientManager ddbClient] updateItem:request];
     [request release];
-}
-
-- (void)updateHasDone:(id)sender
-{
-    //all receiver's item has been updated
 }
 
 @end

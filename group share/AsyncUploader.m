@@ -96,13 +96,10 @@
     }
     
     GSNearPerson *near = [[GSNearPerson alloc] initWithLocation:gpsCtr.lastReading];
-    NSMutableArray *nearPerson = [[near getNearPerson] retain];
-    for (int i = 0; i < nearPerson.count; ++i) {
-        NSString *pKey = [nearPerson objectAtIndex:i];
-        
-        if ([self.delegate respondsToSelector:@selector(uploaderHasDone:dynamoDBKey:)]) {
-            [self.delegate uploaderHasDone:self dynamoDBKey:pKey];
-        }
+    NSMutableDictionary *nearPerson = [[near getNearPerson] retain];
+
+    if ([self.delegate respondsToSelector:@selector(uploaderHasDone:nearPerson:)]) {
+        [self.delegate uploaderHasDone:self nearPerson:nearPerson];
     }
     _isUploaded = YES;
 }
