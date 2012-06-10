@@ -81,7 +81,7 @@
         [ABContactsHelper addContact:newContact withError:&error];
         nameLabel.text = newContact.contactName;
         UIImage *image = nil;
-        statusLabel.text = @"      Received!";
+        statusLabel.text = @"Received!";
         imageView.image = image;
         imageView.hidden = NO;
     }
@@ -89,7 +89,7 @@
         UIImage* image = [[[UIImage alloc] initWithData:data] autorelease];
         UIImageWriteToSavedPhotosAlbum(image, self, @selector(savingImageIsFinished:didFinishSavingWithError:contextInfo:), nil);
         nameLabel.text = nil;
-        statusLabel.text = @"      Received!";
+        statusLabel.text = @"Received!";
         imageView.image = image;
         imageView.hidden = NO;
     }

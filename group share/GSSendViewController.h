@@ -19,6 +19,7 @@
     IBOutlet UILabel *name;
     IBOutlet UIImageView *imageView;
     IBOutlet UIProgressView  *uploadProgress1;
+    IBOutlet UIButton *shareButton;
     GSSender *gsSender;
     id s3Data;
     GSGPSController *gps;

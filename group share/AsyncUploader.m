@@ -94,12 +94,9 @@
     while (!gpsCtr.lastReading) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
-    
-    GSNearPerson *near = [[GSNearPerson alloc] initWithLocation:gpsCtr.lastReading];
-    NSMutableDictionary *nearPerson = [[near getNearPerson] retain];
 
-    if ([self.delegate respondsToSelector:@selector(uploaderHasDone:nearPerson:)]) {
-        [self.delegate uploaderHasDone:self nearPerson:nearPerson];
+    if ([self.delegate respondsToSelector:@selector(uploaderHasDone:)]) {
+        [self.delegate uploaderHasDone:self];
     }
     _isUploaded = YES;
 }

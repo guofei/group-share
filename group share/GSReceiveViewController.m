@@ -68,11 +68,13 @@
         gsReceiver = [[GSReceiver alloc] initWithGPSCtr:gps UILabel:name UILabel:recive UIImageView:imageView progressView:downloadProgress1];
         [gsReceiver createItem];
     }
+    downloadProgress1.hidden = NO;
 }
 
 - (void)onRecived:(id)sender
 {
-    recive.text = @"Push button to receive data";
+    recive.text = @"Press and hold the button to wait for receiving data.";
+    downloadProgress1.hidden = YES;
     [gsReceiver removeItem];
 }
 

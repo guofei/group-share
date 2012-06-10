@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		28084521155599AE000690A9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
 		28084523155599B5000690A9 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
+		280B0C2A1584923100AB8401 /* groupshareicon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 280B0C291584923100AB8401 /* groupshareicon4.png */; };
 		2819E1E215490DE1002DBAED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E115490DE1002DBAED /* UIKit.framework */; };
 		2819E1E415490DE1002DBAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E315490DE1002DBAED /* Foundation.framework */; };
 		2819E1E615490DE1002DBAED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E515490DE1002DBAED /* CoreGraphics.framework */; };
@@ -57,6 +58,7 @@
 		28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C10215753387001475A9 /* AmazonClientManager.m */; };
 		28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C105157628B4001475A9 /* GSNearPersonTest.m */; };
 		28C4C11C15792F39001475A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
+		28F7626A158492C6007BEF7F /* groupshareicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F76269158492C6007BEF7F /* groupshareicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 /* Begin PBXFileReference section */
 		28084520155599AE000690A9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		28084522155599B5000690A9 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		280B0C291584923100AB8401 /* groupshareicon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groupshareicon4.png; sourceTree = SOURCE_ROOT; };
 		2819E1DD15490DE1002DBAED /* group share.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "group share.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2819E1E115490DE1002DBAED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2819E1E315490DE1002DBAED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +147,7 @@
 		28C4C10215753387001475A9 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = "group share/AmazonClientManager.m"; sourceTree = "<group>"; };
 		28C4C104157628B4001475A9 /* GSNearPersonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPersonTest.h; sourceTree = "<group>"; };
 		28C4C105157628B4001475A9 /* GSNearPersonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNearPersonTest.m; sourceTree = "<group>"; };
+		28F76269158492C6007BEF7F /* groupshareicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groupshareicon.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +274,8 @@
 		288A22361564188800BBD2C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28F76269158492C6007BEF7F /* groupshareicon.png */,
+				280B0C291584923100AB8401 /* groupshareicon4.png */,
 				28BABBD815810A0E00BF1036 /* addressbook.png */,
 				28BABBD915810A0E00BF1036 /* image.png */,
 				288A22221564172800BBD2C6 /* group share-Prefix.pch */,
@@ -419,6 +425,8 @@
 				28BABBD71581041F00BF1036 /* upload.png in Resources */,
 				28BABBDA15810A0E00BF1036 /* addressbook.png in Resources */,
 				28BABBDB15810A0E00BF1036 /* image.png in Resources */,
+				280B0C2A1584923100AB8401 /* groupshareicon4.png in Resources */,
+				28F7626A158492C6007BEF7F /* groupshareicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

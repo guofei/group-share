@@ -12,7 +12,7 @@
 #import "GSNearPerson.h"
 
 @protocol SenderDelegate<NSObject>
-- (void)uploaderHasDone:(id)sender nearPerson:(NSMutableDictionary *)nearPerson;
+- (void)uploaderHasDone:(id)sender;
 - (void)updateHasDone:(id)sender;
 @end
 
@@ -23,10 +23,10 @@
     GSGPSController *gpsCtntroller;
     UIProgressView  *progressView;
     NSOperationQueue *operationQueue;
-   // GSNearPerson *_nearPerson;
+    GSNearPerson *_nearPerson;
 }
 
-//@property (nonatomic, retain) GSNearPerson *nearPerson;
+@property (nonatomic, retain) GSNearPerson *nearPerson;
 
 - (id)initWithS3FileName:(NSString *)name s3Data:(id)data gpsCtr:(GSGPSController *)gps progressView:(UIProgressView *)view;
 - (void)uploadData;

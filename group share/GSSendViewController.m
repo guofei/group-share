@@ -110,8 +110,8 @@
     self.s3Data = data;
     name.text = contact.contactName;
     imageView.hidden = NO;
+    shareButton.hidden = NO;
     [self dismissModalViewControllerAnimated:YES];
-
     return NO;
 }
 
@@ -137,6 +137,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info;
     imageView.hidden = NO;
     self.keyName = [NSString stringWithFormat:@"%@_%@.jpg", @"img", [[NSDate date] description]];
     self.s3Data = [info objectForKey:UIImagePickerControllerOriginalImage];
+    shareButton.hidden = NO;
 }
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController*)picker

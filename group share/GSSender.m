@@ -16,7 +16,7 @@
 
 @implementation GSSender
 
-//@synthesize nearPerson = _nearPerson;
+@synthesize nearPerson = _nearPerson;
 
 - (id)initWithS3FileName:(NSString *)name s3Data:(id)data gpsCtr:(GSGPSController *)gps progressView:(UIProgressView *)view
 {
@@ -27,6 +27,7 @@
         progressView = [view retain];
         operationQueue = [[NSOperationQueue alloc] init];
         operationQueue.maxConcurrentOperationCount = 3;
+        self.nearPerson = [[GSNearPerson alloc] initWithLocation:gpsCtntroller.lastReading];
     }
     return self;
 }
@@ -50,9 +51,10 @@
     [uploader release];
 }
 
-- (void)uploaderHasDone:(id)sender nearPerson:(NSMutableDictionary *)nearPerson
+- (void)uploaderHasDone:(id)sender
 {
-    NSArray *allKeys = [nearPerson allKeys];
+    NSMutableDictionary *np = [[self.nearPerson getNearPerson] retain];
+    NSArray *allKeys = [np allKeys];
     for (int i = 0; i < allKeys.count; ++i) {
         NSString *pKey = [allKeys objectAtIndex:i];
         [self updateItem:pKey];
