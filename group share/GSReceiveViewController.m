@@ -36,6 +36,7 @@
     imageView.tag = 101;
     name.text = nil;
     imageView.image = nil;
+    recive.text = NSLocalizedString(@"Press and hold", @"Press and hold");
 }
 
 - (void)viewDidUnload
@@ -64,7 +65,7 @@
 - (IBAction)onRecive:(id)sender
 {
     if ([CLLocationManager locationServicesEnabled]) {
-        recive.text = @"Waiting for receiving Data...";
+        recive.text = NSLocalizedString(@"wait receive", @"Waiting for receiving Data...");
         gsReceiver = [[GSReceiver alloc] initWithGPSCtr:gps UILabel:name UILabel:recive UIImageView:imageView progressView:downloadProgress1];
         [gsReceiver createItem];
     }
@@ -73,7 +74,7 @@
 
 - (void)onRecived:(id)sender
 {
-    recive.text = @"Press and hold the button to wait for receiving data.";
+    recive.text = NSLocalizedString(@"Press and hold", @"Press and hold the button to wait for receiving data.");
     downloadProgress1.hidden = YES;
     [gsReceiver removeItem];
 }

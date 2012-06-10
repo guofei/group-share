@@ -50,7 +50,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">Pick Contact</string>
+						<string key="IBUINormalTitle">选择联系人</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="814323739">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -9921,7 +9921,7 @@ AAEAAQABA</bytes>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">Pick Photo</string>
+						<string key="IBUINormalTitle">选择照片</string>
 						<reference key="IBUIHighlightedTitleColor" ref="814323739"/>
 						<reference key="IBUINormalTitleColor" ref="897436513"/>
 						<reference key="IBUINormalTitleShadowColor" ref="658714411"/>
@@ -9939,7 +9939,7 @@ AAEAAQABA</bytes>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">Send</string>
+						<string key="IBUINormalTitle">发送</string>
 						<reference key="IBUIHighlightedTitleColor" ref="814323739"/>
 						<reference key="IBUINormalTitleColor" ref="897436513"/>
 						<reference key="IBUINormalTitleShadowColor" ref="658714411"/>
