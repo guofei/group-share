@@ -27,7 +27,6 @@
 		288A222B1564172800BBD2C6 /* GSSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288A221D1564172800BBD2C6 /* GSSendViewController.xib */; };
 		288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288A221F1564172800BBD2C6 /* InfoPlist.strings */; };
 		288A222E1564172800BBD2C6 /* GSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22241564172800BBD2C6 /* GSAppDelegate.m */; };
-		288A22301564172800BBD2C6 /* GSSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22291564172800BBD2C6 /* GSSendViewController.m */; };
 		288A22311564172800BBD2C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A222A1564172800BBD2C6 /* main.m */; };
 		288A224F1564C72300BBD2C6 /* ABContact+FindCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22431564C72300BBD2C6 /* ABContact+FindCall.m */; };
 		288A22501564C72300BBD2C6 /* ABContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22451564C72300BBD2C6 /* ABContact.m */; };
@@ -48,7 +47,6 @@
 		28BAB727157D246800BF1036 /* GSReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BAB726157D246800BF1036 /* GSReceiver.m */; };
 		28BABB16157FB34C00BF1036 /* GSImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BABB15157FB34B00BF1036 /* GSImageHelper.m */; };
 		28BABBCE1580E82600BF1036 /* GSReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */; };
-		28BABBCF1580E82600BF1036 /* GSReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBCD1580E82500BF1036 /* GSReceiveViewController.xib */; };
 		28BABBD61581041F00BF1036 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD41581041F00BF1036 /* download.png */; };
 		28BABBD71581041F00BF1036 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD51581041F00BF1036 /* upload.png */; };
 		28BABBDA15810A0E00BF1036 /* addressbook.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD815810A0E00BF1036 /* addressbook.png */; };
@@ -59,6 +57,9 @@
 		28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C105157628B4001475A9 /* GSNearPersonTest.m */; };
 		28C4C11C15792F39001475A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
 		28F7626A158492C6007BEF7F /* groupshareicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28F76269158492C6007BEF7F /* groupshareicon.png */; };
+		28F762BC15850E75007BEF7F /* GSSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F762BE15850E75007BEF7F /* GSSendViewController.m */; };
+		28F762D215851042007BEF7F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28F762D415851042007BEF7F /* Localizable.strings */; };
+		28F762D915851274007BEF7F /* GSReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F762DB15851274007BEF7F /* GSReceiveViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +99,6 @@
 		288A22231564172800BBD2C6 /* GSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAppDelegate.h; sourceTree = "<group>"; };
 		288A22241564172800BBD2C6 /* GSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAppDelegate.m; sourceTree = "<group>"; };
 		288A22281564172800BBD2C6 /* GSSendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSendViewController.h; sourceTree = "<group>"; };
-		288A22291564172800BBD2C6 /* GSSendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSendViewController.m; sourceTree = "<group>"; };
 		288A222A1564172800BBD2C6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		288A22421564C72300BBD2C6 /* ABContact+FindCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ABContact+FindCall.h"; sourceTree = "<group>"; };
 		288A22431564C72300BBD2C6 /* ABContact+FindCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ABContact+FindCall.m"; sourceTree = "<group>"; };
@@ -134,7 +134,6 @@
 		28BABB15157FB34B00BF1036 /* GSImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSImageHelper.m; sourceTree = "<group>"; };
 		28BABBCB1580E82400BF1036 /* GSReceiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSReceiveViewController.h; sourceTree = "<group>"; };
 		28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSReceiveViewController.m; sourceTree = "<group>"; };
-		28BABBCD1580E82500BF1036 /* GSReceiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSReceiveViewController.xib; sourceTree = "<group>"; };
 		28BABBD41581041F00BF1036 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = SOURCE_ROOT; };
 		28BABBD51581041F00BF1036 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = SOURCE_ROOT; };
 		28BABBD815810A0E00BF1036 /* addressbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addressbook.png; sourceTree = SOURCE_ROOT; };
@@ -147,7 +146,14 @@
 		28C4C10215753387001475A9 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = "group share/AmazonClientManager.m"; sourceTree = "<group>"; };
 		28C4C104157628B4001475A9 /* GSNearPersonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPersonTest.h; sourceTree = "<group>"; };
 		28C4C105157628B4001475A9 /* GSNearPersonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNearPersonTest.m; sourceTree = "<group>"; };
+		28CC599315877B40004EEACE /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/GSSendViewController.xib; sourceTree = "<group>"; };
+		28CC599515877B43004EEACE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GSSendViewController.xib"; sourceTree = "<group>"; };
 		28F76269158492C6007BEF7F /* groupshareicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = groupshareicon.png; sourceTree = SOURCE_ROOT; };
+		28F762BD15850E75007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/GSSendViewController.m; sourceTree = "<group>"; };
+		28F762D315851042007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		28F762D515851048007BEF7F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		28F762D615851054007BEF7F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		28F762DA15851274007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSReceiveViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,11 +255,11 @@
 			isa = PBXGroup;
 			children = (
 				288A22281564172800BBD2C6 /* GSSendViewController.h */,
-				288A22291564172800BBD2C6 /* GSSendViewController.m */,
+				28F762BE15850E75007BEF7F /* GSSendViewController.m */,
 				288A221D1564172800BBD2C6 /* GSSendViewController.xib */,
 				28BABBCB1580E82400BF1036 /* GSReceiveViewController.h */,
 				28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */,
-				28BABBCD1580E82500BF1036 /* GSReceiveViewController.xib */,
+				28F762DB15851274007BEF7F /* GSReceiveViewController.xib */,
 				288A22231564172800BBD2C6 /* GSAppDelegate.h */,
 				288A22241564172800BBD2C6 /* GSAppDelegate.m */,
 				28BABB14157FB34B00BF1036 /* GSImageHelper.h */,
@@ -286,6 +292,7 @@
 				285E22B5157C7FAC00287B80 /* name.png */,
 				288A22211564172800BBD2C6 /* group share-Info.plist */,
 				288A222A1564172800BBD2C6 /* main.m */,
+				28F762D415851042007BEF7F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -399,6 +406,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
+				"zh-Hans",
 			);
 			mainGroup = 2819E1D215490DE1002DBAED;
 			productRefGroup = 2819E1DE15490DE1002DBAED /* Products */;
@@ -420,13 +429,14 @@
 				288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */,
 				288A22601564EDCB00BBD2C6 /* recive.png in Resources */,
 				285E22B6157C7FAC00287B80 /* name.png in Resources */,
-				28BABBCF1580E82600BF1036 /* GSReceiveViewController.xib in Resources */,
+				28F762D915851274007BEF7F /* GSReceiveViewController.xib in Resources */,
 				28BABBD61581041F00BF1036 /* download.png in Resources */,
 				28BABBD71581041F00BF1036 /* upload.png in Resources */,
 				28BABBDA15810A0E00BF1036 /* addressbook.png in Resources */,
 				28BABBDB15810A0E00BF1036 /* image.png in Resources */,
 				280B0C2A1584923100AB8401 /* groupshareicon4.png in Resources */,
 				28F7626A158492C6007BEF7F /* groupshareicon.png in Resources */,
+				28F762D215851042007BEF7F /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				288A222E1564172800BBD2C6 /* GSAppDelegate.m in Sources */,
-				288A22301564172800BBD2C6 /* GSSendViewController.m in Sources */,
+				28F762BC15850E75007BEF7F /* GSSendViewController.m in Sources */,
 				288A22311564172800BBD2C6 /* main.m in Sources */,
 				288A224F1564C72300BBD2C6 /* ABContact+FindCall.m in Sources */,
 				288A22501564C72300BBD2C6 /* ABContact.m in Sources */,
@@ -519,6 +529,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				288A221E1564172800BBD2C6 /* en */,
+				28CC599315877B40004EEACE /* ja */,
+				28CC599515877B43004EEACE /* zh-Hans */,
 			);
 			name = GSSendViewController.xib;
 			sourceTree = "<group>";
@@ -529,6 +541,32 @@
 				288A22201564172800BBD2C6 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		28F762BE15850E75007BEF7F /* GSSendViewController.m */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28F762BD15850E75007BEF7F /* en */,
+			);
+			name = GSSendViewController.m;
+			sourceTree = "<group>";
+		};
+		28F762D415851042007BEF7F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28F762D315851042007BEF7F /* en */,
+				28F762D515851048007BEF7F /* ja */,
+				28F762D615851054007BEF7F /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		28F762DB15851274007BEF7F /* GSReceiveViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28F762DA15851274007BEF7F /* en */,
+			);
+			name = GSReceiveViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

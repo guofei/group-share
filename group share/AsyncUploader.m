@@ -24,6 +24,7 @@
     self = [super init];
     if (self)
     {
+        _isUploaded = NO;
         s3Data    = [d retain];
         keyName   = [name retain];
         gpsCtr    = [gps retain];
@@ -54,7 +55,9 @@
  */
 
 -(void)main
-{    
+{
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
     [self performSelectorOnMainThread:@selector(initializeProgressView) withObject:nil waitUntilDone:NO];
     
     NSString *bucketName = BUCKET_NAME;
@@ -77,12 +80,13 @@
     putObjectRequest.delegate = self;
     [s3 putObject:putObjectRequest];
     [putObjectRequest release];
-    while (!_isUploaded && !self.isCancelled) {
+    while (_isUploaded == NO && !self.isCancelled) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     }
-    if ([self.delegate respondsToSelector:@selector(updateHasDone:)] && !self.isCancelled) {
-        [self.delegate updateHasDone:self];
+    if ([self.delegate respondsToSelector:@selector(uploaderHasDone:)]) {
+        [self.delegate uploaderHasDone:self];
     }
+    [pool release];
 }
 
 #pragma mark - AmazonServiceRequestDelegate Implementations
@@ -93,10 +97,6 @@
     
     while (!gpsCtr.lastReading) {
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
-    }
-
-    if ([self.delegate respondsToSelector:@selector(uploaderHasDone:)]) {
-        [self.delegate uploaderHasDone:self];
     }
     _isUploaded = YES;
 }

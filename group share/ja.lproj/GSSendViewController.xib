@@ -49,7 +49,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">連絡先を選択</string>
+						<string key="IBUINormalTitle">連絡先を選ぶ</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="814323739">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -9919,7 +9919,7 @@ AAEAAQABA</bytes>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">写真を選択</string>
+						<string key="IBUINormalTitle">写真を選ぶ</string>
 						<reference key="IBUIHighlightedTitleColor" ref="814323739"/>
 						<reference key="IBUINormalTitleColor" ref="897436513"/>
 						<reference key="IBUINormalTitleShadowColor" ref="658714411"/>

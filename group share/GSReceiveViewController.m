@@ -36,7 +36,9 @@
     imageView.tag = 101;
     name.text = nil;
     imageView.image = nil;
-    recive.text = NSLocalizedString(@"Press and hold", @"Press and hold");
+    recive.text = NSLocalizedString(@"Press and hold", @"Press and hold the button to wait for receiving data.");
+    recive.textAlignment = UITextAlignmentCenter;
+    downloadProgress1.progress = 0;
 }
 
 - (void)viewDidUnload

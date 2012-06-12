@@ -75,13 +75,16 @@
     [isReceived release];
     [url release];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:isReceived forKey:@"isReceived"];
+    [dic setObject:isReceivedUpdate forKey:@"isReceived"];
     [dic setObject:urlUpdate forKey:@"url"];
     DynamoDBAttributeValue *id = [[DynamoDBAttributeValue alloc] initWithS:pkey];
-    DynamoDBKey *key = [[[DynamoDBKey alloc] initWithHashKeyElement:id] autorelease];
+    DynamoDBKey *key = [[DynamoDBKey alloc] initWithHashKeyElement:id];
     DynamoDBUpdateItemRequest *request = [[DynamoDBUpdateItemRequest alloc] initWithTableName:TABLE_NAME andKey:key andAttributeUpdates:dic];
-    [isReceivedUpdate release];
     [[AmazonClientManager ddbClient] updateItem:request];
+    [id release];
+    [urlUpdate release];
+    [isReceivedUpdate release];
+    [key release];
     [request release];
 }
 
