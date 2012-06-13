@@ -12,9 +12,7 @@
 @class GSViewController;
 
 @interface GSAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
-{
-    GSGPSController *_gps;
-}
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UITabBarController *tabBarController;

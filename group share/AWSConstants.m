@@ -12,7 +12,7 @@
 
 +(UIAlertView *)credentialsAlert
 {
-    return [[[UIAlertView alloc] initWithTitle:@"AWS Credentials" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+    return [[[UIAlertView alloc] initWithTitle:@"Network" message:CREDENTIALS_ALERT_MESSAGE delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
 }
 
 +(void)showAlertMessage:(NSString *)message withTitle:(NSString *)title

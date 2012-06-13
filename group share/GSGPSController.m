@@ -53,7 +53,7 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSString * errorString = @"Unable to determine your current location.";
-    UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Error Locating" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView * errorAlert = [[UIAlertView alloc] initWithTitle:@"Location" message:errorString delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [errorAlert show];
     [errorAlert release];
     [locationManager stopUpdatingLocation];
