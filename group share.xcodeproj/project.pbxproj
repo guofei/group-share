@@ -150,8 +150,6 @@
 		28C4C10215753387001475A9 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = "group share/AmazonClientManager.m"; sourceTree = "<group>"; };
 		28C4C104157628B4001475A9 /* GSNearPersonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPersonTest.h; sourceTree = "<group>"; };
 		28C4C105157628B4001475A9 /* GSNearPersonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNearPersonTest.m; sourceTree = "<group>"; };
-		28CC599315877B40004EEACE /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/GSSendViewController.xib; sourceTree = "<group>"; };
-		28CC599515877B43004EEACE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GSSendViewController.xib"; sourceTree = "<group>"; };
 		28F762BD15850E75007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/GSSendViewController.m; sourceTree = "<group>"; };
 		28F762D315851042007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F762D515851048007BEF7F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -543,8 +541,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				288A221E1564172800BBD2C6 /* en */,
-				28CC599315877B40004EEACE /* ja */,
-				28CC599515877B43004EEACE /* zh-Hans */,
 			);
 			name = GSSendViewController.xib;
 			sourceTree = "<group>";

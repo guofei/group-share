@@ -1,6 +1,9 @@
 "Send" = "发送";
 "Receive" = "接收";
+"Sender" = "送信者";
+"Receiver" = "接收者";
 "Press and hold"="长按按钮接收数据";
 "wait receive" = "数据接收中...";
 "Pick Contact" = "选择联系人";
 "Pick Photo" = "选择照片";
+"Send Info" = "请在所有接收者都按下接收按钮后再点击发送";

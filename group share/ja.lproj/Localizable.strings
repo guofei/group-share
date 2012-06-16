@@ -1,6 +1,9 @@
 "Send" = "送信";
 "Receive" = "受信";
-"Press and hold"="ボターンを押し続けてください";
+"Sender" = "送信者";
+"Receiver" = "受信者";
+"Press and hold"="ボターンを長押ししてください";
 "wait receive" = "受信待ち...";
 "Pick Contact" = "連絡先を選択";
 "Pick Photo" = "写真を連絡";
+"Send Info" = "全ての受信者が受信ボターンを押した後に送信してください";

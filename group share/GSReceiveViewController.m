@@ -22,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Receive", @"Receive");
+        self.title = NSLocalizedString(@"Receiver", @"Receiver");
         self.tabBarItem.image = [UIImage imageNamed:@"download.png"];
     }
     return self;
@@ -35,9 +35,11 @@
     imageView.userInteractionEnabled = YES;
     imageView.tag = 101;
     name.text = nil;
-    imageView.image = nil;
+    //imageView.image = nil;
     recive.text = NSLocalizedString(@"Press and hold", @"Press and hold the button to wait for receiving data.");
-    recive.textAlignment = UITextAlignmentCenter;
+    //recive.textAlignment = UITextAlignmentCenter;
+    recive.lineBreakMode = UILineBreakModeWordWrap;
+    recive.numberOfLines = 0;
     downloadProgress1.progress = 0;
 }
 
@@ -78,7 +80,9 @@
 {
     recive.text = NSLocalizedString(@"Press and hold", @"Press and hold the button to wait for receiving data.");
     downloadProgress1.hidden = YES;
-    [gsReceiver removeItem];
+    if ([CLLocationManager locationServicesEnabled]) {
+        [gsReceiver removeItem];
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

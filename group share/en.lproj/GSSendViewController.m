@@ -20,7 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        self.title = NSLocalizedString(@"Send", @"Send");
+        self.title = NSLocalizedString(@"Sender", @"Sender");
         self.tabBarItem.image = [UIImage imageNamed:@"upload.png"];
         keyName = nil;
         s3Data = nil;
@@ -33,7 +33,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    [pickImage setTitle:NSLocalizedString(@"Pick Photo", @"Pick Photo") forState:UIControlStateNormal];
+    [pickContact setTitle:NSLocalizedString(@"Pick Contact", @"Pick Contact") forState:UIControlStateNormal];
+    [shareButton setTitle:NSLocalizedString(@"Send",@"Send") forState:UIControlStateNormal];
+    sendInfo.text = NSLocalizedString(@"Send Info" ,@"Please press the send button while all of receivers are holding the receive button");
+    sendInfo.hidden = YES;
+    shareButton.hidden = YES;
 }
 
 - (void)viewDidUnload
@@ -112,6 +117,7 @@
     name.text = contact.contactName;
     imageView.hidden = NO;
     shareButton.hidden = NO;
+    sendInfo.hidden = NO;
     [self dismissModalViewControllerAnimated:YES];
     return NO;
 }
@@ -139,6 +145,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info;
     self.keyName = [NSString stringWithFormat:@"%@_%@.jpg", @"img", [[NSDate date] description]];
     self.s3Data = [info objectForKey:UIImagePickerControllerOriginalImage];
     shareButton.hidden = NO;
+    sendInfo.hidden = NO;
 }
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController*)picker
