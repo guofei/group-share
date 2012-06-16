@@ -22,12 +22,10 @@
 		285E22B6157C7FAC00287B80 /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = 285E22B5157C7FAC00287B80 /* name.png */; };
 		285E22C1157C853700287B80 /* GSDonwloaderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E22C0157C853700287B80 /* GSDonwloaderTest.m */; };
 		2874E1391588EC8A005FB181 /* GSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2874E1371588EC8A005FB181 /* GSAboutViewController.m */; };
-		2874E13B1588EC98005FB181 /* GSAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2874E13D1588EC98005FB181 /* GSAboutViewController.xib */; };
 		2874E1411588F1FF005FB181 /* iPhoneIcon_Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2874E1331588E630005FB181 /* iPhoneIcon_Big.png */; };
 		2874E1431588F29E005FB181 /* iPhoneIcon_Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2874E1311588E603005FB181 /* iPhoneIcon_Small.png */; };
 		288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
 		288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
-		288A222B1564172800BBD2C6 /* GSSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288A221D1564172800BBD2C6 /* GSSendViewController.xib */; };
 		288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288A221F1564172800BBD2C6 /* InfoPlist.strings */; };
 		288A222E1564172800BBD2C6 /* GSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22241564172800BBD2C6 /* GSAppDelegate.m */; };
 		288A22311564172800BBD2C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A222A1564172800BBD2C6 /* main.m */; };
@@ -59,7 +57,9 @@
 		28C4C11C15792F39001475A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
 		28F762BC15850E75007BEF7F /* GSSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F762BE15850E75007BEF7F /* GSSendViewController.m */; };
 		28F762D215851042007BEF7F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28F762D415851042007BEF7F /* Localizable.strings */; };
-		28F762D915851274007BEF7F /* GSReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F762DB15851274007BEF7F /* GSReceiveViewController.xib */; };
+		28FA024E158CDA2700A5494B /* GSReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FA024F158CDA2700A5494B /* GSReceiveViewController.xib */; };
+		28FA0251158CDA4400A5494B /* GSSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FA0252158CDA4400A5494B /* GSSendViewController.xib */; };
+		28FA0253158CDAA700A5494B /* GSAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FA0254158CDAA700A5494B /* GSAboutViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,10 +95,6 @@
 		2874E1331588E630005FB181 /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Big.png; path = ../iPhoneIcon_Big.png; sourceTree = "<group>"; };
 		2874E1361588EC8A005FB181 /* GSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAboutViewController.h; sourceTree = "<group>"; };
 		2874E1371588EC8A005FB181 /* GSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAboutViewController.m; sourceTree = "<group>"; };
-		2874E13C1588EC98005FB181 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSAboutViewController.xib; sourceTree = "<group>"; };
-		2874E13E1588ECA1005FB181 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/GSAboutViewController.xib; sourceTree = "<group>"; };
-		2874E13F1588ECA3005FB181 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GSAboutViewController.xib"; sourceTree = "<group>"; };
-		288A221E1564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSSendViewController.xib; sourceTree = "<group>"; };
 		288A22201564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		288A22211564172800BBD2C6 /* group share-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "group share-Info.plist"; sourceTree = "<group>"; };
 		288A22221564172800BBD2C6 /* group share-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "group share-Prefix.pch"; sourceTree = "<group>"; };
@@ -154,7 +150,9 @@
 		28F762D315851042007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F762D515851048007BEF7F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F762D615851054007BEF7F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		28F762DA15851274007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSReceiveViewController.xib; sourceTree = "<group>"; };
+		28FA024F158CDA2700A5494B /* GSReceiveViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GSReceiveViewController.xib; sourceTree = "<group>"; };
+		28FA0252158CDA4400A5494B /* GSSendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GSSendViewController.xib; sourceTree = "<group>"; };
+		28FA0254158CDAA700A5494B /* GSAboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GSAboutViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,13 +255,13 @@
 			children = (
 				288A22281564172800BBD2C6 /* GSSendViewController.h */,
 				28F762BE15850E75007BEF7F /* GSSendViewController.m */,
-				288A221D1564172800BBD2C6 /* GSSendViewController.xib */,
+				28FA0252158CDA4400A5494B /* GSSendViewController.xib */,
 				2874E1361588EC8A005FB181 /* GSAboutViewController.h */,
 				2874E1371588EC8A005FB181 /* GSAboutViewController.m */,
-				2874E13D1588EC98005FB181 /* GSAboutViewController.xib */,
+				28FA0254158CDAA700A5494B /* GSAboutViewController.xib */,
 				28BABBCB1580E82400BF1036 /* GSReceiveViewController.h */,
 				28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */,
-				28F762DB15851274007BEF7F /* GSReceiveViewController.xib */,
+				28FA024F158CDA2700A5494B /* GSReceiveViewController.xib */,
 				288A22231564172800BBD2C6 /* GSAppDelegate.h */,
 				288A22241564172800BBD2C6 /* GSAppDelegate.m */,
 				28BABB14157FB34B00BF1036 /* GSImageHelper.h */,
@@ -427,15 +425,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288A222B1564172800BBD2C6 /* GSSendViewController.xib in Resources */,
+				28FA0251158CDA4400A5494B /* GSSendViewController.xib in Resources */,
 				288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */,
 				288A22601564EDCB00BBD2C6 /* recive.png in Resources */,
 				285E22B6157C7FAC00287B80 /* name.png in Resources */,
-				28F762D915851274007BEF7F /* GSReceiveViewController.xib in Resources */,
+				28FA024E158CDA2700A5494B /* GSReceiveViewController.xib in Resources */,
 				28BABBD61581041F00BF1036 /* download.png in Resources */,
 				28BABBD71581041F00BF1036 /* upload.png in Resources */,
 				28F762D215851042007BEF7F /* Localizable.strings in Resources */,
-				2874E13B1588EC98005FB181 /* GSAboutViewController.xib in Resources */,
+				28FA0253158CDAA700A5494B /* GSAboutViewController.xib in Resources */,
 				2874E1411588F1FF005FB181 /* iPhoneIcon_Big.png in Resources */,
 				2874E1431588F29E005FB181 /* iPhoneIcon_Small.png in Resources */,
 			);
@@ -527,24 +525,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		2874E13D1588EC98005FB181 /* GSAboutViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2874E13C1588EC98005FB181 /* en */,
-				2874E13E1588ECA1005FB181 /* ja */,
-				2874E13F1588ECA3005FB181 /* zh-Hans */,
-			);
-			name = GSAboutViewController.xib;
-			sourceTree = "<group>";
-		};
-		288A221D1564172800BBD2C6 /* GSSendViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				288A221E1564172800BBD2C6 /* en */,
-			);
-			name = GSSendViewController.xib;
-			sourceTree = "<group>";
-		};
 		288A221F1564172800BBD2C6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -569,14 +549,6 @@
 				28F762D615851054007BEF7F /* zh-Hans */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		28F762DB15851274007BEF7F /* GSReceiveViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28F762DA15851274007BEF7F /* en */,
-			);
-			name = GSReceiveViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
