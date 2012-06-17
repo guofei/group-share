@@ -154,9 +154,4 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info;
     [picker dismissModalViewControllerAnimated:YES];
 }
 
-- (void)gotoReceive:(id)sender
-{
-    
-}
-
 @end

@@ -13,21 +13,11 @@
 
 @interface AsyncDownloader : NSOperation<AmazonServiceRequestDelegate>
 {
-    NSString       *fileName;
-    NSData         *contactData;
-    UIProgressView *progressView;
-    
-    BOOL           isExecuting;
-    BOOL           isFinished;
-    BOOL           _isDownloaded;
-    id             <ReceiverDelegate> delegate;
+    id <ReceiverDelegate> delegate;
 }
 
 @property (nonatomic,assign) id<ReceiverDelegate> delegate;
 
 -(id)initWithS3:(NSString *)name progressView:(UIProgressView *)theProgressView;
--(void)initialize;
--(void)updateProgressView:(NSNumber *)theProgress;
--(void)hideProgressView;
 
 @end

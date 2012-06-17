@@ -14,6 +14,17 @@
 #import "GSGPSController.h"
 #import "AmazonClientManager.h"
 
+@interface GSAsyncCreateItem()
+{
+    //DynamoDB ID
+    NSString *userID;
+    NSString *userName;
+    NSData   *userLocation;
+    GSGPSController *gpsCtr;
+    BOOL _isReceived;
+}
+@end
+
 @implementation GSAsyncCreateItem
 
 @synthesize delegate;

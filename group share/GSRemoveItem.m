@@ -12,6 +12,12 @@
 #import "GSRemoveItem.h"
 #import "AWSConstants.h"
 
+@interface GSRemoveItem()
+{
+    NSString *itemID;
+}
+@end
+
 @implementation GSRemoveItem
 
 -(id)initWithitemID:(NSString *)id

@@ -12,6 +12,21 @@
 #import "AWSConstants.h"
 #import "ABContactsHelper.h"
 
+@interface AsyncDownloader()
+{
+    NSString       *fileName;
+    NSData         *contactData;
+    UIProgressView *progressView;
+    
+    BOOL           isExecuting;
+    BOOL           isFinished;
+    BOOL           _isDownloaded;
+}
+-(void)initialize;
+-(void)updateProgressView:(NSNumber *)theProgress;
+-(void)hideProgressView;
+@end
+
 @implementation AsyncDownloader
 
 @synthesize delegate;

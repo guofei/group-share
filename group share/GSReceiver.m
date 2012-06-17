@@ -13,6 +13,18 @@
 #import "ABContact.h"
 #import "ABContactsHelper.h"
 
+@interface GSReceiver()
+{
+        NSString *dynamoDBID;
+        GSGPSController *gpsCtr;
+        UIProgressView  *downloadProgress;
+        UILabel *nameLabel;
+        UILabel *statusLabel;
+        UIImageView *imageView;
+        NSOperationQueue *operationQueue;
+}
+@end
+
 @implementation GSReceiver
 
 - (id)initWithGPSCtr:(GSGPSController *)gps UILabel:(UILabel *)label UILabel:(UILabel *)status UIImageView:(UIImageView *)view progressView:(id)progress

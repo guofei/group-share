@@ -14,6 +14,20 @@
 #import "AsyncUploader.h"
 #import "GSGPSController.h"
 
+@interface GSSender()
+{
+    NSString *s3FileName;
+    id s3Data;
+    GSGPSController *gpsCtntroller;
+    UIProgressView  *progressView;
+    NSOperationQueue *operationQueue;
+    GSNearPerson *_nearPerson;
+}
+
+@property (nonatomic, retain) GSNearPerson *nearPerson;
+
+@end
+
 @implementation GSSender
 
 @synthesize nearPerson = _nearPerson;

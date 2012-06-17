@@ -17,16 +17,6 @@
 @end
 
 @interface GSSender : NSObject<SenderDelegate>
-{
-    NSString *s3FileName;
-    id s3Data;
-    GSGPSController *gpsCtntroller;
-    UIProgressView  *progressView;
-    NSOperationQueue *operationQueue;
-    GSNearPerson *_nearPerson;
-}
-
-@property (nonatomic, retain) GSNearPerson *nearPerson;
 
 - (id)initWithS3FileName:(NSString *)name s3Data:(id)data gpsCtr:(GSGPSController *)gps progressView:(UIProgressView *)view;
 - (void)uploadData;

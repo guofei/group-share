@@ -14,15 +14,7 @@
 
 @interface GSAsyncCreateItem : NSOperation
 {
-    //DynamoDB ID
-    NSString *userID;
-    NSString *userName;
-    NSData   *userLocation;
-    GSGPSController *gpsCtr;
-    BOOL _isReceived;
-    
     id<ReceiverDelegate> delegate;
-
 }
 
 @property (nonatomic,assign) id<ReceiverDelegate> delegate;

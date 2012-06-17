@@ -15,7 +15,6 @@
     CLLocation *lastReading;
 }
 
-//@property (nonatomic, assign) BOOL finished;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *lastReading;
 

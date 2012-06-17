@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface GSRemoveItem : NSObject
-{
-    NSString *itemID;
-}
 
 - (id)initWithitemID:(NSString *)id;
 - (void)removeItem;
