@@ -17,6 +17,9 @@
 		2819E20215490DE1002DBAED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2819E1E315490DE1002DBAED /* Foundation.framework */; };
 		2819E20A15490DE1002DBAED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2819E20815490DE1002DBAED /* InfoPlist.strings */; };
 		2819E20D15490DE1002DBAED /* group_shareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2819E20C15490DE1002DBAED /* group_shareTests.m */; };
+		2836ED2F15A3588D00869A49 /* name_card1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2836ED2E15A3588D00869A49 /* name_card1.png */; };
+		2836ED3415A35A1C00869A49 /* GSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2836ED3215A35A1C00869A49 /* GSProfileViewController.m */; };
+		2836ED3515A35A1C00869A49 /* GSProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2836ED3315A35A1C00869A49 /* GSProfileViewController.xib */; };
 		285E22A6157BA68200287B80 /* GSRemoveItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 285E22A5157BA68200287B80 /* GSRemoveItem.m */; };
 		285E22B4157C6F1500287B80 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 285E22B3157C6F1500287B80 /* AssetsLibrary.framework */; };
 		285E22B6157C7FAC00287B80 /* name.png in Resources */ = {isa = PBXBuildFile; fileRef = 285E22B5157C7FAC00287B80 /* name.png */; };
@@ -26,7 +29,6 @@
 		2874E1431588F29E005FB181 /* iPhoneIcon_Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2874E1311588E603005FB181 /* iPhoneIcon_Small.png */; };
 		288A22191564146400BBD2C6 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084520155599AE000690A9 /* AddressBook.framework */; };
 		288A221B1564146900BBD2C6 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28084522155599B5000690A9 /* AddressBookUI.framework */; };
-		288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288A221F1564172800BBD2C6 /* InfoPlist.strings */; };
 		288A222E1564172800BBD2C6 /* GSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22241564172800BBD2C6 /* GSAppDelegate.m */; };
 		288A22311564172800BBD2C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A222A1564172800BBD2C6 /* main.m */; };
 		288A224F1564C72300BBD2C6 /* ABContact+FindCall.m in Sources */ = {isa = PBXBuildFile; fileRef = 288A22431564C72300BBD2C6 /* ABContact+FindCall.m */; };
@@ -50,12 +52,13 @@
 		28BABBCE1580E82600BF1036 /* GSReceiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */; };
 		28BABBD61581041F00BF1036 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD41581041F00BF1036 /* download.png */; };
 		28BABBD71581041F00BF1036 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 28BABBD51581041F00BF1036 /* upload.png */; };
+		28C258A9158FB089005FB036 /* GSSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C258AA158FB089005FB036 /* GSSendViewController.m */; };
+		28C258AB158FB0C6005FB036 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28C258AC158FB0C6005FB036 /* InfoPlist.strings */; };
 		28C4C0EB1570B9F1001475A9 /* GSGPSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0EA1570B9F1001475A9 /* GSGPSController.m */; };
 		28C4C0FB1574C432001475A9 /* GSNearPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C0FA1574C431001475A9 /* GSNearPerson.m */; };
 		28C4C10315753387001475A9 /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C10215753387001475A9 /* AmazonClientManager.m */; };
 		28C4C106157628B4001475A9 /* GSNearPersonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4C105157628B4001475A9 /* GSNearPersonTest.m */; };
 		28C4C11C15792F39001475A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A873AA156CB7DD00138B59 /* CoreLocation.framework */; };
-		28F762BC15850E75007BEF7F /* GSSendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F762BE15850E75007BEF7F /* GSSendViewController.m */; };
 		28F762D215851042007BEF7F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28F762D415851042007BEF7F /* Localizable.strings */; };
 		28FA024E158CDA2700A5494B /* GSReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FA024F158CDA2700A5494B /* GSReceiveViewController.xib */; };
 		28FA0251158CDA4400A5494B /* GSSendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FA0252158CDA4400A5494B /* GSSendViewController.xib */; };
@@ -85,6 +88,10 @@
 		2819E20915490DE1002DBAED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2819E20B15490DE1002DBAED /* group_shareTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = group_shareTests.h; sourceTree = "<group>"; };
 		2819E20C15490DE1002DBAED /* group_shareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = group_shareTests.m; sourceTree = "<group>"; };
+		2836ED2E15A3588D00869A49 /* name_card1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = name_card1.png; sourceTree = SOURCE_ROOT; };
+		2836ED3115A35A1C00869A49 /* GSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSProfileViewController.h; sourceTree = "<group>"; };
+		2836ED3215A35A1C00869A49 /* GSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSProfileViewController.m; sourceTree = "<group>"; };
+		2836ED3315A35A1C00869A49 /* GSProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSProfileViewController.xib; sourceTree = "<group>"; };
 		285E22A4157BA68200287B80 /* GSRemoveItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSRemoveItem.h; sourceTree = "<group>"; };
 		285E22A5157BA68200287B80 /* GSRemoveItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSRemoveItem.m; sourceTree = "<group>"; };
 		285E22B3157C6F1500287B80 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -95,7 +102,6 @@
 		2874E1331588E630005FB181 /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Big.png; path = ../iPhoneIcon_Big.png; sourceTree = "<group>"; };
 		2874E1361588EC8A005FB181 /* GSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAboutViewController.h; sourceTree = "<group>"; };
 		2874E1371588EC8A005FB181 /* GSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAboutViewController.m; sourceTree = "<group>"; };
-		288A22201564172800BBD2C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		288A22211564172800BBD2C6 /* group share-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "group share-Info.plist"; sourceTree = "<group>"; };
 		288A22221564172800BBD2C6 /* group share-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "group share-Prefix.pch"; sourceTree = "<group>"; };
 		288A22231564172800BBD2C6 /* GSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAppDelegate.h; sourceTree = "<group>"; };
@@ -138,6 +144,8 @@
 		28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSReceiveViewController.m; sourceTree = "<group>"; };
 		28BABBD41581041F00BF1036 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = SOURCE_ROOT; };
 		28BABBD51581041F00BF1036 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = SOURCE_ROOT; };
+		28C258AA158FB089005FB036 /* GSSendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSSendViewController.m; sourceTree = "<group>"; };
+		28C258AC158FB0C6005FB036 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		28C4C0E91570B9F1001475A9 /* GSGPSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSGPSController.h; sourceTree = "<group>"; };
 		28C4C0EA1570B9F1001475A9 /* GSGPSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSGPSController.m; sourceTree = "<group>"; };
 		28C4C0F91574C431001475A9 /* GSNearPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPerson.h; sourceTree = "<group>"; };
@@ -146,7 +154,6 @@
 		28C4C10215753387001475A9 /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmazonClientManager.m; path = "group share/AmazonClientManager.m"; sourceTree = "<group>"; };
 		28C4C104157628B4001475A9 /* GSNearPersonTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSNearPersonTest.h; sourceTree = "<group>"; };
 		28C4C105157628B4001475A9 /* GSNearPersonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSNearPersonTest.m; sourceTree = "<group>"; };
-		28F762BD15850E75007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/GSSendViewController.m; sourceTree = "<group>"; };
 		28F762D315851042007BEF7F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F762D515851048007BEF7F /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28F762D615851054007BEF7F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -254,8 +261,11 @@
 			isa = PBXGroup;
 			children = (
 				288A22281564172800BBD2C6 /* GSSendViewController.h */,
-				28F762BE15850E75007BEF7F /* GSSendViewController.m */,
+				28C258AA158FB089005FB036 /* GSSendViewController.m */,
 				28FA0252158CDA4400A5494B /* GSSendViewController.xib */,
+				2836ED3115A35A1C00869A49 /* GSProfileViewController.h */,
+				2836ED3215A35A1C00869A49 /* GSProfileViewController.m */,
+				2836ED3315A35A1C00869A49 /* GSProfileViewController.xib */,
 				28BABBCB1580E82400BF1036 /* GSReceiveViewController.h */,
 				28BABBCC1580E82500BF1036 /* GSReceiveViewController.m */,
 				28FA024F158CDA2700A5494B /* GSReceiveViewController.xib */,
@@ -284,10 +294,11 @@
 			children = (
 				2874E1311588E603005FB181 /* iPhoneIcon_Small.png */,
 				2874E1331588E630005FB181 /* iPhoneIcon_Big.png */,
+				2836ED2E15A3588D00869A49 /* name_card1.png */,
 				288A22221564172800BBD2C6 /* group share-Prefix.pch */,
 				28BABBD41581041F00BF1036 /* download.png */,
 				28BABBD51581041F00BF1036 /* upload.png */,
-				288A221F1564172800BBD2C6 /* InfoPlist.strings */,
+				28C258AC158FB0C6005FB036 /* InfoPlist.strings */,
 				288A225F1564EDCB00BBD2C6 /* recive.png */,
 				285E22B5157C7FAC00287B80 /* name.png */,
 				288A22211564172800BBD2C6 /* group share-Info.plist */,
@@ -426,7 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28FA0251158CDA4400A5494B /* GSSendViewController.xib in Resources */,
-				288A222C1564172800BBD2C6 /* InfoPlist.strings in Resources */,
+				28C258AB158FB0C6005FB036 /* InfoPlist.strings in Resources */,
 				288A22601564EDCB00BBD2C6 /* recive.png in Resources */,
 				285E22B6157C7FAC00287B80 /* name.png in Resources */,
 				28FA024E158CDA2700A5494B /* GSReceiveViewController.xib in Resources */,
@@ -436,6 +447,8 @@
 				28FA0253158CDAA700A5494B /* GSAboutViewController.xib in Resources */,
 				2874E1411588F1FF005FB181 /* iPhoneIcon_Big.png in Resources */,
 				2874E1431588F29E005FB181 /* iPhoneIcon_Small.png in Resources */,
+				2836ED2F15A3588D00869A49 /* name_card1.png in Resources */,
+				2836ED3515A35A1C00869A49 /* GSProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				288A222E1564172800BBD2C6 /* GSAppDelegate.m in Sources */,
-				28F762BC15850E75007BEF7F /* GSSendViewController.m in Sources */,
+				28C258A9158FB089005FB036 /* GSSendViewController.m in Sources */,
 				288A22311564172800BBD2C6 /* main.m in Sources */,
 				288A224F1564C72300BBD2C6 /* ABContact+FindCall.m in Sources */,
 				288A22501564C72300BBD2C6 /* ABContact.m in Sources */,
@@ -492,6 +505,7 @@
 				28BABB16157FB34C00BF1036 /* GSImageHelper.m in Sources */,
 				28BABBCE1580E82600BF1036 /* GSReceiveViewController.m in Sources */,
 				2874E1391588EC8A005FB181 /* GSAboutViewController.m in Sources */,
+				2836ED3415A35A1C00869A49 /* GSProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,22 +537,6 @@
 				2819E20915490DE1002DBAED /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		288A221F1564172800BBD2C6 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				288A22201564172800BBD2C6 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		28F762BE15850E75007BEF7F /* GSSendViewController.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				28F762BD15850E75007BEF7F /* en */,
-			);
-			name = GSSendViewController.m;
 			sourceTree = "<group>";
 		};
 		28F762D415851042007BEF7F /* Localizable.strings */ = {
@@ -573,7 +571,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -583,15 +581,18 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -600,6 +601,7 @@
 		2819E21115490DE1002DBAED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../aws-ios-sdk-1.2.2\"",
@@ -616,6 +618,7 @@
 		2819E21215490DE1002DBAED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMPRESS_PNG_FILES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../aws-ios-sdk-1.2.2\"",

@@ -36,7 +36,7 @@
     GSReceiveViewController *viewController2 = [[[GSReceiveViewController alloc] initWithNibName:@"GSReceiveViewController" bundle:nil] autorelease];
     viewController2.gps = self.gps;
     self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController2, viewController1, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
